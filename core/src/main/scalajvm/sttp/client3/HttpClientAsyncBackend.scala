@@ -131,7 +131,7 @@ abstract class HttpClientAsyncBackend[F[_], S, P, B](
     })
   }
 
-  private def filterIllegalWsHeaders[T, R](request: Request[T, R]): RequestT[Identity, T, R] = {
+  private def filterIllegalWsHeaders[T, R](request: Request[T, R]): Request[T, R] = {
     request.copy(headers = request.headers.filter(h => !wsIllegalHeaders.contains(h.name.toLowerCase)))
   }
 

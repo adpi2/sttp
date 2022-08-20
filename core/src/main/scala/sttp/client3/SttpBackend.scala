@@ -3,8 +3,8 @@ package sttp.client3
 import sttp.capabilities._
 import sttp.monad.MonadError
 
-/** A backend is used to send HTTP requests described by [[RequestT]]. Backends might wrap Java or Scala HTTP clients,
-  * or other backends.
+/** A backend is used to send HTTP requests described by [[Request]]. Backends might wrap Java or Scala HTTP clients, or
+  * other backends.
   *
   * @note
   *   Backends should try to classify exceptions into one of the categories specified by [[SttpClientException]]. Other

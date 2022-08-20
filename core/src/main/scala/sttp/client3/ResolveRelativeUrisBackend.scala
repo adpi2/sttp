@@ -10,7 +10,7 @@ class ResolveRelativeUrisBackend[F[_], +P](delegate: SttpBackend[F, P], resolve:
   override def send[T, R >: P with Effect[F]](request: Request[T, R]): F[Response[T]] = {
     val request2 = if (request.uri.isRelative) {
       resolve(request.uri).map { uri2 =>
-        request.copy[Identity, T, R](uri = uri2)
+        request.copy[T, R](uri = uri2)
       }
     } else request.unit
 

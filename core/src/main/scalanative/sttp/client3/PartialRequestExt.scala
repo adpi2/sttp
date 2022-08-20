@@ -3,25 +3,27 @@ package sttp.client3
 import java.io.File
 import java.nio.file.Path
 
-import sttp.client3.internal.SttpFile
+import sttp.client3.internal._
 
-trait RequestTExtensions[U[_], T, -R] { self: RequestT[U, T, R] =>
+import scala.language.higherKinds
 
-  /** If content type is not yet specified, will be set to `application/octet-stream`.
-    *
-    * If content length is not yet specified, will be set to the length of the given file.
-    */
-  def body(file: File): RequestT[U, T, R] = body(SttpFile.fromFile(file))
+trait PartialRequestExt[T, -R, Req[X, -Y] <: PartialRequestOps[X, Y, Req]] { self: PartialRequestOps[T, R, Req] =>
 
   /** If content type is not yet specified, will be set to `application/octet-stream`.
     *
     * If content length is not yet specified, will be set to the length of the given file.
     */
-  def body(path: Path): RequestT[U, T, R] = body(SttpFile.fromPath(path))
+  def body(file: File): Req[T, R] = body(SttpFile.fromFile(file))
+
+  /** If content type is not yet specified, will be set to `application/octet-stream`.
+    *
+    * If content length is not yet specified, will be set to the length of the given file.
+    */
+  def body(path: Path): Req[T, R] = body(SttpFile.fromPath(path))
 
   // this method needs to be in the extensions, so that it has lowest priority when considering overloading options
   /** If content type is not yet specified, will be set to `application/octet-stream`.
     */
-  def body[B: BodySerializer](b: B): RequestT[U, T, R] =
+  def body[B: BodySerializer](b: B): Req[T, R] =
     withBody(implicitly[BodySerializer[B]].apply(b))
 }

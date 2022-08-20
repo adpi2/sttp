@@ -5,7 +5,7 @@ import sttp.model._
 import sttp.client3.NoBody
 import sttp.model.MediaType
 
-class ToCurlConverter[R <: RequestT[Identity, _, _]] {
+class ToCurlConverter[R <: Request[_, _]] {
 
   def apply(request: R): String = apply(request, HeaderNames.SensitiveHeaders)
 

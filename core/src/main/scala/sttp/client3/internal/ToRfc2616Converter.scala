@@ -5,7 +5,7 @@ import sttp.model._
 
 import scala.util.Random
 
-class ToRfc2616Converter[R <: RequestT[Identity, _, _]] {
+class ToRfc2616Converter[R <: Request[_, _]] {
 
   private val BoundaryChars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray
