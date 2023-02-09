@@ -1,11 +1,10 @@
 package sttp.client3.testing
 
-import sttp.client3.monad.IdMonad
 import sttp.client3._
+import sttp.client3.monad.IdMonad
 import sttp.monad.{FutureMonad, MonadError}
 
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext
+import scala.concurrent.{ExecutionContext, Future}
 
 /** A stub backend to use in tests.
   *
@@ -17,43 +16,44 @@ import scala.concurrent.ExecutionContext
   * conversions will be attempted (e.g. from a `String` to a custom mapped type, as specified in the request, see the
   * documentation for more details).
   *
-  * For requests which return the response as a stream, if the stub should return a raw stream value (which should then
-  * be passed to the stream-consuming function, or mapped to another value), it should be wrapped with [[RawStream]].
-  *
   * Predicates can match requests basing on the URI or headers. A [[ClassCastException]] might occur if for a given
   * request, a response is specified with the incorrect or inconvertible body type.
   */
-class StreamBackendStub[F[_], S](
+class EffectBackendStub[F[_]](
     monad: MonadError[F],
     matchers: PartialFunction[AbstractRequest[_, _], F[Response[_]]],
-    fallback: Option[GenericBackend[F, S]]
-) extends BackendStub[F, S](monad, matchers, fallback)
-    with StreamBackend[F, S] {
+    fallback: Option[GenericBackend[F, Any]]
+) extends BackendStub[F, Any](monad, matchers, fallback)
+    with EffectBackend[F] {
 
-  override type SelfStubType = StreamBackendStub[F, S]
+  override type SelfStubType = EffectBackendStub[F]
 
   override protected def withMatchers(
       matchers: PartialFunction[AbstractRequest[_, _], F[Response[_]]]
-  ): StreamBackendStub[F, S] =
-    new StreamBackendStub(monad, matchers, fallback)
+  ): EffectBackendStub[F] =
+    new EffectBackendStub(monad, matchers, fallback)
 }
 
-object StreamBackendStub {
+object EffectBackendStub {
 
-  /** Create a stub of a synchronous backend. */
-  def synchronous[S]: StreamBackendStub[Identity, S] = new StreamBackendStub(IdMonad, PartialFunction.empty, None)
+  /** Create a stub of a synchronous backend (which doesn't use an effect type) */
+  def synchronous: EffectBackendStub[Identity] = new EffectBackendStub(IdMonad, PartialFunction.empty, None)
 
   /** Create a stub of an asynchronous backend (which uses the Scala's built-in [[Future]] as the effect type). */
-  def asynchronousFuture[S](implicit ec: ExecutionContext): StreamBackendStub[Future, S] =
-    new StreamBackendStub(new FutureMonad(), PartialFunction.empty, None)
+  def asynchronousFuture(implicit ec: ExecutionContext): EffectBackendStub[Future] =
+    new EffectBackendStub(new FutureMonad(), PartialFunction.empty, None)
 
   /** Create a stub backend using the given response monad (which determines the effect type for responses). */
-  def apply[F[_], S](monad: MonadError[F]): StreamBackendStub[F, S] =
-    new StreamBackendStub(monad, PartialFunction.empty, None)
+  def apply[F[_]](monad: MonadError[F]): EffectBackendStub[F] =
+    new EffectBackendStub(monad, PartialFunction.empty, None)
 
   /** Create a stub backend which delegates send requests to the given fallback backend, if the request doesn't match
     * any of the specified predicates.
     */
-  def withFallback[F[_], S](fallback: StreamBackend[F, S]): StreamBackendStub[F, S] =
-    new StreamBackendStub(fallback.genericBackend.responseMonad, PartialFunction.empty, Some(fallback.genericBackend))
+  def withFallback[F[_]](fallback: EffectBackend[F]): EffectBackendStub[F] =
+    new EffectBackendStub[F](
+      fallback.genericBackend.responseMonad,
+      PartialFunction.empty,
+      Some(fallback.genericBackend)
+    )
 }

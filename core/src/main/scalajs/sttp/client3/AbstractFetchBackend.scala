@@ -62,7 +62,7 @@ abstract class AbstractFetchBackend[F[_], S <: Streams[S]](
     options: FetchOptions,
     customizeRequest: FetchRequest => FetchRequest,
     monad: MonadError[F]
-) extends AbstractBackend[F, S with WebSockets]
+) extends GenericBackend[F, S with WebSockets]
     with WebSocketBackend[F] {
   override implicit def responseMonad: MonadError[F] = monad
 

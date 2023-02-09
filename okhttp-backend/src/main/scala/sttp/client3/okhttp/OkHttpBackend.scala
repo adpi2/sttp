@@ -27,7 +27,7 @@ abstract class OkHttpBackend[F[_], S <: Streams[S], P](
     client: OkHttpClient,
     closeClient: Boolean,
     customEncodingHandler: EncodingHandler
-) extends AbstractBackend[F, P]
+) extends GenericBackend[F, P]
     with Backend[F] {
 
   val streams: Streams[S]

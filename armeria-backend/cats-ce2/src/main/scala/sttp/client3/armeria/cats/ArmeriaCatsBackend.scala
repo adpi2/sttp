@@ -6,14 +6,14 @@ import com.linecorp.armeria.common.HttpData
 import com.linecorp.armeria.common.stream.StreamMessage
 import org.reactivestreams.Publisher
 import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client3.armeria.{GenericArmeriaBackend, BodyFromStreamMessage}
 import sttp.client3.impl.cats.CatsMonadAsyncError
 import sttp.client3.internal.NoStreams
 import sttp.client3.{Backend, FollowRedirectsBackend, SttpBackendOptions}
 import sttp.monad.MonadAsyncError
 
 private final class ArmeriaCatsBackend[F[_]: Concurrent](client: WebClient, closeFactory: Boolean)
-    extends AbstractArmeriaBackend[F, Nothing](client, closeFactory, new CatsMonadAsyncError) {
+    extends GenericArmeriaBackend[F, Nothing](client, closeFactory, new CatsMonadAsyncError) {
 
   override val streams: NoStreams = NoStreams
 

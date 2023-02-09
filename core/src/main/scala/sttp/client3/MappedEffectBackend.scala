@@ -5,14 +5,14 @@ import sttp.capabilities.Effect
 import sttp.monad.MonadError
 import sttp.client3.monad.FunctionK
 
-abstract class MappedEffectBackend[F[_], G[_], P](
-    backend: AbstractBackend[F, P],
+class MappedEffectBackend[F[_], G[_], P](
+    backend: GenericBackend[F, P],
     f: FunctionK[F, G],
     g: FunctionK[G, F],
     m: MonadError[G]
-) extends AbstractBackend[G, P] {
-  override def internalSend[T](request: AbstractRequest[T, P with Effect[G]]): G[Response[T]] =
-    f(backend.internalSend(MapEffect[G, F, T, P](request, g, f, m, backend.responseMonad)))
+) extends GenericBackend[G, P] {
+  override def send[T](request: AbstractRequest[T, P with Effect[G]]): G[Response[T]] =
+    f(backend.send(MapEffect[G, F, T, P](request, g, f, m, backend.responseMonad)))
 
   override def close(): G[Unit] = f(backend.close())
 
@@ -20,30 +20,24 @@ abstract class MappedEffectBackend[F[_], G[_], P](
 }
 
 object MappedEffectBackend {
-  def apply[F[_], G[_]](backend: Backend[F], f: FunctionK[F, G], g: FunctionK[G, F], m: MonadError[G]): Backend[G] =
-    new MappedEffectBackend(backend, f, g, m) with Backend[G] {}
-
-  def apply[F[_], G[_]](
-      backend: WebSocketBackend[F],
-      f: FunctionK[F, G],
-      g: FunctionK[G, F],
-      m: MonadError[G]
-  ): WebSocketBackend[G] =
-    new MappedEffectBackend(backend, f, g, m) with WebSocketBackend[G] {}
-
-  def apply[F[_], G[_], S](
-      backend: StreamBackend[F, S],
-      f: FunctionK[F, G],
-      g: FunctionK[G, F],
-      m: MonadError[G]
-  ): StreamBackend[G, S] =
-    new MappedEffectBackend(backend, f, g, m) with StreamBackend[G, S] {}
-
-  def apply[F[_], G[_], S](
-      backend: WebSocketStreamBackend[F, S],
-      f: FunctionK[F, G],
-      g: FunctionK[G, F],
-      m: MonadError[G]
-  ): WebSocketStreamBackend[G, S] =
-    new MappedEffectBackend(backend, f, g, m) with WebSocketStreamBackend[G, S] {}
+//  def apply[F[_], G[_]](
+//      backend: Backend[F],
+//      f: FunctionK[F, G],
+//      g: FunctionK[G, F],
+//      m: MonadError[G]
+//  ): Backend[G] = new EffectBackend[G] {
+//    override type Capabilities = backend.Capabilities
+//    override def genericBackend: GenericBackend[G, Capabilities] =
+//      new MappedEffectBackend[F, G, Capabilities](backend.genericBackend, f, g, m)
+//  }
+//
+//  def apply[F[_], G[_], S](
+//      backend: StreamBackend[F, S],
+//      f: FunctionK[F, G],
+//      g: FunctionK[G, F],
+//      m: MonadError[G]
+//  ): StreamBackend[G, S] = new StreamBackend[G, S] {
+//    override def genericBackend: GenericBackend[G, S] =
+//      new MappedEffectBackend[F, G, S](backend.genericBackend, f, g, m)
+//  }
 }

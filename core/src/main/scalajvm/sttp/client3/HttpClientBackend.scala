@@ -24,8 +24,7 @@ abstract class HttpClientBackend[F[_], S, P, B](
     client: HttpClient,
     closeClient: Boolean,
     customEncodingHandler: EncodingHandler[B]
-) extends AbstractBackend[F, P]
-    with Backend[F] {
+) extends GenericBackend[F, P] {
   val streams: Streams[S]
 
   type R = P with Effect[F]
@@ -131,10 +130,6 @@ object HttpClientBackend {
       new PasswordAuthentication(auth.username, auth.password.toCharArray)
     }
   }
-
-  // Left here for bincompat
-  private[client3] def defaultClient(options: SttpBackendOptions): HttpClient =
-    defaultClient(options, None)
 
   private[client3] def defaultClient(options: SttpBackendOptions, executor: Option[Executor]): HttpClient = {
     var clientBuilder = HttpClient

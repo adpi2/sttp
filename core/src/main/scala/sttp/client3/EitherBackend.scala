@@ -6,16 +6,10 @@ import sttp.monad.EitherMonad
 /** A synchronous backend that safely wraps exceptions in `Either[Throwable, *]`'s */
 object EitherBackend {
   def apply(backend: SyncBackend): Backend[Either[Throwable, *]] =
-    MappedEffectBackend(backend, idToEither, eitherToId, EitherMonad)
-
-  def apply(backend: WebSocketBackend[Identity]): WebSocketBackend[Either[Throwable, *]] =
-    MappedEffectBackend(backend, idToEither, eitherToId, EitherMonad)
-
-  def apply[S](backend: StreamBackend[Identity, S]): StreamBackend[Either[Throwable, *], S] =
-    MappedEffectBackend(backend, idToEither, eitherToId, EitherMonad)
-
-  def apply[S](backend: WebSocketStreamBackend[Identity, S]): WebSocketStreamBackend[Either[Throwable, *], S] =
-    MappedEffectBackend(backend, idToEither, eitherToId, EitherMonad)
+    new EffectBackend[Either[Throwable, *]] {
+      override def genericBackend: GenericBackend[Either[Throwable, *], Any] =
+        new MappedEffectBackend(backend.genericBackend, idToEither, eitherToId, EitherMonad)
+    }
 
   private val eitherToId: FunctionK[Either[Throwable, *], Identity] =
     new FunctionK[Either[Throwable, *], Identity] {

@@ -12,9 +12,9 @@ import zio.telemetry.opentelemetry._
 import scala.collection.mutable
 
 private class OpenTelemetryTracingZioBackend[+P](
-    delegate: AbstractBackend[Task, P],
-    tracer: OpenTelemetryZioTracer,
-    tracing: Tracing
+                                                  delegate: GenericBackend[Task, P],
+                                                  tracer: OpenTelemetryZioTracer,
+                                                  tracing: Tracing
 ) extends DelegateSttpBackend[Task, P](delegate)
     with Backend[Task] {
   def internalSend[T](request: AbstractRequest[T, P with Effect[Task]]): Task[Response[T]] = {
@@ -25,7 +25,7 @@ private class OpenTelemetryTracingZioBackend[+P](
     (for {
       _ <- Tracing.inject(propagator, carrier, setter)
       _ <- tracer.before(request)
-      resp <- delegate.internalSend(request.headers(carrier.toMap))
+      resp <- delegate.send(request.headers(carrier.toMap))
       _ <- tracer.after(resp)
     } yield resp)
       .span(tracer.spanName(request), SpanKind.CLIENT, { case _ => StatusCode.ERROR })

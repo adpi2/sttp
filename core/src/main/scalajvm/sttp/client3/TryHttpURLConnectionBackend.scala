@@ -13,7 +13,7 @@ object TryHttpURLConnectionBackend {
       createURL: String => URL = new URL(_),
       openConnection: (URL, Option[java.net.Proxy]) => URLConnection = defaultOpenConnection,
       customEncodingHandler: EncodingHandler = PartialFunction.empty
-  ): Backend[Try] = TryBackend(
+  ): EffectBackend[Try] = TryBackend(
     HttpURLConnectionBackend(options, customizeConnection, createURL, openConnection, customEncodingHandler)
   )
 }

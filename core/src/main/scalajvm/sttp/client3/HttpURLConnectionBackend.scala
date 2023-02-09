@@ -25,10 +25,10 @@ class HttpURLConnectionBackend private (
     createURL: String => URL,
     openConnection: (URL, Option[java.net.Proxy]) => URLConnection,
     customEncodingHandler: EncodingHandler
-) extends SyncBackend {
+) extends GenericBackend[Identity, Any] {
   type R = Any with Effect[Identity]
 
-  override def internalSend[T](r: AbstractRequest[T, R]): Response[T] =
+  override def send[T](r: AbstractRequest[T, R]): Response[T] =
     adjustExceptions(r) {
       val c = openConnection(r.uri)
       c.setRequestMethod(r.method.method)
@@ -313,7 +313,9 @@ object HttpURLConnectionBackend {
       customEncodingHandler: EncodingHandler = PartialFunction.empty
   ): SyncBackend =
     FollowRedirectsBackend(
-      new HttpURLConnectionBackend(options, customizeConnection, createURL, openConnection, customEncodingHandler)
+      SyncBackend(
+        new HttpURLConnectionBackend(options, customizeConnection, createURL, openConnection, customEncodingHandler)
+      )
     )
 
   /** Create a stub backend for testing. See [[SyncBackendStub]] for details on how to configure stub responses.

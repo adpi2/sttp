@@ -30,10 +30,9 @@ abstract class HttpClientAsyncBackend[F[_], S, BH, B](
     closeClient: Boolean,
     customizeRequest: HttpRequest => HttpRequest,
     customEncodingHandler: EncodingHandler[B]
-) extends HttpClientBackend[F, S, S with WebSockets, B](client, closeClient, customEncodingHandler)
-    with WebSocketBackend[F] {
+) extends HttpClientBackend[F, S, S with WebSockets, B](client, closeClient, customEncodingHandler) {
 
-  override def internalSend[T](request: AbstractRequest[T, R]): F[Response[T]] =
+  override def send[T](request: AbstractRequest[T, R]): F[Response[T]] =
     adjustExceptions(request) {
       if (request.isWebSocket) sendWebSocket(request) else sendRegular(request)
     }

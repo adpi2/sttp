@@ -8,14 +8,14 @@ import com.linecorp.armeria.common.stream.StreamMessage
 import org.reactivestreams.Publisher
 import sttp.capabilities.zio.ZioStreams
 import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client3.armeria.{GenericArmeriaBackend, BodyFromStreamMessage}
 import sttp.client3.impl.zio.RIOMonadAsyncError
 import sttp.client3.{FollowRedirectsBackend, StreamBackend, SttpBackendOptions}
 import sttp.monad.MonadAsyncError
 import zio.stream.Stream
 
 private final class ArmeriaZioBackend(runtime: Runtime[Any], client: WebClient, closeFactory: Boolean)
-    extends AbstractArmeriaBackend[Task, ZioStreams](client, closeFactory, new RIOMonadAsyncError[Any]) {
+    extends GenericArmeriaBackend[Task, ZioStreams](client, closeFactory, new RIOMonadAsyncError[Any]) {
 
   override val streams: ZioStreams = ZioStreams
 

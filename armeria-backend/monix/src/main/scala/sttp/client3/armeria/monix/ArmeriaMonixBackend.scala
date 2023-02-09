@@ -9,13 +9,13 @@ import monix.reactive.Observable
 import org.reactivestreams.Publisher
 import sttp.capabilities.monix.MonixStreams
 import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client3.armeria.{GenericArmeriaBackend, BodyFromStreamMessage}
 import sttp.client3.impl.monix.TaskMonadAsyncError
 import sttp.client3.{FollowRedirectsBackend, StreamBackend, SttpBackendOptions}
 import sttp.monad.MonadAsyncError
 
 private final class ArmeriaMonixBackend(client: WebClient, closeFactory: Boolean)(implicit scheduler: Scheduler)
-    extends AbstractArmeriaBackend[Task, MonixStreams](client, closeFactory, TaskMonadAsyncError) {
+    extends GenericArmeriaBackend[Task, MonixStreams](client, closeFactory, TaskMonadAsyncError) {
 
   override val streams: MonixStreams = MonixStreams
 

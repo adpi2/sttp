@@ -51,9 +51,8 @@ final case class StreamRequest[T, R](
   def response[T2, R2 <: R](ra: WebSocketStreamResponseAs[T2, R2]): WebSocketStreamRequest[T2, R2] =
     WebSocketStreamRequest(method, uri, body, headers, ra, options, tags)
 
-  def mapResponse[T2](f: T => T2): StreamRequest[T2, R] =
-    response(response.map(f))
+  def mapResponse[T2](f: T => T2): StreamRequest[T2, R] = response(response.map(f))
 
   def send[F[_], P](backend: StreamBackend[F, P])(implicit ev: P with Effect[F] <:< R): F[Response[T]] =
-    backend.send(this.asInstanceOf[StreamRequest[T, P with Effect[F]]]) // as witnessed by ev
+    backend.genericBackend.send(this.asInstanceOf[StreamRequest[T, P with Effect[F]]]) // as witnessed by ev
 }

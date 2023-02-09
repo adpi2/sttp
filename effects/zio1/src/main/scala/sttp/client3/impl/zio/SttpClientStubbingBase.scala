@@ -10,8 +10,8 @@ import sttp.capabilities.WebSockets
 
 trait AbstractClientStubbing[R, P] {
   type SttpClientStubbing = Has[Service]
-  type Backend <: AbstractBackend[RIO[R, *], P]
-  type BackendStub <: AbstractBackendStub[RIO[R, *], P] { type Self = BackendStub }
+  type Backend <: GenericBackend[RIO[R, *], P]
+  type BackendStub <: BackendStub[RIO[R, *], P] { type Self = BackendStub }
 
   // the tag as viewed by the implementing object. Needs to be passed explicitly, otherwise Has[] breaks.
   private[sttp] def serviceTag: Tag[Service]
@@ -94,7 +94,7 @@ trait StreamClientStubbing[R, P] extends AbstractClientStubbing[R, P] {
   def backendStub: StreamBackendStub[RIO[R, *], P] = StreamBackendStub(monad)
   def proxy(stub: Ref[StreamBackendStub[RIO[R, *], P]]): StreamBackend[RIO[R, *], P] = new StreamBackend[RIO[R, *], P] {
     def internalSend[T](request: AbstractRequest[T, P with Effect[RIO[R, *]]]): RIO[R, Response[T]] =
-      stub.get >>= (_.internalSend(request))
+      stub.get >>= (_.send(request))
     def close(): RIO[R, Unit] =
       stub.get >>= (_.close())
 
@@ -113,7 +113,7 @@ trait WebSocketStreamClientStubbing[R, P] extends AbstractClientStubbing[R, P wi
       def internalSend[T](
           request: AbstractRequest[T, P with WebSockets with Effect[RIO[R, *]]]
       ): RIO[R, Response[T]] =
-        stub.get >>= (_.internalSend(request))
+        stub.get >>= (_.send(request))
       def close(): RIO[R, Unit] =
         stub.get >>= (_.close())
 

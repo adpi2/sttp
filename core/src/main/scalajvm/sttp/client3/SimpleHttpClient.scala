@@ -17,12 +17,12 @@ package sttp.client3
   */
 case class SimpleHttpClient(backend: SyncBackend) {
 
-  def send[T](request: Request[T]): Response[T] = backend.send(request)
+  def send[T](request: Request[T]): Response[T] = request.send(backend)
 
   def withBackend(newBackend: SyncBackend): SimpleHttpClient = copy(backend = newBackend)
   def wrapBackend(f: SyncBackend => SyncBackend): SimpleHttpClient = copy(backend = f(backend))
 
-  def close(): Unit = backend.close()
+  def close(): Unit = backend.genericBackend.close()
 }
 
 object SimpleHttpClient {

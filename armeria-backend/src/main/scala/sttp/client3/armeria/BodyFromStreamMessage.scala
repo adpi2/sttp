@@ -7,7 +7,7 @@ import java.io.File
 import java.nio.file.Path
 import java.util.concurrent.atomic.AtomicReference
 import sttp.capabilities.Streams
-import sttp.client3.armeria.AbstractArmeriaBackend.{RightUnit, noopCanceler}
+import sttp.client3.armeria.GenericArmeriaBackend.{RightUnit, noopCanceler}
 import sttp.client3.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
 import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata

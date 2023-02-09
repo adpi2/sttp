@@ -7,13 +7,13 @@ import sttp.monad.syntax._
 
 import scala.util.{Failure, Success, Try}
 import sttp.capabilities.Effect
+import sttp.client3.testing.RecordingBackend.RequestAndResponse
 
 trait RecordingBackend {
-  type RequestAndResponse = (AbstractRequest[_, _], Try[Response[_]])
   def allInteractions: List[RequestAndResponse]
 }
 
-abstract class AbstractRecordingBackend[F[_], P](delegate: AbstractBackend[F, P])
+class GenericRecordingBackend[F[_], P](delegate: GenericBackend[F, P])
     extends DelegateSttpBackend[F, P](delegate)
     with RecordingBackend {
 
@@ -25,9 +25,9 @@ abstract class AbstractRecordingBackend[F[_], P](delegate: AbstractBackend[F, P]
     })
   }
 
-  override def internalSend[T](request: AbstractRequest[T, P with Effect[F]]): F[Response[T]] = {
+  override def send[T](request: AbstractRequest[T, P with Effect[F]]): F[Response[T]] = {
     delegate
-      .internalSend(request)
+      .send(request)
       .map { response =>
         addInteraction(request, Success(response))
         response
@@ -42,18 +42,10 @@ abstract class AbstractRecordingBackend[F[_], P](delegate: AbstractBackend[F, P]
 }
 
 object RecordingBackend {
-  def apply(delegate: SyncBackend): SyncBackend with RecordingBackend =
-    new AbstractRecordingBackend(delegate) with SyncBackend {}
+  type RequestAndResponse = (AbstractRequest[_, _], Try[Response[_]])
 
-  def apply[F[_]](delegate: Backend[F]): Backend[F] with RecordingBackend =
-    new AbstractRecordingBackend(delegate) with Backend[F] {}
-
-  def apply[F[_]](delegate: WebSocketBackend[F]): WebSocketBackend[F] with RecordingBackend =
-    new AbstractRecordingBackend(delegate) with WebSocketBackend[F] {}
-
-  def apply[F[_], S](delegate: StreamBackend[F, S]): StreamBackend[F, S] with RecordingBackend =
-    new AbstractRecordingBackend(delegate) with StreamBackend[F, S] {}
-
-  def apply[F[_], S](delegate: WebSocketStreamBackend[F, S]): WebSocketStreamBackend[F, S] with RecordingBackend =
-    new AbstractRecordingBackend(delegate) with WebSocketStreamBackend[F, S] {}
+  def apply[F[_]](delegate: Backend[F]): (delegate.SelfType, RecordingBackend) = {
+    val recording = new GenericRecordingBackend(delegate.genericBackend)
+    (delegate.wrap(_ => recording), recording)
+  }
 }

@@ -34,13 +34,13 @@ import scala.util.{Failure, Success, Try}
 import sttp.capabilities.{Effect, Streams}
 import sttp.client3.SttpClientException.{ConnectException, ReadException, TimeoutException}
 import sttp.client3._
-import sttp.client3.armeria.AbstractArmeriaBackend.{RightUnit, noopCanceler}
+import sttp.client3.armeria.GenericArmeriaBackend.{RightUnit, noopCanceler}
 import sttp.client3.internal.toByteArray
 import sttp.model._
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError, MonadError}
 
-abstract class AbstractArmeriaBackend[F[_], S <: Streams[S]](
+abstract class GenericArmeriaBackend[F[_], S <: Streams[S]](
     client: WebClient = WebClient.of(),
     closeFactory: Boolean,
     private implicit val monad: MonadAsyncError[F]
@@ -288,7 +288,7 @@ abstract class AbstractArmeriaBackend[F[_], S <: Streams[S]](
   }
 }
 
-private[armeria] object AbstractArmeriaBackend {
+private[armeria] object GenericArmeriaBackend {
   val RightUnit: Either[Nothing, Unit] = Right(())
   val noopCanceler: Canceler = Canceler(() => ())
 }

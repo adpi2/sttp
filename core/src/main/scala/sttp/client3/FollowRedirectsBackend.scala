@@ -3,23 +3,19 @@ package sttp.client3
 import sttp.capabilities.Effect
 import sttp.model._
 
-/** @param transformUri
-  *   Defines if and how [[Uri]] s from the `Location` header should be transformed. For example, this enables changing
-  *   the encoding of host, path, query and fragment segments to be more strict or relaxed.
-  */
-abstract class FollowRedirectsBackend[F[_], P] private (
-    delegate: AbstractBackend[F, P],
+class FollowRedirectsBackend[F[_], P] private (
+    delegate: GenericBackend[F, P],
     config: FollowRedirectsConfig
 ) extends DelegateSttpBackend(delegate) {
 
   type R = P with Effect[F]
 
-  override def internalSend[T](request: AbstractRequest[T, R]): F[Response[T]] =
+  override def send[T](request: AbstractRequest[T, R]): F[Response[T]] =
     sendWithCounter(request, 0)
 
   protected def sendWithCounter[T](request: AbstractRequest[T, R], redirects: Int): F[Response[T]] = {
     // if there are nested follow redirect backends, disabling them and handling redirects here
-    val resp = delegate.internalSend(request.followRedirects(false))
+    val resp = delegate.send(request.followRedirects(false))
     if (request.options.followRedirects) {
       responseMonad.flatMap(resp) { (response: Response[T]) =>
         if (response.isRedirect) {
@@ -89,38 +85,11 @@ abstract class FollowRedirectsBackend[F[_], P] private (
 }
 
 object FollowRedirectsBackend {
-  def apply(delegate: SyncBackend): SyncBackend =
-    apply(delegate, FollowRedirectsConfig.Default)
+  def apply[F[_]](delegate: Backend[F]): delegate.SelfType =
+    delegate.wrap(new FollowRedirectsBackend(_, FollowRedirectsConfig.Default))
 
-  def apply[F[_]](delegate: Backend[F]): Backend[F] =
-    apply(delegate, FollowRedirectsConfig.Default)
-
-  def apply[F[_]](delegate: WebSocketBackend[F]): WebSocketBackend[F] =
-    apply(delegate, FollowRedirectsConfig.Default)
-
-  def apply[F[_], S](delegate: StreamBackend[F, S]): StreamBackend[F, S] =
-    apply(delegate, FollowRedirectsConfig.Default)
-
-  def apply[F[_], S](delegate: WebSocketStreamBackend[F, S]): WebSocketStreamBackend[F, S] =
-    apply(delegate, FollowRedirectsConfig.Default)
-
-  def apply(delegate: SyncBackend, config: FollowRedirectsConfig): SyncBackend =
-    new FollowRedirectsBackend(delegate, config) with SyncBackend {}
-
-  def apply[F[_]](delegate: Backend[F], config: FollowRedirectsConfig): Backend[F] =
-    new FollowRedirectsBackend(delegate, config) with Backend[F] {}
-
-  def apply[F[_]](delegate: WebSocketBackend[F], config: FollowRedirectsConfig): WebSocketBackend[F] =
-    new FollowRedirectsBackend(delegate, config) with WebSocketBackend[F] {}
-
-  def apply[F[_], S](delegate: StreamBackend[F, S], config: FollowRedirectsConfig): StreamBackend[F, S] =
-    new FollowRedirectsBackend(delegate, config) with StreamBackend[F, S] {}
-
-  def apply[F[_], S](
-      delegate: WebSocketStreamBackend[F, S],
-      config: FollowRedirectsConfig
-  ): WebSocketStreamBackend[F, S] =
-    new FollowRedirectsBackend(delegate, config) with WebSocketStreamBackend[F, S] {}
+  def apply[F[_]](delegate: Backend[F], config: FollowRedirectsConfig): delegate.SelfType =
+    delegate.wrap(new FollowRedirectsBackend(_, config))
 
   private[client3] val MaxRedirects = 32
 
@@ -137,6 +106,10 @@ object FollowRedirectsBackend {
 
 case class TooManyRedirectsException(uri: Uri, redirects: Int) extends Exception
 
+/** @param transformUri
+  *   Defines if and how [[Uri]] s from the `Location` header should be transformed. For example, this enables changing
+  *   the encoding of host, path, query and fragment segments to be more strict or relaxed.
+  */
 case class FollowRedirectsConfig(
     contentHeaders: Set[String] = HeaderNames.ContentHeaders,
     sensitiveHeaders: Set[String] = HeaderNames.SensitiveHeaders,
@@ -144,5 +117,5 @@ case class FollowRedirectsConfig(
 )
 
 object FollowRedirectsConfig {
-  val Default = FollowRedirectsConfig()
+  val Default: FollowRedirectsConfig = FollowRedirectsConfig()
 }

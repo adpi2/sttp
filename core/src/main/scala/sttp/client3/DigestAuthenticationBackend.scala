@@ -7,14 +7,14 @@ import sttp.client3.internal.DigestAuthenticator.DigestAuthData
 import sttp.monad.syntax._
 import sttp.model.Header
 
-abstract class DigestAuthenticationBackend[F[_], P] private (
-    delegate: AbstractBackend[F, P],
+class DigestAuthenticationBackend[F[_], P] private (
+    delegate: GenericBackend[F, P],
     clientNonceGenerator: () => String
 ) extends DelegateSttpBackend(delegate) {
 
-  override def internalSend[T](request: AbstractRequest[T, P with Effect[F]]): F[Response[T]] =
+  override def send[T](request: AbstractRequest[T, P with Effect[F]]): F[Response[T]] =
     delegate
-      .internalSend(request)
+      .send(request)
       .flatMap { firstResponse =>
         handleResponse(request, firstResponse, ProxyDigestAuthTag, DigestAuthenticator.proxy(_, clientNonceGenerator))
       }
@@ -38,45 +38,18 @@ abstract class DigestAuthenticationBackend[F[_], P] private (
       .map(_.asInstanceOf[DigestAuthData])
       .flatMap { digestAuthData =>
         val header = digestAuthenticator(digestAuthData).authenticate(request, response)
-        header.map(h => delegate.internalSend(request.header(h)).map(_ -> Option(h)))
+        header.map(h => delegate.send(request.header(h)).map(_ -> Option(h)))
       }
       .getOrElse((response -> Option.empty[Header]).unit)
   }
 }
 
 object DigestAuthenticationBackend {
-  def apply(delegate: SyncBackend): SyncBackend =
+  def apply[F[_]](delegate: Backend[F]): delegate.SelfType =
     apply(delegate, DigestAuthenticator.defaultClientNonceGenerator _)
 
-  def apply[F[_]](delegate: Backend[F]): Backend[F] =
-    apply(delegate, DigestAuthenticator.defaultClientNonceGenerator _)
-
-  def apply[F[_]](delegate: WebSocketBackend[F]): WebSocketBackend[F] =
-    apply(delegate, DigestAuthenticator.defaultClientNonceGenerator _)
-
-  def apply[F[_], S](delegate: StreamBackend[F, S]): StreamBackend[F, S] =
-    apply(delegate, DigestAuthenticator.defaultClientNonceGenerator _)
-
-  def apply[F[_], S](delegate: WebSocketStreamBackend[F, S]): WebSocketStreamBackend[F, S] =
-    apply(delegate, DigestAuthenticator.defaultClientNonceGenerator _)
-
-  def apply(delegate: SyncBackend, clientNonceGenerator: () => String): SyncBackend =
-    new DigestAuthenticationBackend(delegate, clientNonceGenerator) with SyncBackend {}
-
-  def apply[F[_]](delegate: Backend[F], clientNonceGenerator: () => String): Backend[F] =
-    new DigestAuthenticationBackend(delegate, clientNonceGenerator) with Backend[F] {}
-
-  def apply[F[_]](delegate: WebSocketBackend[F], clientNonceGenerator: () => String): WebSocketBackend[F] =
-    new DigestAuthenticationBackend(delegate, clientNonceGenerator) with WebSocketBackend[F] {}
-
-  def apply[F[_], S](delegate: StreamBackend[F, S], clientNonceGenerator: () => String): StreamBackend[F, S] =
-    new DigestAuthenticationBackend(delegate, clientNonceGenerator) with StreamBackend[F, S] {}
-
-  def apply[F[_], S](
-      delegate: WebSocketStreamBackend[F, S],
-      clientNonceGenerator: () => String
-  ): WebSocketStreamBackend[F, S] =
-    new DigestAuthenticationBackend(delegate, clientNonceGenerator) with WebSocketStreamBackend[F, S] {}
+  def apply[F[_]](delegate: Backend[F], clientNonceGenerator: () => String): delegate.SelfType =
+    delegate.wrap(new DigestAuthenticationBackend(_, clientNonceGenerator))
 
   private[client3] val DigestAuthTag = "__sttp_DigestAuth"
   private[client3] val ProxyDigestAuthTag = "__sttp_ProxyDigestAuth"

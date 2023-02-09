@@ -3,7 +3,7 @@ package sttp.client3
 import org.scalatest.EitherValues
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.testing.BackendStub
+import sttp.client3.testing.SyncBackendStub
 import sttp.model.internal.Rfc3986
 import sttp.model.{Header, StatusCode, Uri}
 
@@ -37,7 +37,7 @@ class FollowRedirectsBackendTest extends AnyFunSuite with Matchers with EitherVa
     val response0 = Response("", StatusCode.Found, "", Vector(Header.location(url1Source)))
     val response1 = Response.ok("All good!")
 
-    val stub0 = BackendStub.synchronous
+    val stub0 = SyncBackendStub
       .whenRequestMatches(_.uri == url0)
       .thenRespond(response0)
       .whenRequestMatches(_.uri.toString() == url1Source)
@@ -49,7 +49,7 @@ class FollowRedirectsBackendTest extends AnyFunSuite with Matchers with EitherVa
       )
     val redirectsBackend = FollowRedirectsBackend(stub0, FollowRedirectsConfig(transformUri = transformUri))
 
-    val result = redirectsBackend.send(basicRequest.get(url0))
+    val result = basicRequest.get(url0).send(redirectsBackend)
     result.body.value shouldBe "All good!"
   }
 

@@ -30,10 +30,12 @@ import sttp.capabilities.WebSockets
 class WebSocketStreamBackendStub[F[_], S](
     monad: MonadError[F],
     matchers: PartialFunction[AbstractRequest[_, _], F[Response[_]]],
-    fallback: Option[WebSocketStreamBackend[F, S]]
-) extends AbstractBackendStub[F, S with WebSockets](monad, matchers, fallback)
+    fallback: Option[GenericBackend[F, S with WebSockets]]
+) extends BackendStub[F, S with WebSockets](monad, matchers, fallback)
     with WebSocketStreamBackend[F, S] {
-  type Self = WebSocketStreamBackendStub[F, S]
+
+  override type SelfStubType = WebSocketStreamBackendStub[F, S]
+
   override protected def withMatchers(
       matchers: PartialFunction[AbstractRequest[_, _], F[Response[_]]]
   ): WebSocketStreamBackendStub[F, S] =
@@ -58,5 +60,9 @@ object WebSocketStreamBackendStub {
     * any of the specified predicates.
     */
   def withFallback[F[_], S](fallback: WebSocketStreamBackend[F, S]): WebSocketStreamBackendStub[F, S] =
-    new WebSocketStreamBackendStub(fallback.responseMonad, PartialFunction.empty, Some(fallback))
+    new WebSocketStreamBackendStub(
+      fallback.genericBackend.responseMonad,
+      PartialFunction.empty,
+      Some(fallback.genericBackend)
+    )
 }

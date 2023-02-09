@@ -78,7 +78,9 @@ object HttpClientFutureBackend {
       customizeRequest: HttpRequest => HttpRequest,
       customEncodingHandler: InputStreamEncodingHandler
   )(implicit ec: ExecutionContext): WebSocketBackend[Future] =
-    FollowRedirectsBackend(new HttpClientFutureBackend(client, closeClient, customizeRequest, customEncodingHandler))
+    FollowRedirectsBackend(
+      WebSocketBackend(new HttpClientFutureBackend(client, closeClient, customizeRequest, customEncodingHandler))
+    )
 
   def apply(
       options: SttpBackendOptions = SttpBackendOptions.Default,

@@ -18,11 +18,12 @@ import sttp.client3.monad.IdMonad
   */
 class SyncBackendStub(
     matchers: PartialFunction[AbstractRequest[_, _], Response[_]],
-    fallback: Option[SyncBackend]
-) extends AbstractBackendStub[Identity, Any](IdMonad, matchers, fallback)
+    fallback: Option[GenericBackend[Identity, Any]]
+) extends BackendStub[Identity, Any](IdMonad, matchers, fallback)
     with SyncBackend {
 
-  type Self = SyncBackendStub
+  override type SelfStubType = SyncBackendStub
+
   override protected def withMatchers(matchers: PartialFunction[AbstractRequest[_, _], Response[_]]) =
     new SyncBackendStub(matchers, fallback)
 }
@@ -34,5 +35,5 @@ object SyncBackendStub extends SyncBackendStub(PartialFunction.empty, None) {
     * any of the specified predicates.
     */
   def withFallback(fallback: SyncBackend): SyncBackendStub =
-    new SyncBackendStub(PartialFunction.empty, Some(fallback))
+    new SyncBackendStub(PartialFunction.empty, Some(fallback.genericBackend))
 }

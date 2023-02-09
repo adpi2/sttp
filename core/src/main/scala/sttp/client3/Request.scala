@@ -9,7 +9,7 @@ import scala.collection.immutable.Seq
 
 /** Describes an HTTP request, along with a description of how the response body should be handled.
   *
-  * The request can be sent using an instance of [[SyncBackend]] or [[Backend]].
+  * The request can be sent using an instance of [[SyncBackend]] or any other [[Backend]].
   *
   * @param response
   *   Description of how the response body should be handled. Needs to be specified upfront so that the response is
@@ -77,28 +77,25 @@ case class Request[T](
   /** Sends the request, using the given backend.
     *
     * @return
-    *   For synchronous backends [[Response]] is returned directly and exceptions are thrown. For asynchronous backends
-    *   (when the effect type is e.g. [[scala.concurrent.Future]]), an effect containing the [[Response]] is returned.
-    *   Exceptions are represented as failed effects (e.g. failed futures).
-    *
-    * The response body is deserialized as specified by this request (see [[Request.response]]).
+    *   An `F`-effect, containing a [[Response]], with the body handled as specified by this request (see
+    *   [[Request.response]]). Effects might include asynchronous computations (e.g. [[scala.concurrent.Future]]), pure
+    *   effect descriptions (`IO`), or error wrappers (see [[EitherBackend]] and [[TryBackend]]). Exceptions are
+    *   represented as failed effects (e.g. failed futures).
     *
     * Known exceptions are converted by backends to one of [[SttpClientException]]. Other exceptions are thrown
     * unchanged.
     */
-  def send[F[_]](backend: Backend[F]): F[Response[T]] = backend.send(this)
+  def send[F[_]](backend: Backend[F]): F[Response[T]] = backend.genericBackend.send(this)
 
   /** Sends the request synchronously, using the given backend.
     *
     * @return
-    *   [[Response]] is returned directly and exceptions are thrown.
-    *
-    * The response body is deserialized as specified by this request (see [[Request.response]]).
+    *   A [[Response]], with the body handled as specified by this request (see [[Request.response]]).
     *
     * Known exceptions are converted by backends to one of [[SttpClientException]]. Other exceptions are thrown
     * unchanged.
     */
-  def send(backend: SyncBackend): Response[T] = backend.send(this)
+  def send(backend: SyncBackend): Response[T] = backend.genericBackend.send(this)
 }
 
 object Request {

@@ -5,7 +5,7 @@ import com.linecorp.armeria.common.HttpData
 import com.linecorp.armeria.common.stream.StreamMessage
 import org.reactivestreams.Publisher
 import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client3.armeria.{GenericArmeriaBackend, BodyFromStreamMessage}
 import sttp.client3.internal.NoStreams
 import sttp.client3.{Backend, FollowRedirectsBackend, SttpBackendOptions}
 import sttp.monad.{FutureMonad, MonadAsyncError}
@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 private final class ArmeriaFutureBackend(client: WebClient, closeFactory: Boolean)
-    extends AbstractArmeriaBackend[Future, Nothing](client, closeFactory, new FutureMonad()) {
+    extends GenericArmeriaBackend[Future, Nothing](client, closeFactory, new FutureMonad()) {
 
   override val streams: NoStreams = NoStreams
 

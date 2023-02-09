@@ -21,7 +21,7 @@ import scala.scalanative.unsafe
 import scala.scalanative.unsafe.{CSize, Ptr, _}
 import scala.scalanative.unsigned._
 
-abstract class AbstractCurlBackend[F[_]](monad: MonadError[F], verbose: Boolean) extends AbstractBackend[F, Any] {
+abstract class AbstractCurlBackend[F[_]](monad: MonadError[F], verbose: Boolean) extends GenericBackend[F, Any] {
   override implicit def responseMonad: MonadError[F] = monad
 
   type R = Any with Effect[F]

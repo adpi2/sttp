@@ -3,15 +3,14 @@ package sttp.client3
 import sttp.monad.MonadError
 import sttp.capabilities.Effect
 
-/** The common ancestor of all sttp backends.
+/** A specific implementation of HTTP request sending logic.
   *
-  * An [[AbstractBackend]] cannot be used directly as it does not contain any public method to send a request. You
-  * should use an instance of [[SyncBackend]], [[Backend]], [[WebSocketBackend]], [[StreamBackend]] or
-  * [[WebSocketStreamBackend]] instead.
+  * Instances of this trait shouldn't be used directly, if possible. Instead, implementations of [[Backend]] should be
+  * used, which wrap instances of [[GenericBackend]] and provide a better developer experience.
   *
   * @note
-  *   Backends should try to classify exceptions into one of the categories specified by [[SttpClientException]]. Other
-  *   exceptions should be thrown unchanged.
+  *   Backends should try to classify known HTTP-related exceptions into one of the categories specified by
+  *   [[SttpClientException]]. Other exceptions are thrown unchanged.
   * @tparam F
   *   The effect type used when returning responses. E.g. [[Identity]] for synchronous backends,
   *   [[scala.concurrent.Future]] for asynchronous backends.
@@ -20,9 +19,9 @@ import sttp.capabilities.Effect
   *   [[Streams]] (the ability to send and receive streaming bodies) or [[WebSockets]] (the ability to handle websocket
   *   requests).
   */
-trait AbstractBackend[F[_], +P] {
+trait GenericBackend[F[_], +P] {
 
-  def internalSend[T](request: AbstractRequest[T, P with Effect[F]]): F[Response[T]]
+  def send[T](request: AbstractRequest[T, P with Effect[F]]): F[Response[T]]
 
   def close(): F[Unit]
 

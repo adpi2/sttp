@@ -40,9 +40,7 @@ final case class WebSocketRequest[F[_], T](
   override protected def copyWithBody(body: BasicBody): WebSocketRequest[F, T] = copy(body = body)
   override protected def withTags(tags: Map[String, Any]): WebSocketRequest[F, T] = copy(tags = tags)
 
-  def mapResponse[T2](f: T => T2): WebSocketRequest[F, T2] =
-    copy(response = response.map(f))
+  def mapResponse[T2](f: T => T2): WebSocketRequest[F, T2] = copy(response = response.map(f))
 
-  def send(backend: WebSocketBackend[F]): F[Response[T]] =
-    backend.send(this)
+  def send(backend: WebSocketBackend[F]): F[Response[T]] = backend.genericBackend.send(this)
 }

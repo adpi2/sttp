@@ -24,12 +24,11 @@ class HttpClientSyncBackend private (
       client,
       closeClient,
       customEncodingHandler
-    )
-    with SyncBackend {
+    ) {
 
   override val streams: NoStreams = NoStreams
 
-  override def internalSend[T](request: AbstractRequest[T, R]): Response[T] =
+  override def send[T](request: AbstractRequest[T, R]): Response[T] =
     adjustExceptions(request) {
       val jRequest = customizeRequest(convertRequest(request))
       val response = client.send(jRequest, BodyHandlers.ofInputStream())
@@ -78,7 +77,9 @@ object HttpClientSyncBackend {
       customizeRequest: HttpRequest => HttpRequest,
       customEncodingHandler: SyncEncodingHandler
   ): SyncBackend =
-    FollowRedirectsBackend(new HttpClientSyncBackend(client, closeClient, customizeRequest, customEncodingHandler))
+    FollowRedirectsBackend(
+      SyncBackend(new HttpClientSyncBackend(client, closeClient, customizeRequest, customEncodingHandler))
+    )
 
   def apply(
       options: SttpBackendOptions = SttpBackendOptions.Default,

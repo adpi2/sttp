@@ -8,14 +8,13 @@ import sttp.client3._
 import sttp.client3.internal._
 import sttp.client3.monad.IdMonad
 import sttp.model._
-import sttp.monad.{FutureMonad, TryMonad}
+import sttp.monad.TryMonad
 import sttp.ws.WebSocketFrame
 import sttp.ws.testing.WebSocketStub
 
 import java.io.ByteArrayInputStream
 import java.util.concurrent.TimeoutException
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.{Failure, Success, Try}
 
@@ -85,7 +84,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
   }
 
   it should "wrap exceptions in the desired monad" in {
-    val backend: Backend[Try] = BackendStub(TryMonad)
+    val backend: EffectBackend[Try] = EffectBackendStub(TryMonad)
     val r = basicRequest.post(uri"http://example.org").send(backend)
     r match {
       case Failure(_: IllegalArgumentException) => succeed
@@ -191,7 +190,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
     val LongTimeMillis = LongTime.toMillis
     val before = System.currentTimeMillis()
 
-    val backend = BackendStub(new FutureMonad()).whenAnyRequest
+    val backend = EffectBackendStub.asynchronousFuture.whenAnyRequest
       .thenRespondF(Platform.delayedFuture(LongTime) {
         Response(Right("OK"), StatusCode.Ok, "")
       })
@@ -230,8 +229,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
   }
 
   it should "always return a string when requested to do so" in {
-    val backend: SyncBackend = BackendStub.synchronous.whenAnyRequest
-      .thenRespondServerError()
+    val backend: SyncBackend = SyncBackendStub.whenAnyRequest.thenRespondServerError()
 
     basicRequest
       .get(uri"http://example.org")
@@ -241,7 +239,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
   }
 
   it should "return both responses when requested to do so" in {
-    val backend = BackendStub.synchronous.whenAnyRequest.thenRespond("1234")
+    val backend = SyncBackendStub.whenAnyRequest.thenRespond("1234")
     basicRequest
       .get(uri"http://example.org")
       .response(asBoth(asString.mapRight(_.toInt), asStringAlways))
@@ -396,7 +394,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
     (body, responseAs, expectedResult) <- adjustTestData
   } {
     it should s"adjust $body to $expectedResult when specified as $responseAs" in {
-      AbstractBackendStub.tryAdjustResponseBody(
+      BackendStub.tryAdjustResponseBody(
         responseAs.internal,
         body,
         ResponseMetadata(StatusCode.Ok, "", Nil)

@@ -9,13 +9,13 @@ import fs2.{Chunk, Stream}
 import org.reactivestreams.Publisher
 import sttp.capabilities.fs2.Fs2Streams
 import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client3.armeria.{GenericArmeriaBackend, BodyFromStreamMessage}
 import sttp.client3.impl.cats.CatsMonadAsyncError
 import sttp.client3.{FollowRedirectsBackend, StreamBackend, SttpBackendOptions}
 import sttp.monad.MonadAsyncError
 
 private final class ArmeriaFs2Backend[F[_]: ConcurrentEffect](client: WebClient, closeFactory: Boolean)
-    extends AbstractArmeriaBackend[F, Fs2Streams[F]](client, closeFactory, new CatsMonadAsyncError) {
+    extends GenericArmeriaBackend[F, Fs2Streams[F]](client, closeFactory, new CatsMonadAsyncError) {
 
   override val streams: Fs2Streams[F] = Fs2Streams[F]
 
