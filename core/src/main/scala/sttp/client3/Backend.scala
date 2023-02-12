@@ -111,6 +111,9 @@ trait WebSocketStreamBackend[F[_], S] extends Backend[F] { self =>
     override type Capabilities = self.Capabilities
     override def genericBackend: GenericBackend[F, Capabilities] = f(self.genericBackend)
   }
+
+  def asStreamBackend: StreamBackend[F, S] = StreamBackend(genericBackend)
+  def asWebSocketBackend: WebSocketBackend[F] = WebSocketBackend(genericBackend)
 }
 
 object WebSocketStreamBackend {
