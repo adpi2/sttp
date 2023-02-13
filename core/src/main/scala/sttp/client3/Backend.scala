@@ -31,94 +31,80 @@ trait Backend[F[_]] { self =>
   def wrap(f: GenericBackend[F, Capabilities] => GenericBackend[F, Capabilities]): SelfType
 }
 
-//
-
-trait EffectBackend[F[_]] extends Backend[F] { self =>
-  override type Capabilities = Any
-  override type SelfType = EffectBackend[F]
-
-  override def wrap(f: GenericBackend[F, Any] => GenericBackend[F, Any]): EffectBackend[F] =
-    new EffectBackend[F] {
-      override type Capabilities = self.Capabilities
-      override def genericBackend: GenericBackend[F, Capabilities] = f(self.genericBackend)
-    }
-}
-
-object EffectBackend {
-  def apply[F[_]](gb: GenericBackend[F, Any]): EffectBackend[F] = new EffectBackend[F] {
+object Backend {
+  def apply[F[_]](gb: GenericBackend[F, Any]): Backend[F] = new Backend[F] {
+    override type Capabilities = Any
+    override type SelfType = Backend[F]
     override def genericBackend: GenericBackend[F, Any] = gb
+    override def wrap(f: GenericBackend[F, Any] => GenericBackend[F, Any]): Backend[F] = apply(f(genericBackend))
   }
 }
 
 trait SyncBackend extends Backend[Identity] { self =>
-  override type Capabilities = Any
-  override type SelfType = SyncBackend
-
-  override def wrap(f: GenericBackend[Identity, Any] => GenericBackend[Identity, Any]): SyncBackend = new SyncBackend {
-    override type Capabilities = self.Capabilities
-    override def genericBackend: GenericBackend[Identity, Capabilities] = f(self.genericBackend)
-  }
+  override type Capabilities <: Any
+  override type SelfType <: SyncBackend
 }
 
 object SyncBackend {
   def apply(gb: GenericBackend[Identity, Any]): SyncBackend = new SyncBackend {
+    override type Capabilities = Any
+    override type SelfType = SyncBackend
     override def genericBackend: GenericBackend[Identity, Any] = gb
+
+    override def wrap(f: GenericBackend[Identity, Any] => GenericBackend[Identity, Any]): SyncBackend = apply(
+      f(genericBackend)
+    )
   }
 }
 
 trait StreamBackend[F[_], S] extends Backend[F] { self =>
-  override type Capabilities = S
-  override type SelfType = StreamBackend[F, S]
-
-  override def wrap(f: GenericBackend[F, Capabilities] => GenericBackend[F, Capabilities]): StreamBackend[F, S] =
-    new StreamBackend[F, S] {
-      override type Capabilities = self.Capabilities
-      override def genericBackend: GenericBackend[F, Capabilities] = f(self.genericBackend)
-    }
+  override type Capabilities <: S
+  override type SelfType <: StreamBackend[F, S]
 }
 
 object StreamBackend {
   def apply[F[_], S](gb: GenericBackend[F, S]): StreamBackend[F, S] = new StreamBackend[F, S] {
+    override type Capabilities = S
+    override type SelfType = StreamBackend[F, S]
     override def genericBackend: GenericBackend[F, S] = gb
+
+    override def wrap(f: GenericBackend[F, S] => GenericBackend[F, S]): StreamBackend[F, S] = apply(f(genericBackend))
   }
 }
 
 trait WebSocketBackend[F[_]] extends Backend[F] { self =>
-  override type Capabilities = WebSockets
-  override type SelfType = WebSocketBackend[F]
-
-  override def wrap(
-      f: GenericBackend[F, Capabilities] => GenericBackend[F, Capabilities]
-  ): WebSocketBackend[F] = new WebSocketBackend[F] {
-    override type Capabilities = self.Capabilities
-    override def genericBackend: GenericBackend[F, Capabilities] = f(self.genericBackend)
-  }
+  override type Capabilities <: WebSockets
+  override type SelfType <: WebSocketBackend[F]
 }
 
 object WebSocketBackend {
   def apply[F[_]](gb: GenericBackend[F, WebSockets]): WebSocketBackend[F] = new WebSocketBackend[F] {
+    override type Capabilities = WebSockets
+    override type SelfType = WebSocketBackend[F]
     override def genericBackend: GenericBackend[F, WebSockets] = gb
+
+    override def wrap(f: GenericBackend[F, WebSockets] => GenericBackend[F, WebSockets]): WebSocketBackend[F] = apply(
+      f(genericBackend)
+    )
   }
 }
 
-trait WebSocketStreamBackend[F[_], S] extends Backend[F] { self =>
-  override type Capabilities = S with WebSockets
-  override type SelfType = WebSocketStreamBackend[F, S]
-
-  override def wrap(
-      f: GenericBackend[F, Capabilities] => GenericBackend[F, Capabilities]
-  ): WebSocketStreamBackend[F, S] = new WebSocketStreamBackend[F, S] {
-    override type Capabilities = self.Capabilities
-    override def genericBackend: GenericBackend[F, Capabilities] = f(self.genericBackend)
-  }
-
-  def asStreamBackend: StreamBackend[F, S] = StreamBackend(genericBackend)
-  def asWebSocketBackend: WebSocketBackend[F] = WebSocketBackend(genericBackend)
+trait WebSocketStreamBackend[F[_], S] extends WebSocketBackend[F] with StreamBackend[F, S] { self =>
+  override type Capabilities <: S with WebSockets
+  override type SelfType <: WebSocketStreamBackend[F, S]
 }
 
 object WebSocketStreamBackend {
   def apply[F[_], S](gb: GenericBackend[F, S with WebSockets]): WebSocketStreamBackend[F, S] =
     new WebSocketStreamBackend[F, S] {
+      override type Capabilities = S with WebSockets
+      override type SelfType = WebSocketStreamBackend[F, S]
       override def genericBackend: GenericBackend[F, S with WebSockets] = gb
+
+      override def wrap(
+          f: GenericBackend[F, S with WebSockets] => GenericBackend[F, S with WebSockets]
+      ): WebSocketStreamBackend[F, S] = apply(
+        f(genericBackend)
+      )
     }
 }

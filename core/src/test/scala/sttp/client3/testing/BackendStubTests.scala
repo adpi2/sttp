@@ -84,7 +84,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
   }
 
   it should "wrap exceptions in the desired monad" in {
-    val backend: EffectBackend[Try] = EffectBackendStub(TryMonad)
+    val backend: Backend[Try] = BackendStub(TryMonad)
     val r = basicRequest.post(uri"http://example.org").send(backend)
     r match {
       case Failure(_: IllegalArgumentException) => succeed
@@ -190,7 +190,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
     val LongTimeMillis = LongTime.toMillis
     val before = System.currentTimeMillis()
 
-    val backend = EffectBackendStub.asynchronousFuture.whenAnyRequest
+    val backend = BackendStub.asynchronousFuture.whenAnyRequest
       .thenRespondF(Platform.delayedFuture(LongTime) {
         Response(Right("OK"), StatusCode.Ok, "")
       })

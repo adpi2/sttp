@@ -32,6 +32,10 @@ class WebSocketBackendStub[F[_]](
     with WebSocketBackend[F] {
 
   override type SelfStubType = WebSocketBackendStub[F]
+  override type SelfType = WebSocketBackend[F]
+
+  override def wrap(f: GenericBackend[F, WebSockets] => GenericBackend[F, WebSockets]): WebSocketBackend[F] =
+    WebSocketBackend(this)
 
   override protected def withMatchers(
       matchers: PartialFunction[AbstractRequest[_, _], F[Response[_]]]

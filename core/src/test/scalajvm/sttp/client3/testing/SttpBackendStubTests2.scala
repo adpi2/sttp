@@ -12,7 +12,7 @@ import scala.concurrent.Future
 
 class SttpBackendStubTests2 extends AnyFlatSpec with Matchers with ScalaFutures {
   it should "handle exceptions thrown instead of a response (asynchronous)" in {
-    val backend: EffectBackendStub[Future] = EffectBackendStub.asynchronousFuture
+    val backend: BackendStub[Future, Any] = BackendStub.asynchronousFuture
       .whenRequestMatches(_ => true)
       .thenRespond(throw new TimeoutException())
 

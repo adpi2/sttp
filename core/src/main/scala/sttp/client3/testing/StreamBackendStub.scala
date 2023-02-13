@@ -31,6 +31,8 @@ class StreamBackendStub[F[_], S](
     with StreamBackend[F, S] {
 
   override type SelfStubType = StreamBackendStub[F, S]
+  override type SelfType = StreamBackend[F, S]
+  override def wrap(f: GenericBackend[F, S] => GenericBackend[F, S]): StreamBackend[F, S] = StreamBackend(this)
 
   override protected def withMatchers(
       matchers: PartialFunction[AbstractRequest[_, _], F[Response[_]]]

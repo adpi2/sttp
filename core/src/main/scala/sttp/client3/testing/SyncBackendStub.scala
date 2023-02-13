@@ -23,6 +23,11 @@ class SyncBackendStub(
     with SyncBackend {
 
   override type SelfStubType = SyncBackendStub
+  override type SelfType = SyncBackend
+
+  override def wrap(f: GenericBackend[Identity, Any] => GenericBackend[Identity, Any]): SyncBackend = SyncBackend(
+    f(this)
+  )
 
   override protected def withMatchers(matchers: PartialFunction[AbstractRequest[_, _], Response[_]]) =
     new SyncBackendStub(matchers, fallback)
