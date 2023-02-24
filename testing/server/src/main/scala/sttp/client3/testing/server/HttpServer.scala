@@ -1,4 +1,4 @@
-package sttp.client3.testing.server
+package sttp.client4.testing.server
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http

@@ -1,4 +1,4 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import sttp.ws.{WebSocket, WebSocketClosed, WebSocketFrame}
 import zio.stream.ZStream

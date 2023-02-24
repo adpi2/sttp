@@ -1,9 +1,9 @@
-package sttp.client3.finagle
+package sttp.client4.finagle
 
 import com.twitter.util.{Return, Throw, Future => TFuture}
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
-import sttp.client3.Backend
+import sttp.client4.Backend
 import scala.concurrent.{Future, Promise}
 
 class FinagleBackendTest extends HttpTest[TFuture] {

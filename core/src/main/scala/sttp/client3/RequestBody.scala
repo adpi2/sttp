@@ -1,10 +1,10 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.InputStream
 import java.nio.ByteBuffer
 
 import sttp.capabilities.Streams
-import sttp.client3.internal.SttpFile
+import sttp.client4.internal.SttpFile
 import sttp.model._
 import sttp.model.internal.UriCompatibility
 
@@ -84,7 +84,7 @@ case class MultipartStreamBody[S](parts: Seq[Part[BodyPart[S]]]) extends Multipa
 case class BasicMultipartBody(parts: Seq[Part[BasicBodyPart]]) extends MultipartBody[Any] with BasicBody
 
 object BasicBody {
-  private[client3] def paramsToStringBody(fs: Seq[(String, String)], encoding: String): StringBody = {
+  private[client4] def paramsToStringBody(fs: Seq[(String, String)], encoding: String): StringBody = {
     val b = fs
       .map { case (key, value) =>
         UriCompatibility.encodeQuery(key, encoding) + "=" +

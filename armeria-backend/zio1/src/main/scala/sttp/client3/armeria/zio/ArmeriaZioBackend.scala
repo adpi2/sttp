@@ -1,19 +1,19 @@
-package sttp.client3.armeria.zio
+package sttp.client4.armeria.zio
 
 import com.linecorp.armeria.client.WebClient
 import com.linecorp.armeria.common.HttpData
 import com.linecorp.armeria.common.stream.StreamMessage
 import org.reactivestreams.Publisher
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
-import sttp.client3.impl.zio.RIOMonadAsyncError
-import sttp.client3.{FollowRedirectsBackend, StreamBackend, BackendOptions}
+import sttp.client4.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client4.impl.zio.RIOMonadAsyncError
+import sttp.client4.{FollowRedirectsBackend, StreamBackend, BackendOptions}
 import sttp.monad.MonadAsyncError
 import zio.{Chunk, Task}
 import zio.stream.Stream
 import _root_.zio._
 import _root_.zio.interop.reactivestreams.{publisherToStream => publisherToZioStream, streamToPublisher => zioStreamToPublisher}
-import sttp.client3.armeria.ArmeriaWebClient.newClient
+import sttp.client4.armeria.ArmeriaWebClient.newClient
 
 private final class ArmeriaZioBackend(runtime: Runtime[Any], client: WebClient, closeFactory: Boolean)
     extends AbstractArmeriaBackend[Task, ZioStreams](client, closeFactory, new RIOMonadAsyncError[Any]) {

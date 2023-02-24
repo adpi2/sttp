@@ -1,10 +1,10 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.IOException
 import java.net.{InetSocketAddress, SocketAddress}
 import java.{net, util}
 
-import sttp.client3.BackendOptions._
+import sttp.client4.BackendOptions._
 
 import scala.concurrent.duration._
 import scala.util.Try

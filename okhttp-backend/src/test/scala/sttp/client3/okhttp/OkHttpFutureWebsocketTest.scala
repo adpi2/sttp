@@ -1,8 +1,8 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
-import sttp.client3._
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.websocket.{WebSocketBufferOverflowTest, WebSocketConcurrentTest, WebSocketTest}
+import sttp.client4._
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.websocket.{WebSocketBufferOverflowTest, WebSocketConcurrentTest, WebSocketTest}
 import sttp.monad.{FutureMonad, MonadError}
 
 import scala.concurrent.duration._

@@ -1,11 +1,11 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.HttpClientSyncBackend.SyncEncodingHandler
-import sttp.client3.internal.NoStreams
-import sttp.client3.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, InputStreamBodyFromHttpClient}
-import sttp.client3.monad.IdMonad
-import sttp.client3.testing.SyncBackendStub
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.HttpClientSyncBackend.SyncEncodingHandler
+import sttp.client4.internal.NoStreams
+import sttp.client4.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, InputStreamBodyFromHttpClient}
+import sttp.client4.monad.IdMonad
+import sttp.client4.testing.SyncBackendStub
 import sttp.monad.MonadError
 import sttp.ws.{WebSocket, WebSocketFrame}
 

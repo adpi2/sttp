@@ -1,10 +1,10 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.capabilities.WebSockets
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.internal.SttpToJavaConverters.{toJavaBiConsumer, toJavaFunction}
-import sttp.client3.internal.httpclient.{AddToQueueListener, DelegatingWebSocketListener, Sequencer, WebSocketImpl}
-import sttp.client3.internal.ws.{SimpleQueue, WebSocketEvent}
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.internal.SttpToJavaConverters.{toJavaBiConsumer, toJavaFunction}
+import sttp.client4.internal.httpclient.{AddToQueueListener, DelegatingWebSocketListener, Sequencer, WebSocketImpl}
+import sttp.client4.internal.ws.{SimpleQueue, WebSocketEvent}
 import sttp.model.{HeaderNames, StatusCode}
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError, MonadError}

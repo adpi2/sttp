@@ -1,4 +1,4 @@
-package sttp.client3.internal.httpclient;
+package sttp.client4.internal.httpclient;
 
 import java.io.IOException;
 import java.io.InputStream;

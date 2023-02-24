@@ -1,8 +1,8 @@
-package sttp.client3.ziojson
+package sttp.client4.ziojson
 
-import sttp.client3.internal.Utf8
-import sttp.client3.json.RichResponseAs
-import sttp.client3.{
+import sttp.client4.internal.Utf8
+import sttp.client4.json.RichResponseAs
+import sttp.client4.{
   BodySerializer,
   DeserializationException,
   HttpError,

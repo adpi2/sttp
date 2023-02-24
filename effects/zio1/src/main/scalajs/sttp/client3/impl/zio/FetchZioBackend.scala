@@ -1,4 +1,4 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import zio._
 import zio.stream._
@@ -6,9 +6,9 @@ import zio.stream._
 import org.scalajs.dom.experimental.{BodyInit, Request => FetchRequest, Response => FetchResponse}
 import sttp.capabilities.WebSockets
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.internal.ConvertFromFuture
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{AbstractFetchBackend, FetchOptions, WebSocketStreamBackend}
+import sttp.client4.internal.ConvertFromFuture
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{AbstractFetchBackend, FetchOptions, WebSocketStreamBackend}
 import sttp.ws.{WebSocket, WebSocketFrame}
 
 import scala.concurrent.Future

@@ -1,4 +1,4 @@
-package sttp.client3.opentelemetry
+package sttp.client4.opentelemetry
 
 import io.opentelemetry.sdk.OpenTelemetrySdk
 import io.opentelemetry.sdk.metrics.SdkMeterProvider
@@ -7,8 +7,8 @@ import io.opentelemetry.sdk.testing.exporter.InMemoryMetricReader
 import org.scalatest.OptionValues
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.testing.SyncBackendStub
-import sttp.client3.{DeserializationException, Response, SttpClientException, UriContext, asString, basicRequest}
+import sttp.client4.testing.SyncBackendStub
+import sttp.client4.{DeserializationException, Response, SttpClientException, UriContext, asString, basicRequest}
 import sttp.model.{Header, StatusCode}
 
 import scala.collection.JavaConverters._

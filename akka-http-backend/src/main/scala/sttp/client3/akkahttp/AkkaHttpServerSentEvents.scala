@@ -1,4 +1,4 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.NotUsed
 import akka.stream.scaladsl.{Flow, Framing}

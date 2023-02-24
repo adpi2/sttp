@@ -1,9 +1,9 @@
-package sttp.client3.impl.fs2
+package sttp.client4.impl.fs2
 
 import cats.MonadError
 import cats.effect.std.{Dispatcher, Queue}
 import cats.syntax.flatMap._
-import sttp.client3.internal.ws.SimpleQueue
+import sttp.client4.internal.ws.SimpleQueue
 import sttp.ws.WebSocketBufferFull
 
 class Fs2SimpleQueue[F[_], A](queue: Queue[F, A], capacity: Option[Int], dispatcher: Dispatcher[F])(implicit

@@ -1,13 +1,13 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import java.io.InputStream
 import okhttp3.{MediaType, OkHttpClient, RequestBody => OkHttpRequestBody}
 import sttp.capabilities.{Streams, WebSockets}
-import sttp.client3.internal.NoStreams
-import sttp.client3.internal.ws.{FutureSimpleQueue, SimpleQueue}
-import sttp.client3.okhttp.OkHttpBackend.EncodingHandler
-import sttp.client3.testing.WebSocketBackendStub
-import sttp.client3.{DefaultReadTimeout, FollowRedirectsBackend, BackendOptions, WebSocketBackend}
+import sttp.client4.internal.NoStreams
+import sttp.client4.internal.ws.{FutureSimpleQueue, SimpleQueue}
+import sttp.client4.okhttp.OkHttpBackend.EncodingHandler
+import sttp.client4.testing.WebSocketBackendStub
+import sttp.client4.{DefaultReadTimeout, FollowRedirectsBackend, BackendOptions, WebSocketBackend}
 import sttp.monad.{FutureMonad, MonadError}
 import sttp.ws.WebSocket
 

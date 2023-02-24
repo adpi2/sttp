@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.capabilities.Effect
 import sttp.capabilities.WebSockets
-import sttp.client3.internal.InternalResponseAs
+import sttp.client4.internal.InternalResponseAs
 import sttp.model.ResponseMetadata
 
 /** Describes how the response of a [[WebSocketRequest]] should be handled.
@@ -11,12 +11,12 @@ import sttp.model.ResponseMetadata
   * [[ResponseMetadata]], that is the headers and status code. Responses can also be handled depending on the response
   * metadata.
   *
-  * A number of `asWebSocket` helper methods are available as part of [[SttpApi]] and when importing `sttp.client3._`.
+  * A number of `asWebSocket` helper methods are available as part of [[SttpApi]] and when importing `sttp.client4._`.
   *
   * @tparam T
   *   Target type as which the response will be read.
   */
-class WebSocketResponseAs[F[_], +T](private[client3] val internal: InternalResponseAs[T, Effect[F] with WebSockets])
+class WebSocketResponseAs[F[_], +T](private[client4] val internal: InternalResponseAs[T, Effect[F] with WebSockets])
     extends AbstractResponseAs[T, Effect[F] with WebSockets] {
   def map[T2](f: T => T2): WebSocketResponseAs[F, T2] =
     new WebSocketResponseAs(internal.mapWithMetadata { case (t, _) => f(t) })

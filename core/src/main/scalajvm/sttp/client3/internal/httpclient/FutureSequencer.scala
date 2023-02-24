@@ -1,9 +1,9 @@
-package sttp.client3.internal.httpclient
+package sttp.client4.internal.httpclient
 
 import java.util.concurrent.Semaphore
 import scala.concurrent.{ExecutionContext, Future, blocking}
 
-private[client3] class FutureSequencer(implicit ec: ExecutionContext) extends Sequencer[Future] {
+private[client4] class FutureSequencer(implicit ec: ExecutionContext) extends Sequencer[Future] {
   private val semaphore = new Semaphore(1)
 
   def apply[T](t: => Future[T]): Future[T] = {

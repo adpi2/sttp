@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.SttpFile
+import sttp.client4.internal.SttpFile
 import org.scalajs.dom.File
 
 trait PartialRequestExtensions[+R <: PartialRequestBuilder[R, _]] { self: R =>

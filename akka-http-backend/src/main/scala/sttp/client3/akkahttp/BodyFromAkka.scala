@@ -1,4 +1,4 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import java.util.concurrent.atomic.AtomicBoolean
 import akka.http.scaladsl.model.ws.{BinaryMessage, Message, TextMessage}
@@ -8,9 +8,9 @@ import akka.stream.{Materializer, OverflowStrategy, QueueOfferResult}
 import akka.util.ByteString
 import akka.{Done, NotUsed}
 import sttp.capabilities.akka.AkkaStreams
-import sttp.client3.AbstractResponseAs
-import sttp.client3.internal._
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.AbstractResponseAs
+import sttp.client4.internal._
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.{Headers, ResponseMetadata}
 import sttp.monad.{FutureMonad, MonadError}
 import sttp.ws.{WebSocket, WebSocketBufferFull, WebSocketClosed, WebSocketFrame}

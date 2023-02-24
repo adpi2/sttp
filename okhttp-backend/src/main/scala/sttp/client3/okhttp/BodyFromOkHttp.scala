@@ -1,10 +1,10 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import java.io.{BufferedInputStream, ByteArrayInputStream, FileInputStream, InputStream}
 import sttp.capabilities.Streams
-import sttp.client3.AbstractResponseAs
-import sttp.client3.internal._
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.AbstractResponseAs
+import sttp.client4.internal._
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.monad.MonadError
 import sttp.monad.syntax._

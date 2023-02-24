@@ -1,4 +1,4 @@
-package sttp.client3.httpclient.fs2
+package sttp.client4.httpclient.fs2
 
 import fs2.{Pipe, Pull}
 import fs2.compression.{Compression, InflateParams, ZLibParams}

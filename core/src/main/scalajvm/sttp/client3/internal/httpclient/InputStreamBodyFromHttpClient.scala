@@ -1,14 +1,14 @@
-package sttp.client3.internal.httpclient
+package sttp.client4.internal.httpclient
 
-import sttp.client3.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, FileHelpers, SttpFile}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, FileHelpers, SttpFile}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.monad.syntax.MonadErrorValueOps
 import sttp.ws.WebSocket
 
 import java.io.{BufferedInputStream, ByteArrayInputStream, FileInputStream, InputStream}
 
-private[client3] trait InputStreamBodyFromHttpClient[F[_], S] extends BodyFromHttpClient[F, S, InputStream] {
+private[client4] trait InputStreamBodyFromHttpClient[F[_], S] extends BodyFromHttpClient[F, S, InputStream] {
 
   override protected lazy val bodyFromResponseAs =
     new BodyFromResponseAs[F, InputStream, WebSocket[F], streams.BinaryStream]() {

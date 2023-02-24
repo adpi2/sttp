@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.InternalResponseAs
+import sttp.client4.internal.InternalResponseAs
 import sttp.model.ResponseMetadata
 
 /** Describes how the response body of a [[StreamRequest]] should be handled.
@@ -9,14 +9,14 @@ import sttp.model.ResponseMetadata
   * [[ResponseMetadata]], that is the headers and status code.
   *
   * A number of `asStream[Type]` helper methods are available as part of [[SttpApi]] and when importing
-  * `sttp.client3._`.
+  * `sttp.client4._`.
   *
   * @tparam T
   *   Target type as which the response will be read.
   * @tparam S
   *   The type of stream, used to receive the response body bodies.
   */
-class StreamResponseAs[+T, S](private[client3] val internal: InternalResponseAs[T, S])
+class StreamResponseAs[+T, S](private[client4] val internal: InternalResponseAs[T, S])
     extends AbstractResponseAs[T, S] {
   def map[T2](f: T => T2): StreamResponseAs[T2, S] =
     new StreamResponseAs(internal.mapWithMetadata { case (t, _) => f(t) })

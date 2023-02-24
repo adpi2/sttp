@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 package object json {
   implicit class RichResponseAs[T](ra: ResponseAs[T]) {

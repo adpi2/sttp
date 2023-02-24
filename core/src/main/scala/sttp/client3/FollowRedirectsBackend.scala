@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.capabilities.Effect
 import sttp.model._
@@ -106,11 +106,11 @@ object FollowRedirectsBackend {
   ): WebSocketStreamBackend[F, S] =
     new FollowRedirectsBackend(delegate, config) with WebSocketStreamBackend[F, S] {}
 
-  private[client3] val MaxRedirects = 32
+  private[client4] val MaxRedirects = 32
 
   private val protocol = "^[a-z]+://.*".r
 
-  private[client3] def isRelative(uri: String): Boolean = {
+  private[client4] def isRelative(uri: String): Boolean = {
     val toCheck = uri.toLowerCase().trim
     !protocol.pattern.matcher(toCheck).matches()
   }

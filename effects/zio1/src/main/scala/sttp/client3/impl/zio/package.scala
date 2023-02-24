@@ -1,7 +1,7 @@
-package sttp.client3.impl
+package sttp.client4.impl
 
 import sttp.capabilities.WebSockets
-import sttp.client3.{Backend, StreamBackend, WebSocketBackend, WebSocketStreamBackend}
+import sttp.client4.{Backend, StreamBackend, WebSocketBackend, WebSocketStreamBackend}
 import _root_.zio.RIO
 
 package object zio {

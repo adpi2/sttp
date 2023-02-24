@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.testing.BackendStub
+import sttp.client4.testing.BackendStub
 import sttp.model.StatusCode
 
 class ResolveRelativeUrisBackendTest extends AnyFlatSpec with Matchers {

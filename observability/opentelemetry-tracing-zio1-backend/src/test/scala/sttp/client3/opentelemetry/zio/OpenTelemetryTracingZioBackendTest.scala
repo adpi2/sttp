@@ -1,4 +1,4 @@
-package sttp.client3.opentelemetry.zio
+package sttp.client4.opentelemetry.zio
 
 import io.opentelemetry.sdk.testing.exporter.InMemorySpanExporter
 import io.opentelemetry.sdk.trace.SdkTracerProvider
@@ -6,9 +6,9 @@ import io.opentelemetry.sdk.trace.`export`.SimpleSpanProcessor
 import org.scalatest.BeforeAndAfter
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.impl.zio.{RIOMonadAsyncError, ZioTestBase}
-import sttp.client3.testing.BackendStub
-import sttp.client3.{GenericRequest, Backend, Response, UriContext, basicRequest}
+import sttp.client4.impl.zio.{RIOMonadAsyncError, ZioTestBase}
+import sttp.client4.testing.BackendStub
+import sttp.client4.{GenericRequest, Backend, Response, UriContext, basicRequest}
 import sttp.model.StatusCode
 import zio.Task
 import zio.telemetry.opentelemetry.Tracing

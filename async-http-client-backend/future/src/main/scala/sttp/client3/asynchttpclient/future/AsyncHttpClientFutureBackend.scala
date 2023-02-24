@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient.future
+package sttp.client4.asynchttpclient.future
 
 import java.nio.ByteBuffer
 
@@ -11,11 +11,11 @@ import org.asynchttpclient.{
   DefaultAsyncHttpClientConfig
 }
 import org.reactivestreams.Publisher
-import sttp.client3.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
-import sttp.client3.internal.NoStreams
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.BackendStub
-import sttp.client3.{Backend, FollowRedirectsBackend, BackendOptions}
+import sttp.client4.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
+import sttp.client4.internal.NoStreams
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.BackendStub
+import sttp.client4.{Backend, FollowRedirectsBackend, BackendOptions}
 import sttp.monad.{FutureMonad, MonadAsyncError}
 import sttp.ws.WebSocket
 

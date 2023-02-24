@@ -1,12 +1,12 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.SttpClientException.ReadException
-import sttp.client3._
-import sttp.client3.internal._
-import sttp.client3.monad.IdMonad
+import sttp.client4.SttpClientException.ReadException
+import sttp.client4._
+import sttp.client4.internal._
+import sttp.client4.monad.IdMonad
 import sttp.model._
 import sttp.monad.{FutureMonad, TryMonad}
 import sttp.ws.WebSocketFrame
@@ -103,8 +103,8 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
         .response(asString.map(_ => throw DeserializationException("", new RuntimeException("test"))))
         .send(testingBackend)
 
-    val readException = the[sttp.client3.SttpClientException.ReadException] thrownBy request()
-    readException.cause shouldBe a[sttp.client3.DeserializationException[_]]
+    val readException = the[sttp.client4.SttpClientException.ReadException] thrownBy request()
+    readException.cause shouldBe a[sttp.client4.DeserializationException[_]]
   }
 
   it should "use rules in partial function" in {
@@ -380,7 +380,7 @@ class BackendStubTests extends AnyFlatSpec with Matchers with ScalaFutures {
 
   private val s = "Hello, world!"
   private val adjustTestData = List[(Any, ResponseAs[_], Any)](
-    (s, sttp.client3.ignore, Some(())),
+    (s, sttp.client4.ignore, Some(())),
     (s, asString(Utf8), Some(Right(s))),
     (s.getBytes(Utf8), asString(Utf8), Some(Right(s))),
     (new ByteArrayInputStream(s.getBytes(Utf8)), asString(Utf8), Some(Right(s))),

@@ -1,8 +1,8 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
 import sttp.capabilities.Effect
 import sttp.capabilities.WebSockets
-import sttp.client3._
+import sttp.client4._
 import sttp.model.ResponseMetadata
 import sttp.model.internal.Rfc3986
 import sttp.ws.WebSocket
@@ -11,7 +11,7 @@ import scala.collection.immutable.Seq
 import sttp.capabilities.Streams
 import sttp.ws.WebSocketFrame
 
-/** Internal representation of how the response of an [[sttp.client3.GenericRequest]] should be handled.
+/** Internal representation of how the response of an [[sttp.client4.GenericRequest]] should be handled.
   *
   * @tparam T
   *   Target type as which the response will be read.
@@ -103,7 +103,7 @@ case class ResponseAsBoth[A, B, R](l: InternalResponseAs[A, R], r: InternalRespo
 
 object InternalResponseAs {
 
-  private[client3] def parseParams(s: String, charset: String): Seq[(String, String)] = {
+  private[client4] def parseParams(s: String, charset: String): Seq[(String, String)] = {
     s.split("&")
       .toList
       .flatMap(kv =>

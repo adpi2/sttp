@@ -1,10 +1,10 @@
-package sttp.client3.testing.websocket
+package sttp.client4.testing.websocket
 
 import org.scalatest.Suite
 import org.scalatest.flatspec.AsyncFlatSpecLike
-import sttp.client3._
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.HttpTest.wsEndpoint
+import sttp.client4._
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.HttpTest.wsEndpoint
 import sttp.monad.MonadError
 import sttp.monad.syntax._
 import sttp.ws.WebSocket

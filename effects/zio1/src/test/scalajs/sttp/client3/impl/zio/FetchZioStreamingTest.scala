@@ -1,12 +1,12 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import zio._
 import zio.stream._
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.StreamBackend
-import sttp.client3.internal._
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.streaming.StreamingTest
+import sttp.client4.StreamBackend
+import sttp.client4.internal._
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.streaming.StreamingTest
 import sttp.model.sse.ServerSentEvent
 
 class FetchZioStreamingTest extends StreamingTest[Task, ZioStreams] with ZioTestBase {

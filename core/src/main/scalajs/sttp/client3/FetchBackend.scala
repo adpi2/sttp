@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalajs.dom.experimental.{BodyInit, Request => FetchRequest, Response => FetchResponse}
-import sttp.client3.internal.{ConvertFromFuture, NoStreams}
-import sttp.client3.testing.WebSocketBackendStub
+import sttp.client4.internal.{ConvertFromFuture, NoStreams}
+import sttp.client4.testing.WebSocketBackendStub
 import sttp.monad.FutureMonad
 import sttp.ws.WebSocket
 

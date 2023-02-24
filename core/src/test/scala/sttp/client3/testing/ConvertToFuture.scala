@@ -1,6 +1,6 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
-import sttp.client3.Identity
+import sttp.client4.Identity
 
 import scala.concurrent.Future
 import scala.util.Try

@@ -1,11 +1,11 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 import cats.effect.IO
 import cats.effect.unsafe.IORuntime
 import fs2._
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3._
-import sttp.client3.httpclient.fs2.HttpClientFs2Backend
+import sttp.client4._
+import sttp.client4.httpclient.fs2.HttpClientFs2Backend
 import sttp.ws.WebSocketFrame
 
 object WebSocketStreamFs2 extends App {

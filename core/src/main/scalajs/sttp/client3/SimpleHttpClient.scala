@@ -1,11 +1,11 @@
-package sttp.client3
+package sttp.client4
 
 import scala.concurrent.{ExecutionContext, Future}
 
 /** A simple asynchronous http client. Usage example:
   *
   * {{{
-  * import sttp.client3.{SimpleHttpClient, UriContext, basicRequest}
+  * import sttp.client4.{SimpleHttpClient, UriContext, basicRequest}
   *
   * val client = SimpleHttpClient()
   * val request = basicRequest.get(uri"https://httpbin.org/get")

@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.model.{Header, Method, Part, RequestMetadata, Uri}
 import sttp.capabilities.{Effect, Streams, WebSockets}
-import sttp.client3.internal.{ToCurlConverter, ToRfc2616Converter}
+import sttp.client4.internal.{ToCurlConverter, ToRfc2616Converter}
 
 import scala.collection.immutable.Seq
 

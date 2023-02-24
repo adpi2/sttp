@@ -1,11 +1,11 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import monix.reactive.Observable
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.WebSocketStreamBackend
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.websocket.{WebSocketStreamingTest, WebSocketTest}
+import sttp.client4.WebSocketStreamBackend
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.websocket.{WebSocketStreamingTest, WebSocketTest}
 import sttp.monad.MonadError
 import sttp.ws.WebSocketFrame
 

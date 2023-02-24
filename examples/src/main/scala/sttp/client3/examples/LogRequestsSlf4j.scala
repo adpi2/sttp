@@ -1,10 +1,10 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 import io.circe.generic.auto._
-import sttp.client3._
-import sttp.client3.circe._
-import sttp.client3.logging.slf4j.Slf4jLoggingBackend
-import sttp.client3.logging.LogConfig
+import sttp.client4._
+import sttp.client4.circe._
+import sttp.client4.logging.slf4j.Slf4jLoggingBackend
+import sttp.client4.logging.LogConfig
 
 object LogRequestsSlf4j extends App {
   case class HttpBinResponse(origin: String, headers: Map[String, String])

@@ -1,12 +1,12 @@
-package sttp.client3.armeria.fs2
+package sttp.client4.armeria.fs2
 
 import cats.effect.IO
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.{StreamBackend, BackendOptions}
-import sttp.client3.armeria.ArmeriaWebClient
-import sttp.client3.impl.cats.TestIODispatcher
-import sttp.client3.impl.fs2.Fs2StreamingTest
-import sttp.client3.testing.RetryTests
+import sttp.client4.{StreamBackend, BackendOptions}
+import sttp.client4.armeria.ArmeriaWebClient
+import sttp.client4.impl.cats.TestIODispatcher
+import sttp.client4.impl.fs2.Fs2StreamingTest
+import sttp.client4.testing.RetryTests
 
 import java.time.Duration
 

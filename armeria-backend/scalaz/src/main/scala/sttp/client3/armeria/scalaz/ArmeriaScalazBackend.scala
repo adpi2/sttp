@@ -1,15 +1,15 @@
-package sttp.client3.armeria.scalaz
+package sttp.client4.armeria.scalaz
 
 import com.linecorp.armeria.client.WebClient
 import com.linecorp.armeria.common.HttpData
 import com.linecorp.armeria.common.stream.StreamMessage
 import org.reactivestreams.Publisher
 import scalaz.concurrent.Task
-import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
-import sttp.client3.impl.scalaz.TaskMonadAsyncError
-import sttp.client3.internal.NoStreams
-import sttp.client3.{Backend, FollowRedirectsBackend, BackendOptions}
+import sttp.client4.armeria.ArmeriaWebClient.newClient
+import sttp.client4.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client4.impl.scalaz.TaskMonadAsyncError
+import sttp.client4.internal.NoStreams
+import sttp.client4.{Backend, FollowRedirectsBackend, BackendOptions}
 import sttp.monad.MonadAsyncError
 
 private final class ArmeriaScalazBackend(client: WebClient, closeFactory: Boolean)

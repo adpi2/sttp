@@ -1,4 +1,4 @@
-package sttp.client3.httpclient.cats
+package sttp.client4.httpclient.cats
 
 import cats.effect.IO
 import cats.effect.unsafe.implicits.global

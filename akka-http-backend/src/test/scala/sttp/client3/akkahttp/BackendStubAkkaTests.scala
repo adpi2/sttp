@@ -1,11 +1,11 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.actor.ActorSystem
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3._
+import sttp.client4._
 
 import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global

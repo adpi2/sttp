@@ -1,4 +1,4 @@
-package sttp.client3.ws
+package sttp.client4.ws
 
 import sttp.model.StatusCode
 

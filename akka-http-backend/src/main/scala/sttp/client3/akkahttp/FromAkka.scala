@@ -1,7 +1,7 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.http.scaladsl.model.HttpResponse
-import sttp.client3.{GenericRequest, SttpClientException}
+import sttp.client4.{GenericRequest, SttpClientException}
 import sttp.model.{Header, HeaderNames}
 
 import scala.collection.immutable.Seq

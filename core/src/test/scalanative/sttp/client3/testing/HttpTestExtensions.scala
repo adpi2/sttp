@@ -1,4 +1,4 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import scala.language.higherKinds
 

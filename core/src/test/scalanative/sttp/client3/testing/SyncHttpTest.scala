@@ -1,9 +1,9 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import java.io.ByteArrayInputStream
 import java.nio.ByteBuffer
 
-import sttp.client3._
+import sttp.client4._
 import org.scalatest._
 import org.scalatest.freespec.AnyFreeSpec
 import sttp.model.StatusCode
@@ -11,7 +11,7 @@ import org.scalatest.matchers.should.Matchers
 
 import scala.concurrent.duration._
 
-// This is a synchronous version of sttp.client3.testing.HttpTest.
+// This is a synchronous version of sttp.client4.testing.HttpTest.
 // It had to be copied, because there are no async test specs in scala-test.
 // As soon as AsyncFreeSpec is released for Scala Native, this one should be drooped in favour of HttpTest.
 // The progress can be tracked within this issue: https://github.com/scalatest/scalatest/issues/1112.
@@ -37,7 +37,7 @@ trait SyncHttpTest
   protected val expectedPostEchoResponse = "POST /echo this is the body"
   protected val expectedPutEchoResponse = "PUT /echo this is the body"
 
-  protected val sttpIgnore = sttp.client3.ignore
+  protected val sttpIgnore = sttp.client4.ignore
 
   "parse response" - {
     "as string" in {

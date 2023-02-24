@@ -1,9 +1,9 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.http.scaladsl.model.ContentType
 import akka.http.scaladsl.model.ContentTypes.`application/octet-stream`
 import akka.http.scaladsl.model.headers.{`Content-Length`, `Content-Type`}
-import sttp.client3.GenericRequest
+import sttp.client4.GenericRequest
 import sttp.model.Header
 
 import scala.collection.immutable.Seq

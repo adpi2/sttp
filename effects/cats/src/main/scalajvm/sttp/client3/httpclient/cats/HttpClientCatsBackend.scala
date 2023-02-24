@@ -1,15 +1,15 @@
-package sttp.client3.httpclient.cats
+package sttp.client4.httpclient.cats
 
 import cats.effect.kernel.{Async, Resource, Sync}
 import cats.effect.std.{Dispatcher, Queue}
 import cats.implicits.{toFlatMapOps, toFunctorOps}
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.impl.cats.CatsMonadAsyncError
-import sttp.client3.internal.httpclient._
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.internal.{NoStreams, emptyInputStream}
-import sttp.client3.testing.WebSocketBackendStub
-import sttp.client3.{FollowRedirectsBackend, HttpClientAsyncBackend, HttpClientBackend, BackendOptions, WebSocketBackend}
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.impl.cats.CatsMonadAsyncError
+import sttp.client4.internal.httpclient._
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.internal.{NoStreams, emptyInputStream}
+import sttp.client4.testing.WebSocketBackendStub
+import sttp.client4.{FollowRedirectsBackend, HttpClientAsyncBackend, HttpClientBackend, BackendOptions, WebSocketBackend}
 import sttp.monad.MonadError
 import sttp.ws.{WebSocket, WebSocketFrame}
 

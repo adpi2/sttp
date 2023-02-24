@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalajs.dom.{WebSocket => JSWebSocket}
-import sttp.client3.WebSocketImpl.OpenState
-import sttp.client3.internal.ws.WebSocketEvent
+import sttp.client4.WebSocketImpl.OpenState
+import sttp.client4.internal.ws.WebSocketEvent
 import sttp.model.Headers
 import sttp.monad.MonadError
 import sttp.monad.syntax._
@@ -10,7 +10,7 @@ import sttp.ws.{WebSocket, WebSocketClosed, WebSocketFrame}
 
 import scala.scalajs.js.typedarray.{ArrayBuffer, _}
 
-private[client3] class WebSocketImpl[F[_]] private (
+private[client4] class WebSocketImpl[F[_]] private (
     ws: JSWebSocket,
     queue: JSSimpleQueue[F, WebSocketEvent],
     implicit val monad: MonadError[F]

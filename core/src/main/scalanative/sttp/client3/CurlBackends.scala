@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.monad.IdMonad
+import sttp.client4.monad.IdMonad
 import sttp.monad.TryMonad
 
 import scala.util.Try

@@ -1,7 +1,7 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
-import sttp.client3._
-import sttp.client3.monad.IdMonad
+import sttp.client4._
+import sttp.client4.monad.IdMonad
 
 /** A stub backend to use in tests.
   *

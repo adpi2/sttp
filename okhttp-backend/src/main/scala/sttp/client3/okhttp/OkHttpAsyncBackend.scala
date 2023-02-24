@@ -1,14 +1,14 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import java.io.IOException
 import java.util.concurrent.atomic.AtomicBoolean
 
 import okhttp3.{Call, Callback, OkHttpClient, Response => OkHttpResponse, WebSocket => OkHttpWebSocket}
 import sttp.capabilities.Streams
-import sttp.client3.internal.ws.{SimpleQueue, WebSocketEvent}
+import sttp.client4.internal.ws.{SimpleQueue, WebSocketEvent}
 import sttp.monad.syntax._
-import sttp.client3.okhttp.OkHttpBackend.EncodingHandler
-import sttp.client3.{GenericRequest, Response, ignore}
+import sttp.client4.okhttp.OkHttpBackend.EncodingHandler
+import sttp.client4.{GenericRequest, Response, ignore}
 import sttp.monad.{Canceler, MonadAsyncError}
 
 abstract class OkHttpAsyncBackend[F[_], S <: Streams[S], P](

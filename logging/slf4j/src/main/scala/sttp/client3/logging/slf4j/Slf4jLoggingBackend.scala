@@ -1,7 +1,7 @@
-package sttp.client3.logging.slf4j
+package sttp.client4.logging.slf4j
 
-import sttp.client3._
-import sttp.client3.logging.{LogConfig, Logger, LoggingBackend}
+import sttp.client4._
+import sttp.client4.logging.{LogConfig, Logger, LoggingBackend}
 import sttp.monad.MonadError
 
 object Slf4jLoggingBackend {
@@ -36,5 +36,5 @@ object Slf4jLoggingBackend {
     LoggingBackend(delegate, logger(delegate.responseMonad), config)
 
   private def logger[F[_]](monad: MonadError[F]): Logger[F] =
-    new Slf4jLogger("sttp.client3.logging.slf4j.Slf4jLoggingBackend", monad)
+    new Slf4jLogger("sttp.client4.logging.slf4j.Slf4jLoggingBackend", monad)
 }

@@ -1,12 +1,12 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
 import java.io.{ByteArrayInputStream, File}
 import java.nio.ByteBuffer
 import org.reactivestreams.Publisher
 import sttp.capabilities.Streams
-import sttp.client3.AbstractResponseAs
-import sttp.client3.internal._
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.AbstractResponseAs
+import sttp.client4.internal._
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError}

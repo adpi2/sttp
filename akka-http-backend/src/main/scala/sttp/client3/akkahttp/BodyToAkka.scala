@@ -1,4 +1,4 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.http.scaladsl.model.{
   ContentType,
@@ -12,8 +12,8 @@ import akka.http.scaladsl.model.{
 import akka.stream.scaladsl.{Source, StreamConverters}
 import akka.util.ByteString
 import sttp.capabilities.akka.AkkaStreams
-import sttp.client3.internal.throwNestedMultipartNotAllowed
-import sttp.client3._
+import sttp.client4.internal.throwNestedMultipartNotAllowed
+import sttp.client4._
 import sttp.model.{HeaderNames, Part}
 
 import scala.collection.immutable.Seq

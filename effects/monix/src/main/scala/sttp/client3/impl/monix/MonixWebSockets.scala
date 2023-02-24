@@ -1,4 +1,4 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import monix.execution.cancelables.BooleanCancelable

@@ -1,4 +1,4 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import java.io.{InputStream, UnsupportedEncodingException}
 import java.util.concurrent.TimeUnit
@@ -14,11 +14,11 @@ import okhttp3.{
   Response => OkHttpResponse
 }
 import sttp.capabilities.{Effect, Streams}
-import sttp.client3.BackendOptions.Proxy
-import sttp.client3.SttpClientException.ReadException
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.okhttp.OkHttpBackend.EncodingHandler
-import sttp.client3._
+import sttp.client4.BackendOptions.Proxy
+import sttp.client4.SttpClientException.ReadException
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.okhttp.OkHttpBackend.EncodingHandler
+import sttp.client4._
 import sttp.model._
 
 import scala.collection.JavaConverters._

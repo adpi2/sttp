@@ -1,10 +1,10 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.SttpClientException.ReadException
-import sttp.client3.{UriContext, basicRequest}
+import sttp.client4.SttpClientException.ReadException
+import sttp.client4.{UriContext, basicRequest}
 import sttp.monad.FutureMonad
 
 import java.util.concurrent.TimeoutException

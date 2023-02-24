@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.InternalResponseAs
+import sttp.client4.internal.InternalResponseAs
 import sttp.model.ResponseMetadata
 import scala.util.{Failure, Success, Try}
 
@@ -11,12 +11,12 @@ import scala.util.{Failure, Success, Try}
   * status code. Responses can also be handled depending on the response metadata. Finally, two response body
   * descriptions can be combined (with some restrictions).
   *
-  * A number of `as<Type>` helper methods are available as part of [[SttpApi]] and when importing `sttp.client3._`.
+  * A number of `as<Type>` helper methods are available as part of [[SttpApi]] and when importing `sttp.client4._`.
   *
   * @tparam T
   *   Target type as which the response will be read.
   */
-class ResponseAs[+T](private[client3] val internal: InternalResponseAs[T, Any]) extends AbstractResponseAs[T, Any] {
+class ResponseAs[+T](private[client4] val internal: InternalResponseAs[T, Any]) extends AbstractResponseAs[T, Any] {
   def map[T2](f: T => T2): ResponseAs[T2] = new ResponseAs(internal.mapWithMetadata { case (t, _) => f(t) })
   def mapWithMetadata[T2](f: (T, ResponseMetadata) => T2): ResponseAs[T2] = new ResponseAs(internal.mapWithMetadata(f))
 

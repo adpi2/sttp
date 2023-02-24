@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalajs.dom.File
-import sttp.client3.internal.SttpFile
-import sttp.client3.internal.ResponseAsFile
+import sttp.client4.internal.SttpFile
+import sttp.client4.internal.ResponseAsFile
 import sttp.model.{Part, StatusCode}
 
 trait SttpExtensions {
@@ -24,7 +24,7 @@ object SttpExtensions {
   /** This needs to be platform-specific due to #1682, as on JS we don't get access to the 101 status code.
     * asWebSocketEither delegates to this method, as the method itself cannot be moved, due to binary compatibility.
     */
-  private[client3] def asWebSocketEitherPlatform[F[_], A, B](
+  private[client4] def asWebSocketEitherPlatform[F[_], A, B](
       onError: ResponseAs[A],
       onSuccess: WebSocketResponseAs[F, B]
   ): WebSocketResponseAs[F, Either[A, B]] =

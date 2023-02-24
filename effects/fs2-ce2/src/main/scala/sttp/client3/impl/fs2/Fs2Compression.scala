@@ -1,4 +1,4 @@
-package sttp.client3.impl.fs2
+package sttp.client4.impl.fs2
 
 import cats.effect.Sync
 import fs2.{Pipe, Pull}

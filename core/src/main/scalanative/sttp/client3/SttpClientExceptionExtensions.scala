@@ -1,7 +1,7 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.SttpClientException.{ConnectException, ReadException, TimeoutException}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.SttpClientException.{ConnectException, ReadException, TimeoutException}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 
 import scala.annotation.tailrec
 

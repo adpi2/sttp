@@ -1,11 +1,11 @@
-package sttp.client3.httpclient.zio
+package sttp.client4.httpclient.zio
 
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3._
-import sttp.client3.impl.zio.ZioWebSockets.PipeR
-import sttp.client3.impl.zio.{RIOMonadAsyncError, ZioTestBase, ZioWebSockets}
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.websocket.{WebSocketConcurrentTest, WebSocketStreamingTest, WebSocketTest}
+import sttp.client4._
+import sttp.client4.impl.zio.ZioWebSockets.PipeR
+import sttp.client4.impl.zio.{RIOMonadAsyncError, ZioTestBase, ZioWebSockets}
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.websocket.{WebSocketConcurrentTest, WebSocketStreamingTest, WebSocketTest}
 import sttp.monad.MonadError
 import sttp.ws.WebSocketFrame
 import zio.Task

@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 /** A simple, synchronous http client. Usage example:
   *
   * {{{
-  * import sttp.client3.{SimpleHttpClient, UriContext, basicRequest}
+  * import sttp.client4.{SimpleHttpClient, UriContext, basicRequest}
   *
   * val client = SimpleHttpClient()
   * val request = basicRequest.get(uri"https://httpbin.org/get")

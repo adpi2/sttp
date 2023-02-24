@@ -1,8 +1,8 @@
-package sttp.client3.httpclient.cats
+package sttp.client4.httpclient.cats
 
 import cats.effect.IO
-import sttp.client3.impl.cats.CatsRetryTest
-import sttp.client3.testing.HttpTest
+import sttp.client4.impl.cats.CatsRetryTest
+import sttp.client4.testing.HttpTest
 
 class HttpClientCatsHttpTest extends HttpTest[IO] with CatsRetryTest with HttpClientCatsTestBase {
   override def supportsHostHeaderOverride = false

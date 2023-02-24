@@ -1,10 +1,10 @@
-package sttp.client3.impl.cats
+package sttp.client4.impl.cats
 
 import java.util.concurrent.TimeoutException
 
 import cats.effect.IO
 import cats.effect.unsafe.IORuntime
-import sttp.client3.testing.ConvertToFuture
+import sttp.client4.testing.ConvertToFuture
 import sttp.monad.MonadError
 
 import scala.concurrent.ExecutionContext

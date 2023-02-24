@@ -1,9 +1,9 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Route
 import org.scalatest.BeforeAndAfterAll
-import sttp.client3.Backend
+import sttp.client4.Backend
 import sttp.model.StatusCode
 
 import scala.concurrent.duration._
@@ -22,7 +22,7 @@ class AkkaHttpRouteBackendTest extends AsyncWordSpec with Matchers with BeforeAn
   val backend: Backend[Future] =
     AkkaHttpBackend.usingClient(system, http = AkkaHttpClient.stubFromRoute(Routes.route))
 
-  import sttp.client3._
+  import sttp.client4._
 
   "matched route" should {
 

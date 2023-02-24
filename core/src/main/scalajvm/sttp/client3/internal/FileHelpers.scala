@@ -1,10 +1,10 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
 import java.io.{BufferedInputStream, File, FileInputStream, FileOutputStream, InputStream}
 
 import scala.util.control.NonFatal
 
-private[client3] object FileHelpers {
+private[client4] object FileHelpers {
   def saveFile(file: File, is: InputStream): Unit = {
     if (!file.exists()) {
       if (file.getParentFile != null) {

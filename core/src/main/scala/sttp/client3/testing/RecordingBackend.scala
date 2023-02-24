@@ -1,8 +1,8 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import java.util.concurrent.atomic.AtomicReference
 import java.util.function.UnaryOperator
-import sttp.client3._
+import sttp.client4._
 import sttp.monad.syntax._
 
 import scala.util.{Failure, Success, Try}

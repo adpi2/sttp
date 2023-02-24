@@ -1,8 +1,8 @@
-package sttp.client3.ziojson
+package sttp.client4.ziojson
 
 import sttp.capabilities.Effect
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.{DeserializationException, HttpError, IsOption, ResponseException, StreamResponseAs, asStream}
+import sttp.client4.{DeserializationException, HttpError, IsOption, ResponseException, StreamResponseAs, asStream}
 import zio.blocking.Blocking
 import zio.json.JsonDecoder
 import zio.stream.ZTransducer

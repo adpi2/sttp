@@ -1,10 +1,10 @@
-package sttp.client3.armeria
+package sttp.client4.armeria
 
 import _root_.zio._
 import sttp.capabilities.Effect
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3._
-import sttp.client3.impl.zio.{StreamBackendExtendEnv, StreamClientStubbing}
+import sttp.client4._
+import sttp.client4.impl.zio.{StreamBackendExtendEnv, StreamClientStubbing}
 
 package object zio {
 

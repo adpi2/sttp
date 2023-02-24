@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.monad.MapEffect
+import sttp.client4.monad.MapEffect
 import sttp.capabilities.Effect
 import sttp.monad.MonadError
-import sttp.client3.monad.FunctionK
+import sttp.client4.monad.FunctionK
 
 abstract class MappedEffectBackend[F[_], G[_], P](
     backend: GenericBackend[F, P],

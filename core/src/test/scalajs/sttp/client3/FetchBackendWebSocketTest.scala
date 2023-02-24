@@ -1,7 +1,7 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.websocket.WebSocketTest
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.websocket.WebSocketTest
 import sttp.monad.{FutureMonad, MonadError}
 
 import scala.concurrent.{ExecutionContext, Future}

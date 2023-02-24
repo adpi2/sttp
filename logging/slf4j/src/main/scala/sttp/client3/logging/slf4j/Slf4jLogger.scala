@@ -1,7 +1,7 @@
-package sttp.client3.logging.slf4j
+package sttp.client4.logging.slf4j
 
 import org.slf4j.LoggerFactory
-import sttp.client3.logging.{LogLevel, Logger}
+import sttp.client4.logging.{LogLevel, Logger}
 import sttp.monad.MonadError
 
 class Slf4jLogger[F[_]](name: String, monad: MonadError[F]) extends Logger[F] {

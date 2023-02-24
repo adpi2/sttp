@@ -1,9 +1,9 @@
-package sttp.client3.armeria.scalaz
+package sttp.client4.armeria.scalaz
 
 import scalaz.concurrent.Task
-import sttp.client3._
-import sttp.client3.impl.scalaz.convertScalazTaskToFuture
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4._
+import sttp.client4.impl.scalaz.convertScalazTaskToFuture
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
 class ArmeriaScalazHttpTest extends HttpTest[Task] {
 

@@ -1,14 +1,14 @@
-package sttp.client3.testing.streaming
+package sttp.client4.testing.streaming
 
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.freespec.AsyncFreeSpec
 import org.scalatest.matchers.should.Matchers
 import sttp.capabilities.Streams
-import sttp.client3._
-import sttp.client3.internal.Utf8
-import sttp.client3.testing.HttpTest.endpoint
-import sttp.client3.testing.streaming.StreamingTest._
-import sttp.client3.testing.{ConvertToFuture, ToFutureWrapper}
+import sttp.client4._
+import sttp.client4.internal.Utf8
+import sttp.client4.testing.HttpTest.endpoint
+import sttp.client4.testing.streaming.StreamingTest._
+import sttp.client4.testing.{ConvertToFuture, ToFutureWrapper}
 import sttp.model.sse.ServerSentEvent
 import sttp.monad.MonadError
 import sttp.monad.syntax._

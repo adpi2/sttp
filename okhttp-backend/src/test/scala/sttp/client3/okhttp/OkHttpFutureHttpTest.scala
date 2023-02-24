@@ -1,7 +1,7 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
-import sttp.client3.WebSocketBackend
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4.WebSocketBackend
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
 import scala.concurrent.Future
 

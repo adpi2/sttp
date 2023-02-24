@@ -1,10 +1,10 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.stream.scaladsl.{Flow, Source}
 import sttp.capabilities.akka.AkkaStreams
-import sttp.client3._
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.websocket.{WebSocketConcurrentTest, WebSocketStreamingTest, WebSocketTest}
+import sttp.client4._
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.websocket.{WebSocketConcurrentTest, WebSocketStreamingTest, WebSocketTest}
 import sttp.monad.{FutureMonad, MonadError}
 import sttp.ws.WebSocketFrame
 

@@ -1,4 +1,4 @@
-package sttp.client3.httpclient.monix
+package sttp.client4.httpclient.monix
 
 import cats.effect.Resource
 import monix.eval.Task
@@ -7,14 +7,14 @@ import monix.reactive.Observable
 import monix.reactive.compression._
 import org.reactivestreams.FlowAdapters
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.httpclient.monix.HttpClientMonixBackend.MonixEncodingHandler
-import sttp.client3.impl.monix.{MonixSimpleQueue, TaskMonadAsyncError}
-import sttp.client3.internal._
-import sttp.client3.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, Sequencer}
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.httpclient.monix.HttpClientMonixBackend.MonixEncodingHandler
+import sttp.client4.impl.monix.{MonixSimpleQueue, TaskMonadAsyncError}
+import sttp.client4.internal._
+import sttp.client4.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, Sequencer}
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{
   FollowRedirectsBackend,
   HttpClientAsyncBackend,
   HttpClientBackend,

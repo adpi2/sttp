@@ -1,10 +1,10 @@
-package sttp.client3.asynchttpclient.zio
+package sttp.client4.asynchttpclient.zio
 
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
 import sttp.capabilities.Effect
-import sttp.client3._
-import sttp.client3.impl.zio.{RIOMonadAsyncError, ZioTestBase}
+import sttp.client4._
+import sttp.client4.impl.zio.{RIOMonadAsyncError, ZioTestBase}
 import sttp.model.{Header, StatusCode}
 import sttp.monad.MonadError
 import zio.{Task, ZIO}

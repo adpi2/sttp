@@ -1,8 +1,8 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.http.scaladsl.model.{HttpHeader, HttpMethod, HttpMethods, HttpRequest}
 import akka.http.scaladsl.model.HttpHeader.ParsingResult
-import sttp.client3.GenericRequest
+import sttp.client4.GenericRequest
 import sttp.model.{Header, Method}
 
 import scala.collection.immutable.Seq

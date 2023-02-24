@@ -1,13 +1,13 @@
-package sttp.client3.asynchttpclient.fs2
+package sttp.client4.asynchttpclient.fs2
 
 import cats.effect.{Blocker, IO}
 import cats.implicits._
 import fs2.Pipe
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3._
-import sttp.client3.asynchttpclient.AsyncHttpClientWebSocketTest
-import sttp.client3.impl.cats.CatsTestBase
-import sttp.client3.impl.fs2.Fs2WebSockets
+import sttp.client4._
+import sttp.client4.asynchttpclient.AsyncHttpClientWebSocketTest
+import sttp.client4.impl.cats.CatsTestBase
+import sttp.client4.impl.fs2.Fs2WebSockets
 import sttp.ws.WebSocketFrame
 
 import scala.concurrent.ExecutionContext.global

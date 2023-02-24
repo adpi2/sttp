@@ -1,6 +1,6 @@
-package sttp.client3.monad
+package sttp.client4.monad
 
-import sttp.client3.Identity
+import sttp.client4.Identity
 import sttp.monad.MonadError
 
 object IdMonad extends MonadError[Identity] {

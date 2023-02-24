@@ -1,12 +1,12 @@
-package sttp.client3.armeria.zio
+package sttp.client4.armeria.zio
 
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.armeria.ArmeriaWebClient
-import sttp.client3.{StreamBackend, BackendOptions}
-import sttp.client3.impl.zio.{ZioServerSentEvents, ZioTestBase}
-import sttp.client3.internal._
-import sttp.client3.testing.{ConvertToFuture, RetryTests}
-import sttp.client3.testing.streaming.StreamingTest
+import sttp.client4.armeria.ArmeriaWebClient
+import sttp.client4.{StreamBackend, BackendOptions}
+import sttp.client4.impl.zio.{ZioServerSentEvents, ZioTestBase}
+import sttp.client4.internal._
+import sttp.client4.testing.{ConvertToFuture, RetryTests}
+import sttp.client4.testing.streaming.StreamingTest
 import sttp.model.sse.ServerSentEvent
 import zio.stream.Stream
 import zio.{Chunk, Task}

@@ -1,6 +1,6 @@
-package sttp.client3.logging.scribe
+package sttp.client4.logging.scribe
 
-import sttp.client3.logging.{LogLevel, Logger}
+import sttp.client4.logging.{LogLevel, Logger}
 import sttp.monad.MonadError
 
 case class ScribeLogger[F[_]](monad: MonadError[F]) extends Logger[F] {

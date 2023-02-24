@@ -1,15 +1,15 @@
-package sttp.client3.httpclient.zio
+package sttp.client4.httpclient.zio
 
 import _root_.zio.interop.reactivestreams._
 import org.reactivestreams.FlowAdapters
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.impl.zio.{RIOMonadAsyncError, ZioSimpleQueue}
-import sttp.client3.internal._
-import sttp.client3.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, Sequencer}
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.impl.zio.{RIOMonadAsyncError, ZioSimpleQueue}
+import sttp.client4.internal._
+import sttp.client4.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, Sequencer}
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{
   FollowRedirectsBackend,
   HttpClientAsyncBackend,
   HttpClientBackend,

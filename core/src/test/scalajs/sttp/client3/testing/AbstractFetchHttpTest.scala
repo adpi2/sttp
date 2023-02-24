@@ -1,7 +1,7 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import org.scalatest.compatible.Assertion
-import sttp.client3.Response
+import sttp.client4.Response
 
 import scala.concurrent.Future
 

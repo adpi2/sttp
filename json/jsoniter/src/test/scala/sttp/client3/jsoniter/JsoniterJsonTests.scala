@@ -1,10 +1,10 @@
-package sttp.client3.jsoniter
+package sttp.client4.jsoniter
 
 import org.scalatest.EitherValues
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3._
-import sttp.client3.internal.{MappedResponseAs, ResponseAsByteArray, Utf8}
+import sttp.client4._
+import sttp.client4.internal.{MappedResponseAs, ResponseAsByteArray, Utf8}
 
 import sttp.model._
 import com.github.plokhotnyuk.jsoniter_scala.core._

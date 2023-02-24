@@ -1,12 +1,12 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal._
+import sttp.client4.internal._
 
 import java.io.{File, FileOutputStream, IOException, InputStream}
 import java.nio.file.AccessDeniedException
 
 object FileHelpers {
-  private[client3] def saveFile(file: File, is: InputStream): File = {
+  private[client4] def saveFile(file: File, is: InputStream): File = {
     if (!file.exists()) {
       if (file.getParentFile != null) {
         file.getParentFile.mkdirs()
@@ -24,7 +24,7 @@ object FileHelpers {
     file
   }
 
-  private[client3] def getFilePath[T, R](response: InternalResponseAs[T, R]): Option[SttpFile] = {
+  private[client4] def getFilePath[T, R](response: InternalResponseAs[T, R]): Option[SttpFile] = {
     response match {
       case MappedResponseAs(raw, g, _) => getFilePath(raw)
       case rfm: ResponseAsFromMetadata[T, _] =>

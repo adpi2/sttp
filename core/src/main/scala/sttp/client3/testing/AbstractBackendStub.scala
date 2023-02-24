@@ -1,10 +1,10 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import java.io.InputStream
 import sttp.capabilities.Effect
-import sttp.client3.internal.{SttpFile, _}
-import sttp.client3.testing.AbstractBackendStub._
-import sttp.client3._
+import sttp.client4.internal.{SttpFile, _}
+import sttp.client4.testing.AbstractBackendStub._
+import sttp.client4._
 import sttp.model.{ResponseMetadata, StatusCode}
 import sttp.monad.MonadError
 import sttp.monad.syntax._
@@ -107,7 +107,7 @@ abstract class AbstractBackendStub[F[_], P](
 
 object AbstractBackendStub {
 
-  private[client3] def tryAdjustResponseType[DesiredRType, RType, F[_]](
+  private[client4] def tryAdjustResponseType[DesiredRType, RType, F[_]](
       ra: AbstractResponseAs[DesiredRType, _],
       m: F[Response[RType]]
   )(implicit monad: MonadError[F]): F[Response[DesiredRType]] = {
@@ -118,7 +118,7 @@ object AbstractBackendStub {
     }
   }
 
-  private[client3] def tryAdjustResponseBody[F[_], T, U](
+  private[client4] def tryAdjustResponseBody[F[_], T, U](
       ra: InternalResponseAs[T, _],
       b: U,
       meta: ResponseMetadata

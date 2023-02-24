@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.capabilities.Effect
 import sttp.model.Uri

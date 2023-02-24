@@ -1,7 +1,7 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
-import sttp.client3._
-import sttp.client3.httpclient.fs2.HttpClientFs2Backend
+import sttp.client4._
+import sttp.client4.httpclient.fs2.HttpClientFs2Backend
 import cats.effect.IO
 import cats.instances.string._
 import fs2.{Stream, text}

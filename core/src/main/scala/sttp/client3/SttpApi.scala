@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal._
+import sttp.client4.internal._
 import sttp.model._
 import sttp.ws.WebSocket
 
@@ -101,7 +101,7 @@ trait SttpApi extends SttpExtensions with UriInterpolator {
     asStringAlways(charset2).map(InternalResponseAs.parseParams(_, charset2)).showAs("as params")
   }
 
-  private[client3] def asSttpFile(file: SttpFile): ResponseAs[SttpFile] =
+  private[client4] def asSttpFile(file: SttpFile): ResponseAs[SttpFile] =
     new ResponseAs(ResponseAsFile(file))
 
   def fromMetadata[T](default: ResponseAs[T], conditions: ConditionalResponseAs[ResponseAs[T]]*): ResponseAs[T] =
@@ -164,7 +164,7 @@ trait SttpApi extends SttpExtensions with UriInterpolator {
     *
     * File name will be set to the name of the file.
     */
-  private[client3] def multipartSttpFile(name: String, file: SttpFile): Part[BasicBodyPart] =
+  private[client4] def multipartSttpFile(name: String, file: SttpFile): Part[BasicBodyPart] =
     Part(name, FileBody(file), fileName = Some(file.name), contentType = Some(MediaType.ApplicationOctetStream))
 
   /** Encodes the given parameters as form data using `utf-8`.

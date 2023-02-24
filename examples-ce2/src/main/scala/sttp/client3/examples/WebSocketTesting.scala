@@ -1,10 +1,10 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 import monix.eval.Task
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3._
-import sttp.client3.httpclient.monix.HttpClientMonixBackend
-import sttp.client3.testing.WebSocketStreamBackendStub
+import sttp.client4._
+import sttp.client4.httpclient.monix.HttpClientMonixBackend
+import sttp.client4.testing.WebSocketStreamBackendStub
 import sttp.model.StatusCode
 import sttp.ws.{WebSocket, WebSocketFrame}
 import sttp.ws.testing.WebSocketStub

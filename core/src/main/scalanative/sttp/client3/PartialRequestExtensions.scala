@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.File
 import java.nio.file.Path
 
-import sttp.client3.internal._
+import sttp.client4.internal._
 
 trait PartialRequestExtensions[+R <: PartialRequestBuilder[R, _]] { self: R =>
 

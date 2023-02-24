@@ -1,9 +1,9 @@
-package sttp.client3.upicklejson
+package sttp.client4.upicklejson
 
 import upickle.default._
 import org.scalatest._
-import sttp.client3.internal._
-import sttp.client3._
+import sttp.client4.internal._
+import sttp.client4._
 import sttp.model._
 
 import org.scalatest.flatspec.AnyFlatSpec

@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalatest.EitherValues
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.testing.BackendStub
+import sttp.client4.testing.BackendStub
 import sttp.model.internal.Rfc3986
 import sttp.model.{Header, StatusCode, Uri}
 

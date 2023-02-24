@@ -1,9 +1,9 @@
-package sttp.client3.impl
+package sttp.client4.impl
 
 import scala.concurrent.Future
 
 import _root_.monix.eval.Task
-import sttp.client3.testing.ConvertToFuture
+import sttp.client4.testing.ConvertToFuture
 
 package object monix {
 

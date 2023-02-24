@@ -1,11 +1,11 @@
-package sttp.client3.httpclient.zio
+package sttp.client4.httpclient.zio
 
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3._
-import sttp.client3.impl.zio._
-import sttp.client3.testing.{BackendStub, RawStream, StreamBackendStub, TestStreams}
+import sttp.client4._
+import sttp.client4.impl.zio._
+import sttp.client4.testing.{BackendStub, RawStream, StreamBackendStub, TestStreams}
 import sttp.model.Method
 import zio.stream.ZStream
 import zio.{Task, ZIO}

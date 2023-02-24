@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 import org.json4s.ParserUtil.ParseException
 import org.json4s.{DefaultFormats, MappingException, native}
 import org.scalatest._
-import sttp.client3.internal._
+import sttp.client4.internal._
 import sttp.model._
 
 import scala.language.higherKinds

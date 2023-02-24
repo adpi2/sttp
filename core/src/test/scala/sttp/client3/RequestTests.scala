@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.model.{Header, HeaderNames, StatusCode}
 import org.scalatest.flatspec.AnyFlatSpec

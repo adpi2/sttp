@@ -1,4 +1,4 @@
-package sttp.client3.impl.cats
+package sttp.client4.impl.cats
 
 import cats.effect.IO
 import cats.effect.std.Dispatcher

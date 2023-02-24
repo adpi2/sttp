@@ -1,10 +1,10 @@
-package sttp.client3.opentelemetry
+package sttp.client4.opentelemetry
 
 import io.opentelemetry.api.common.Attributes
 import io.opentelemetry.api.metrics.{DoubleHistogram, LongCounter, LongUpDownCounter, Meter}
 import io.opentelemetry.api.OpenTelemetry
-import sttp.client3._
-import sttp.client3.listener.{ListenerBackend, RequestListener}
+import sttp.client4._
+import sttp.client4.listener.{ListenerBackend, RequestListener}
 
 import java.time.Clock
 import java.util.concurrent.ConcurrentHashMap
@@ -191,5 +191,5 @@ object CollectorConfig {
 
 case class MeterConfig(name: String, version: String)
 object MeterConfig {
-  val Default: MeterConfig = MeterConfig("sttp-client3", "1.0.0")
+  val Default: MeterConfig = MeterConfig("sttp-client4", "1.0.0")
 }

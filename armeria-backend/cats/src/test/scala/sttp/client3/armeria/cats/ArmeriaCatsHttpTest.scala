@@ -1,9 +1,9 @@
-package sttp.client3.armeria.cats
+package sttp.client4.armeria.cats
 
 import cats.effect.IO
-import sttp.client3._
-import sttp.client3.impl.cats.{CatsRetryTest, CatsTestBase}
-import sttp.client3.testing.HttpTest
+import sttp.client4._
+import sttp.client4.impl.cats.{CatsRetryTest, CatsTestBase}
+import sttp.client4.testing.HttpTest
 
 class ArmeriaCatsHttpTest extends HttpTest[IO] with CatsRetryTest with CatsTestBase {
   override val backend: Backend[IO] = ArmeriaCatsBackend[IO]()

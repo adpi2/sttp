@@ -1,10 +1,10 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
-import sttp.client3.Backend
-import sttp.client3.httpclient.monix.HttpClientMonixBackend
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4.Backend
+import sttp.client4.httpclient.monix.HttpClientMonixBackend
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
 import java.util.concurrent.TimeoutException
 import scala.concurrent.duration.DurationInt

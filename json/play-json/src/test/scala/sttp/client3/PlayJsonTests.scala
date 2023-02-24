@@ -1,7 +1,7 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal._
-import sttp.client3.playJson._
+import sttp.client4.internal._
+import sttp.client4.playJson._
 import sttp.model._
 import play.api.libs.json._
 import org.scalatest._

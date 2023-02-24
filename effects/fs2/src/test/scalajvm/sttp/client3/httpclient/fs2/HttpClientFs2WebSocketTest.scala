@@ -1,11 +1,11 @@
-package sttp.client3.httpclient.fs2
+package sttp.client4.httpclient.fs2
 
 import cats.effect.IO
 import cats.implicits._
 import fs2.Pipe
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.impl.fs2.Fs2WebSockets
-import sttp.client3.testing.websocket.{WebSocketConcurrentTest, WebSocketStreamingTest, WebSocketTest}
+import sttp.client4.impl.fs2.Fs2WebSockets
+import sttp.client4.testing.websocket.{WebSocketConcurrentTest, WebSocketStreamingTest, WebSocketTest}
 import sttp.ws.WebSocketFrame
 
 class HttpClientFs2WebSocketTest

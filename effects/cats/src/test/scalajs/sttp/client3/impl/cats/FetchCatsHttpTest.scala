@@ -1,8 +1,8 @@
-package sttp.client3.impl.cats
+package sttp.client4.impl.cats
 
 import cats.effect.IO
-import sttp.client3.Backend
-import sttp.client3.testing.AbstractFetchHttpTest
+import sttp.client4.Backend
+import sttp.client4.testing.AbstractFetchHttpTest
 
 import scala.concurrent.ExecutionContext
 import scala.scalajs.concurrent.JSExecutionContext.Implicits

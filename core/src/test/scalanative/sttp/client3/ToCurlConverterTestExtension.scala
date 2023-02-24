@@ -1,3 +1,3 @@
-package sttp.client3
+package sttp.client4
 
 trait ToCurlConverterTestExtension {}

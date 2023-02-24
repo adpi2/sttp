@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.File
 
 import org.scalatest.Suite
-import sttp.client3.internal.SttpFile
+import sttp.client4.internal.SttpFile
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

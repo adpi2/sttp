@@ -1,10 +1,10 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
 import java.util.concurrent.atomic.AtomicBoolean
 
 import io.netty.util.concurrent.{Future, FutureListener}
 import org.asynchttpclient.ws.{WebSocket => AHCWebSocket, WebSocketListener => AHCWebSocketListener}
-import sttp.client3.internal.ws.{SimpleQueue, WebSocketEvent}
+import sttp.client4.internal.ws.{SimpleQueue, WebSocketEvent}
 import sttp.model.{Header, Headers}
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError}

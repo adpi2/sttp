@@ -1,10 +1,10 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
-import sttp.client3._
+import sttp.client4._
 import _root_.zio._
 import sttp.capabilities.zio.ZioStreams
 import sttp.capabilities.{Effect, WebSockets}
-import sttp.client3.impl.zio.{WebSocketStreamBackendExtendEnv, WebSocketStreamClientStubbing}
+import sttp.client4.impl.zio.{WebSocketStreamBackendExtendEnv, WebSocketStreamClientStubbing}
 
 package object zio {
 

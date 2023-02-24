@@ -1,6 +1,6 @@
-package sttp.client3.curl
+package sttp.client4.curl
 
-import sttp.client3.curl.CurlCode.CurlCode
+import sttp.client4.curl.CurlCode.CurlCode
 
 import scala.scalanative.unsafe._
 

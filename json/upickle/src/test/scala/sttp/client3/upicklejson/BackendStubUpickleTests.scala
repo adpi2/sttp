@@ -1,9 +1,9 @@
-package sttp.client3.upicklejson
+package sttp.client4.upicklejson
 
 import upickle.default._
 import org.scalatest.concurrent.ScalaFutures
-import sttp.client3.basicRequest
-import sttp.client3.testing.SyncBackendStub
+import sttp.client4.basicRequest
+import sttp.client4.testing.SyncBackendStub
 import sttp.model.Uri
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

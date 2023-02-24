@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient.fs2
+package sttp.client4.asynchttpclient.fs2
 
 import cats.effect.kernel._
 import cats.effect.std.{Dispatcher, Queue}
@@ -11,13 +11,13 @@ import org.asynchttpclient.{Request => _, Response => _, _}
 import org.reactivestreams.Publisher
 import sttp.capabilities.WebSockets
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
-import sttp.client3.impl.cats.CatsMonadAsyncError
-import sttp.client3.impl.fs2.{Fs2SimpleQueue, Fs2WebSockets}
-import sttp.client3.internal._
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{FollowRedirectsBackend, BackendOptions, WebSocketStreamBackend}
+import sttp.client4.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
+import sttp.client4.impl.cats.CatsMonadAsyncError
+import sttp.client4.impl.fs2.{Fs2SimpleQueue, Fs2WebSockets}
+import sttp.client4.internal._
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{FollowRedirectsBackend, BackendOptions, WebSocketStreamBackend}
 import sttp.monad.MonadAsyncError
 import sttp.ws.{WebSocket, WebSocketFrame}
 

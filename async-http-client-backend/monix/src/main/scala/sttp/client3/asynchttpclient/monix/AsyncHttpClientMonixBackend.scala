@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient.monix
+package sttp.client4.asynchttpclient.monix
 
 import cats.effect.Resource
 import io.netty.buffer.{ByteBuf, Unpooled}
@@ -10,12 +10,12 @@ import org.asynchttpclient._
 import org.reactivestreams.Publisher
 import sttp.capabilities.WebSockets
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
-import sttp.client3.impl.monix.{MonixSimpleQueue, MonixWebSockets, TaskMonadAsyncError}
-import sttp.client3.internal._
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{FollowRedirectsBackend, BackendOptions, WebSocketStreamBackend}
+import sttp.client4.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
+import sttp.client4.impl.monix.{MonixSimpleQueue, MonixWebSockets, TaskMonadAsyncError}
+import sttp.client4.internal._
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{FollowRedirectsBackend, BackendOptions, WebSocketStreamBackend}
 import sttp.monad.MonadAsyncError
 import sttp.ws.{WebSocket, WebSocketFrame}
 

@@ -1,12 +1,12 @@
-package sttp.client3.prometheus
+package sttp.client4.prometheus
 
 import java.lang
 import java.util.concurrent.CountDownLatch
-import sttp.client3._
+import sttp.client4._
 import io.prometheus.client.CollectorRegistry
 import org.scalatest.concurrent.{Eventually, IntegrationPatience}
 import org.scalatest.{BeforeAndAfter, OptionValues}
-import sttp.client3.testing.{SyncBackendStub, BackendStub}
+import sttp.client4.testing.{SyncBackendStub, BackendStub}
 import sttp.model.{Header, StatusCode}
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -396,7 +396,7 @@ class PrometheusBackendTest
     val backendStub =
       SyncBackendStub.whenAnyRequest.thenRespondF(_ => throw new HttpError("boom", StatusCode.BadRequest))
 
-    import sttp.client3.prometheus.PrometheusBackend.{DefaultFailureCounterName, addMethodLabel}
+    import sttp.client4.prometheus.PrometheusBackend.{DefaultFailureCounterName, addMethodLabel}
 
     val HostLabel = "Host"
     def addHostLabel[T <: BaseCollectorConfig](config: T, resp: Response[_]): config.T = {

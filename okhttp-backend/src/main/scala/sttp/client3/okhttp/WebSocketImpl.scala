@@ -1,10 +1,10 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import java.util.concurrent.atomic.AtomicBoolean
 
 import okhttp3.{WebSocketListener, Headers => OkHttpHeaders, Response => OkHttpResponse, WebSocket => OkHttpWebSocket}
 import okio.ByteString
-import sttp.client3.internal.ws.{SimpleQueue, WebSocketEvent}
+import sttp.client4.internal.ws.{SimpleQueue, WebSocketEvent}
 import sttp.model.{Header, Headers}
 import sttp.monad.MonadError
 import sttp.monad.syntax._

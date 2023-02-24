@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.capabilities.{Effect, Streams}
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.BackendOptions.Proxy
-import sttp.client3.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient}
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.BackendOptions.Proxy
+import sttp.client4.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient}
 import sttp.model.HttpVersion.{HTTP_1_1, HTTP_2}
 import sttp.model._
 import sttp.monad.MonadError
@@ -33,7 +33,7 @@ abstract class HttpClientBackend[F[_], S, P, B](
   protected def bodyToHttpClient: BodyToHttpClient[F, S]
   protected def bodyFromHttpClient: BodyFromHttpClient[F, S, B]
 
-  private[client3] def convertRequest[T](request: GenericRequest[T, R]): F[HttpRequest] =
+  private[client4] def convertRequest[T](request: GenericRequest[T, R]): F[HttpRequest] =
     monad.suspend {
       val builder = HttpRequest
         .newBuilder()
@@ -72,7 +72,7 @@ abstract class HttpClientBackend[F[_], S, P, B](
 
   private implicit val monad: MonadError[F] = responseMonad
 
-  private[client3] def readResponse[T](
+  private[client4] def readResponse[T](
       res: HttpResponse[_],
       resBody: Either[B, WebSocket[F]],
       request: GenericRequest[T, R]
@@ -133,10 +133,10 @@ object HttpClientBackend {
   }
 
   // Left here for bincompat
-  private[client3] def defaultClient(options: BackendOptions): HttpClient =
+  private[client4] def defaultClient(options: BackendOptions): HttpClient =
     defaultClient(options, None)
 
-  private[client3] def defaultClient(options: BackendOptions, executor: Option[Executor]): HttpClient = {
+  private[client4] def defaultClient(options: BackendOptions, executor: Option[Executor]): HttpClient = {
     var clientBuilder = HttpClient
       .newBuilder()
       .followRedirects(HttpClient.Redirect.NEVER)

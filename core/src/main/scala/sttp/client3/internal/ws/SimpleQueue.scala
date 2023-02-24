@@ -1,4 +1,4 @@
-package sttp.client3.internal.ws
+package sttp.client4.internal.ws
 
 trait SimpleQueue[F[_], T] {
 

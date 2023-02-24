@@ -1,11 +1,11 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.ConvertFromFuture
-import sttp.client3.internal.ws.SimpleQueue
+import sttp.client4.internal.ConvertFromFuture
+import sttp.client4.internal.ws.SimpleQueue
 
 import scala.concurrent.{Future, Promise}
 
-private[client3] class JSSimpleQueue[F[_], T](implicit fromFuture: ConvertFromFuture[F]) extends SimpleQueue[F, T] {
+private[client4] class JSSimpleQueue[F[_], T](implicit fromFuture: ConvertFromFuture[F]) extends SimpleQueue[F, T] {
 
   private var state: Either[List[Promise[T]], List[T]] = Right(List())
 

@@ -1,8 +1,8 @@
-package sttp.client3.impl.fs2
+package sttp.client4.impl.fs2
 
 import cats.effect.{Effect, IO}
 import fs2.concurrent.InspectableQueue
-import sttp.client3.internal.ws.SimpleQueue
+import sttp.client4.internal.ws.SimpleQueue
 import sttp.ws.WebSocketBufferFull
 
 class Fs2SimpleQueue[F[_], A](queue: InspectableQueue[F, A], capacity: Option[Int])(implicit F: Effect[F])

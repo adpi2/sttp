@@ -1,8 +1,8 @@
-package sttp.client3.logging
+package sttp.client4.logging
 
 import java.util.concurrent.TimeUnit
-import sttp.client3.{GenericRequest, Response}
-import sttp.client3.listener.RequestListener
+import sttp.client4.{GenericRequest, Response}
+import sttp.client4.listener.RequestListener
 import sttp.monad.MonadError
 import sttp.monad.syntax._
 

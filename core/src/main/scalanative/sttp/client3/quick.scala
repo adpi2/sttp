@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 object quick extends SttpApi {
   lazy val backend: SyncBackend = CurlBackend()

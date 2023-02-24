@@ -1,10 +1,10 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import java.io.File
 import java.nio.file.Files
 import java.security.MessageDigest
 import java.time.{ZoneId, ZonedDateTime}
-import sttp.client3._
+import sttp.client4._
 import sttp.model.{Header, HeaderNames, StatusCode}
 
 import scala.concurrent.Future

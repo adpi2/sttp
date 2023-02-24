@@ -1,9 +1,9 @@
-package sttp.client3.playJson
+package sttp.client4.playJson
 
 import play.api.libs.json.{JsError, Json, Reads, Writes}
-import sttp.client3.internal.Utf8
-import sttp.client3.json._
-import sttp.client3.{IsOption, JsonInput, ResponseAs, _}
+import sttp.client4.internal.Utf8
+import sttp.client4.json._
+import sttp.client4.{IsOption, JsonInput, ResponseAs, _}
 import sttp.model.MediaType
 
 import scala.util.{Failure, Success, Try}

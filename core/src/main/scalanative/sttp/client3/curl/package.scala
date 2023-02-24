@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import scala.scalanative.unsafe.{CSize, CString, CStruct2, Ptr}
 

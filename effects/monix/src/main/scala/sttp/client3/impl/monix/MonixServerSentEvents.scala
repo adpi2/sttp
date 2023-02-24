@@ -1,4 +1,4 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.reactive.Observable
 import monix.reactive.Observable.Transformer

@@ -1,13 +1,13 @@
-package sttp.client3.httpclient.fs2
+package sttp.client4.httpclient.fs2
 
 import cats.effect.{Blocker, ConcurrentEffect, ContextShift}
 import fs2.{Pipe, Stream}
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.impl.cats.CatsMonadAsyncError
-import sttp.client3.impl.fs2.Fs2WebSockets
-import sttp.client3.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
-import sttp.client3.internal.httpclient.BodyFromHttpClient
+import sttp.client4.impl.cats.CatsMonadAsyncError
+import sttp.client4.impl.fs2.Fs2WebSockets
+import sttp.client4.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.internal.httpclient.BodyFromHttpClient
 import sttp.model.ResponseMetadata
 import sttp.monad.MonadError
 import sttp.monad.syntax.{MonadErrorValueOps, _}

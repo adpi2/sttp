@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.InternalResponseAs
+import sttp.client4.internal.InternalResponseAs
 
 /** Abstract representation of how a response body should be handled.
   *
@@ -12,6 +12,6 @@ import sttp.client3.internal.InternalResponseAs
   *   or [[WebSockets]] (the ability to handle websocket requests).
   */
 trait AbstractResponseAs[+T, -R] {
-  private[client3] def internal: InternalResponseAs[T, R]
+  private[client4] def internal: InternalResponseAs[T, R]
   def show: String = internal.show
 }

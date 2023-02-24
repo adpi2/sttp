@@ -1,15 +1,15 @@
-package sttp.client3.okhttp.monix
+package sttp.client4.okhttp.monix
 
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 import monix.reactive.Observable
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3._
-import sttp.client3.impl.monix.{MonixWebSockets, TaskMonadAsyncError, convertMonixTaskToFuture}
+import sttp.client4._
+import sttp.client4.impl.monix.{MonixWebSockets, TaskMonadAsyncError, convertMonixTaskToFuture}
 import sttp.monad.MonadError
-import sttp.client3.okhttp.OkHttpBackend
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.websocket.{
+import sttp.client4.okhttp.OkHttpBackend
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.websocket.{
   WebSocketBufferOverflowTest,
   WebSocketConcurrentTest,
   WebSocketStreamingTest,

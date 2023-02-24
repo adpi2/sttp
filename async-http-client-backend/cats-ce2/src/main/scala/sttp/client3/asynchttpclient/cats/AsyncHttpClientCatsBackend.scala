@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient.cats
+package sttp.client4.asynchttpclient.cats
 
 import java.io.{ByteArrayInputStream, File}
 import java.nio.ByteBuffer
@@ -14,13 +14,13 @@ import org.asynchttpclient.{
   DefaultAsyncHttpClientConfig
 }
 import org.reactivestreams.Publisher
-import sttp.client3.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
-import sttp.client3.impl.cats.CatsMonadAsyncError
-import sttp.client3.internal.{FileHelpers, NoStreams}
-import sttp.client3.{Backend, FollowRedirectsBackend, GenericRequest, Response, BackendOptions}
+import sttp.client4.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
+import sttp.client4.impl.cats.CatsMonadAsyncError
+import sttp.client4.internal.{FileHelpers, NoStreams}
+import sttp.client4.{Backend, FollowRedirectsBackend, GenericRequest, Response, BackendOptions}
 import cats.implicits._
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.BackendStub
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.BackendStub
 import sttp.monad.MonadAsyncError
 import sttp.ws.WebSocket
 

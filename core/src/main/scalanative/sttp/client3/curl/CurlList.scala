@@ -1,5 +1,5 @@
-package sttp.client3.curl
+package sttp.client4.curl
 
-import sttp.client3.curl.CurlApi.SlistHandle
+import sttp.client4.curl.CurlApi.SlistHandle
 
 class CurlList(val ptr: SlistHandle) extends AnyVal {}

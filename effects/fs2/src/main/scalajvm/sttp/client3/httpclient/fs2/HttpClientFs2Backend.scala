@@ -1,4 +1,4 @@
-package sttp.client3.httpclient.fs2
+package sttp.client4.httpclient.fs2
 
 import java.io.UnsupportedEncodingException
 import java.net.http.HttpRequest.BodyPublishers
@@ -12,14 +12,14 @@ import fs2.interop.reactivestreams.{PublisherOps, StreamUnicastPublisher}
 import fs2.{Chunk, Stream}
 import org.reactivestreams.FlowAdapters
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.httpclient.fs2.HttpClientFs2Backend.Fs2EncodingHandler
-import sttp.client3.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, Sequencer}
-import sttp.client3.impl.cats.implicits._
-import sttp.client3.impl.fs2.Fs2SimpleQueue
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3._
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.httpclient.fs2.HttpClientFs2Backend.Fs2EncodingHandler
+import sttp.client4.internal.httpclient.{BodyFromHttpClient, BodyToHttpClient, Sequencer}
+import sttp.client4.impl.cats.implicits._
+import sttp.client4.impl.fs2.Fs2SimpleQueue
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4._
 import sttp.monad.MonadError
 
 import java.net.http.HttpResponse.BodyHandlers

@@ -1,6 +1,6 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
-import sttp.client3._
+import sttp.client4._
 import sttp.model._
 
 import scala.util.Random

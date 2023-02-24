@@ -1,6 +1,6 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
-import sttp.client3.testing.ConvertToFuture
+import sttp.client4.testing.ConvertToFuture
 import zio._
 import zio.clock.Clock
 import zio.duration.durationInt

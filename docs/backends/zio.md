@@ -9,14 +9,14 @@ The `*-zio` modules depend on ZIO 2.x. For ZIO 1.x support, use modules with the
 To use, add the following dependency to your project:
 
 ```
-"com.softwaremill.sttp.client3" %% "zio" % "@VERSION@"  // for ZIO 2.x
-"com.softwaremill.sttp.client3" %% "zio1" % "@VERSION@" // for ZIO 1.x
+"com.softwaremill.sttp.client4" %% "zio" % "@VERSION@"  // for ZIO 2.x
+"com.softwaremill.sttp.client4" %% "zio1" % "@VERSION@" // for ZIO 1.x
 ```
 
 Create the backend using:
 
 ```scala mdoc:compile-only
-import sttp.client3.httpclient.zio.HttpClientZioBackend
+import sttp.client4.httpclient.zio.HttpClientZioBackend
 
 HttpClientZioBackend().flatMap { backend => ??? }
 
@@ -46,14 +46,14 @@ Host header override is supported in environments running Java 12 onwards, but i
 To use, add the following dependency to your project:
 
 ```
-"com.softwaremill.sttp.client3" %% "armeria-backend-zio" % "@VERSION@"  // for ZIO 2.x
-"com.softwaremill.sttp.client3" %% "armeria-backend-zio1" % "@VERSION@" // for ZIO 1.x
+"com.softwaremill.sttp.client4" %% "armeria-backend-zio" % "@VERSION@"  // for ZIO 2.x
+"com.softwaremill.sttp.client4" %% "armeria-backend-zio1" % "@VERSION@" // for ZIO 1.x
 ```
 
 add imports:
 
 ```scala mdoc:silent
-import sttp.client3.armeria.zio.ArmeriaZioBackend
+import sttp.client4.armeria.zio.ArmeriaZioBackend
 ```
 
 create client:
@@ -103,8 +103,8 @@ As an alternative to effectfully or resourcefully creating backend instances, ZI
 The layers can be used to provide an implementation of the `SttpBackend` dependency when creating services. For example:
 
 ```scala mdoc:compile-only
-import sttp.client3._
-import sttp.client3.httpclient.zio._
+import sttp.client4._
+import sttp.client4.httpclient.zio._
 import zio._
 
 class MyService(sttpBackend: Backend[Task]) {
@@ -125,13 +125,13 @@ ZLayer.make[MyService](MyService.live, HttpClientZioBackend.layer())
 
 The ZIO based backends support streaming using zio-streams. The following example is using the `HttpClientZioBackend`.
 
-The type of supported streams is `Stream[Throwable, Byte]`. The streams capability is represented as `sttp.client3.impl.zio.ZioStreams`. To leverage ZIO environment, use the `SttpClient` object to create request send effects.
+The type of supported streams is `Stream[Throwable, Byte]`. The streams capability is represented as `sttp.client4.impl.zio.ZioStreams`. To leverage ZIO environment, use the `SttpClient` object to create request send effects.
 
 Requests can be sent with a streaming body:
 
 ```scala mdoc:compile-only
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3._
+import sttp.client4._
 import zio.stream._
 import zio.Task
 
@@ -149,7 +149,7 @@ And receive response bodies as a stream:
 
 ```scala mdoc:compile-only
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3._
+import sttp.client4._
 
 import zio._
 import zio.stream._
@@ -187,9 +187,9 @@ import zio._
 import zio.stream._
 
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.impl.zio.ZioServerSentEvents
+import sttp.client4.impl.zio.ZioServerSentEvents
 import sttp.model.sse.ServerSentEvent
-import sttp.client3._
+import sttp.client4._
 
 def processEvents(source: Stream[Throwable, ServerSentEvent]): Task[Unit] = ???
 

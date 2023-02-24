@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
 import java.nio.charset.Charset
 
@@ -7,8 +7,8 @@ import org.asynchttpclient.{Param, RequestBuilder}
 import org.asynchttpclient.request.body.multipart.{ByteArrayPart, FilePart, StringPart}
 import org.reactivestreams.Publisher
 import sttp.capabilities.Streams
-import sttp.client3._
-import sttp.client3.internal.{throwNestedMultipartNotAllowed, toByteArray}
+import sttp.client4._
+import sttp.client4.internal.{throwNestedMultipartNotAllowed, toByteArray}
 import sttp.model.{HeaderNames, MediaType, Part}
 
 import scala.collection.JavaConverters._

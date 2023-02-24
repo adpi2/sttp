@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 trait IsOption[-T] {
   def isOption: Boolean

@@ -1,11 +1,11 @@
-package sttp.client3.circe
+package sttp.client4.circe
 
-import sttp.client3._
+import sttp.client4._
 import io.circe.parser.decode
 import io.circe.{Decoder, Encoder, Printer}
-import sttp.client3.internal.Utf8
+import sttp.client4.internal.Utf8
 import sttp.model.MediaType
-import sttp.client3.json._
+import sttp.client4.json._
 
 trait SttpCirceApi {
 

@@ -1,12 +1,12 @@
-package sttp.client3.asynchttpclient.zio
+package sttp.client4.asynchttpclient.zio
 
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.StreamBackend
-import sttp.client3.impl.zio.{ZioServerSentEvents, ZioTestBase}
-import sttp.client3.internal._
+import sttp.client4.StreamBackend
+import sttp.client4.impl.zio.{ZioServerSentEvents, ZioTestBase}
+import sttp.client4.internal._
 import sttp.model.sse.ServerSentEvent
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.streaming.StreamingTest
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.streaming.StreamingTest
 import zio.stream.{Stream, ZStream}
 import zio.{Chunk, Task}
 

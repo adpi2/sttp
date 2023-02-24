@@ -1,9 +1,9 @@
-package sttp.client3.opentelemetry
+package sttp.client4.opentelemetry
 
 import io.opentelemetry.api.OpenTelemetry
 import io.opentelemetry.api.metrics.Meter
-import sttp.client3._
-import sttp.client3.opentelemetry.OpenTelemetryMetricsBackend._
+import sttp.client4._
+import sttp.client4.opentelemetry.OpenTelemetryMetricsBackend._
 
 import java.time.Clock
 

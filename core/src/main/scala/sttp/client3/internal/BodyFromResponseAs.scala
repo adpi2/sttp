@@ -1,7 +1,7 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
-import sttp.client3.AbstractResponseAs
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.AbstractResponseAs
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.monad.MonadError
 import sttp.monad.syntax._

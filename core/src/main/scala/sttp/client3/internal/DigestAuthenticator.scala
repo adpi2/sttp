@@ -1,14 +1,14 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
 import java.nio.charset.Charset
 
-import sttp.client3._
-import sttp.client3.internal.DigestAuthenticator._
+import sttp.client4._
+import sttp.client4.internal.DigestAuthenticator._
 import sttp.model.{Header, HeaderNames, StatusCode}
 
 import scala.util.Random
 
-private[client3] class DigestAuthenticator private (
+private[client4] class DigestAuthenticator private (
     digestAuthData: DigestAuthData,
     requestHeaderName: String,
     responseHeaderName: String,
@@ -210,7 +210,7 @@ private[client3] class DigestAuthenticator private (
   }
 }
 
-private[client3] object DigestAuthenticator {
+private[client4] object DigestAuthenticator {
   val QualityOfProtectionAuth = "auth"
   val QualityOfProtectionAuthInt = "auth-int"
   case class DigestAuthData(username: String, password: String)

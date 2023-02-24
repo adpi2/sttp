@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

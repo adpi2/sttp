@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.capabilities.Effect
-import sttp.client3.DigestAuthenticationBackend._
-import sttp.client3.internal.DigestAuthenticator
-import sttp.client3.internal.DigestAuthenticator.DigestAuthData
+import sttp.client4.DigestAuthenticationBackend._
+import sttp.client4.internal.DigestAuthenticator
+import sttp.client4.internal.DigestAuthenticator.DigestAuthData
 import sttp.monad.syntax._
 import sttp.model.Header
 
@@ -67,6 +67,6 @@ object DigestAuthenticationBackend {
   ): WebSocketStreamBackend[F, S] =
     new DigestAuthenticationBackend(delegate, clientNonceGenerator) with WebSocketStreamBackend[F, S] {}
 
-  private[client3] val DigestAuthTag = "__sttp_DigestAuth"
-  private[client3] val ProxyDigestAuthTag = "__sttp_ProxyDigestAuth"
+  private[client4] val DigestAuthTag = "__sttp_DigestAuth"
+  private[client4] val ProxyDigestAuthTag = "__sttp_ProxyDigestAuth"
 }

@@ -1,8 +1,8 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 object TestEndpointMultipleQueryParameters extends App {
-  import sttp.client3._
-  import sttp.client3.testing._
+  import sttp.client4._
+  import sttp.client4.testing._
 
   val backend = SyncBackendStub
     .whenRequestMatches(_.uri.paramsMap.contains("filter"))

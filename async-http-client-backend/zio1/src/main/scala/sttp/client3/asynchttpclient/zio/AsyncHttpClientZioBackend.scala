@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient.zio
+package sttp.client4.asynchttpclient.zio
 
 import _root_.zio._
 import _root_.zio.blocking.Blocking
@@ -12,12 +12,12 @@ import org.asynchttpclient._
 import org.reactivestreams.Publisher
 import sttp.capabilities.WebSockets
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
-import sttp.client3.impl.zio.{RIOMonadAsyncError, ZioSimpleQueue, ZioWebSockets}
-import sttp.client3.internal._
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{FollowRedirectsBackend, BackendOptions, WebSocketStreamBackend}
+import sttp.client4.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
+import sttp.client4.impl.zio.{RIOMonadAsyncError, ZioSimpleQueue, ZioWebSockets}
+import sttp.client4.internal._
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{FollowRedirectsBackend, BackendOptions, WebSocketStreamBackend}
 import sttp.monad.MonadAsyncError
 import sttp.ws.{WebSocket, WebSocketFrame}
 

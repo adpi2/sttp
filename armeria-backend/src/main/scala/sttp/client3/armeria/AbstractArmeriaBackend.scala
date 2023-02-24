@@ -1,4 +1,4 @@
-package sttp.client3.armeria
+package sttp.client4.armeria
 
 import com.linecorp.armeria.client.{
   ClientRequestContext,
@@ -32,10 +32,10 @@ import scala.collection.immutable.Seq
 import scala.util.control.NonFatal
 import scala.util.{Failure, Success, Try}
 import sttp.capabilities.{Effect, Streams}
-import sttp.client3.SttpClientException.{ConnectException, ReadException, TimeoutException}
-import sttp.client3._
-import sttp.client3.armeria.AbstractArmeriaBackend.{RightUnit, noopCanceler}
-import sttp.client3.internal.toByteArray
+import sttp.client4.SttpClientException.{ConnectException, ReadException, TimeoutException}
+import sttp.client4._
+import sttp.client4.armeria.AbstractArmeriaBackend.{RightUnit, noopCanceler}
+import sttp.client4.internal.toByteArray
 import sttp.model._
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError, MonadError}

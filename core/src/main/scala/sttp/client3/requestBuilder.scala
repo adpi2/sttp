@@ -1,9 +1,9 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.SttpFile
-import sttp.client3.internal.Utf8
-import sttp.client3.internal.contentTypeWithCharset
-import sttp.client3.logging.LoggingOptions
+import sttp.client4.internal.SttpFile
+import sttp.client4.internal.Utf8
+import sttp.client4.internal.contentTypeWithCharset
+import sttp.client4.logging.LoggingOptions
 import sttp.model.HasHeaders
 import sttp.model.Header
 import sttp.model.HeaderNames
@@ -136,13 +136,13 @@ trait PartialRequestBuilder[+PR <: PartialRequestBuilder[PR, R], +R]
     )
   }
 
-  private[client3] def hasContentType: Boolean = headers.exists(_.is(HeaderNames.ContentType))
-  private[client3] def setContentTypeIfMissing(mt: MediaType): PR =
+  private[client4] def hasContentType: Boolean = headers.exists(_.is(HeaderNames.ContentType))
+  private[client4] def setContentTypeIfMissing(mt: MediaType): PR =
     if (hasContentType) this else contentType(mt)
 
-  private[client3] def hasContentLength: Boolean =
+  private[client4] def hasContentLength: Boolean =
     headers.exists(_.name.equalsIgnoreCase(HeaderNames.ContentLength))
-  private[client3] def setContentLengthIfMissing(l: => Long): PR =
+  private[client4] def setContentLengthIfMissing(l: => Long): PR =
     if (hasContentLength) this else contentLength(l)
 
   /** Uses the `utf-8` encoding.
@@ -178,7 +178,7 @@ trait PartialRequestBuilder[+PR <: PartialRequestBuilder[PR, R], +R]
     *
     * If content length is not yet specified, will be set to the length of the given file.
     */
-  private[client3] def body(f: SttpFile): PR = withBody(FileBody(f)).setContentLengthIfMissing(f.size)
+  private[client4] def body(f: SttpFile): PR = withBody(FileBody(f)).setContentLengthIfMissing(f.size)
 
   /** Encodes the given parameters as form data using `utf-8`. If content type is not yet specified, will be set to
     * `application/x-www-form-urlencoded`.

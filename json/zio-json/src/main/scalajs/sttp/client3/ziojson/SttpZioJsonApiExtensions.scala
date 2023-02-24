@@ -1,3 +1,3 @@
-package sttp.client3.ziojson
+package sttp.client4.ziojson
 
 trait SttpZioJsonApiExtensions {}

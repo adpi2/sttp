@@ -1,11 +1,11 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.HttpClientBackend.EncodingHandler
-import sttp.client3.HttpClientFutureBackend.InputStreamEncodingHandler
-import sttp.client3.internal.{NoStreams, emptyInputStream}
-import sttp.client3.internal.httpclient._
-import sttp.client3.internal.ws.{FutureSimpleQueue, SimpleQueue}
-import sttp.client3.testing.WebSocketBackendStub
+import sttp.client4.HttpClientBackend.EncodingHandler
+import sttp.client4.HttpClientFutureBackend.InputStreamEncodingHandler
+import sttp.client4.internal.{NoStreams, emptyInputStream}
+import sttp.client4.internal.httpclient._
+import sttp.client4.internal.ws.{FutureSimpleQueue, SimpleQueue}
+import sttp.client4.testing.WebSocketBackendStub
 import sttp.monad.{FutureMonad, MonadError}
 import sttp.ws.{WebSocket, WebSocketFrame}
 

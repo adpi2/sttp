@@ -1,8 +1,8 @@
-package sttp.client3.http4s
+package sttp.client4.http4s
 
 import cats.effect.IO
-import sttp.client3.StreamBackend
-import sttp.client3.impl.fs2.Fs2StreamingTest
+import sttp.client4.StreamBackend
+import sttp.client4.impl.fs2.Fs2StreamingTest
 
 import scala.concurrent.ExecutionContext
 import org.http4s.blaze.client.BlazeClientBuilder

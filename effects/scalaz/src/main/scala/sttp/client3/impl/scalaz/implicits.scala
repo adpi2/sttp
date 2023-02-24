@@ -1,8 +1,8 @@
-package sttp.client3.impl.scalaz
+package sttp.client4.impl.scalaz
 
 import scalaz.~>
-import sttp.client3.monad.FunctionK
-import sttp.client3._
+import sttp.client4.monad.FunctionK
+import sttp.client4._
 import sttp.monad.MonadError
 
 object implicits extends ScalazImplicits

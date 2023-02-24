@@ -1,10 +1,10 @@
-package sttp.client3.httpclient.zio
+package sttp.client4.httpclient.zio
 
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.impl.zio.{RIOMonadAsyncError, ZioWebSockets}
-import sttp.client3.internal.httpclient.BodyFromHttpClient
-import sttp.client3.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.impl.zio.{RIOMonadAsyncError, ZioWebSockets}
+import sttp.client4.internal.httpclient.BodyFromHttpClient
+import sttp.client4.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.monad.MonadError
 import sttp.ws.{WebSocket, WebSocketFrame}

@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
 import java.nio.ByteBuffer
 import java.util.concurrent.ConcurrentLinkedQueue

@@ -1,4 +1,4 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import java.io.UnsupportedEncodingException
 import akka.{Done, NotUsed}
@@ -14,10 +14,10 @@ import akka.stream.Materializer
 import akka.stream.scaladsl.{Flow, Sink}
 import sttp.capabilities.akka.AkkaStreams
 import sttp.capabilities.{Effect, WebSockets}
-import sttp.client3
-import sttp.client3.akkahttp.AkkaHttpBackend.EncodingHandler
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3._
+import sttp.client4
+import sttp.client4.akkahttp.AkkaHttpBackend.EncodingHandler
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4._
 import sttp.model.{ResponseMetadata, StatusCode}
 import sttp.monad.{FutureMonad, MonadError}
 
@@ -136,7 +136,7 @@ class AkkaHttpBackend private (
       wsFlow.map(Right(_)).getOrElse(Left(decodeAkkaResponse(hr, r.autoDecompressionDisabled)))
     )
 
-    body.map(client3.Response(_, code, statusText, headers, Nil, r.onlyMetadata))
+    body.map(client4.Response(_, code, statusText, headers, Nil, r.onlyMetadata))
   }
 
   // http://doc.akka.io/docs/akka-http/10.0.7/scala/http/common/de-coding.html

@@ -1,4 +1,4 @@
-package sttp.client3.internal.httpclient
+package sttp.client4.internal.httpclient
 
 import java.net.http.WebSocket
 import java.net.http.WebSocket.Listener
@@ -6,7 +6,7 @@ import java.nio.ByteBuffer
 import java.util.concurrent.CompletionStage
 import java.util.concurrent.atomic.AtomicBoolean
 
-private[client3] class DelegatingWebSocketListener[WS_RESULT](
+private[client4] class DelegatingWebSocketListener[WS_RESULT](
     delegate: Listener,
     onInitialOpen: WebSocket => Unit,
     onInitialError: Throwable => Unit

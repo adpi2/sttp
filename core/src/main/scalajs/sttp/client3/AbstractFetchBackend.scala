@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalajs.dom.experimental.{
   AbortController,
@@ -22,11 +22,11 @@ import org.scalajs.dom.File
 import org.scalajs.dom.BlobPropertyBag
 import org.scalajs.dom.FilePropertyBag
 import sttp.capabilities.{Effect, Streams, WebSockets}
-import sttp.client3.SttpClientException.ReadException
-import sttp.client3.WebSocketImpl.BinaryType
-import sttp.client3.internal.ws.WebSocketEvent
-import sttp.client3.internal.{SttpFile, _}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.SttpClientException.ReadException
+import sttp.client4.WebSocketImpl.BinaryType
+import sttp.client4.internal.ws.WebSocketEvent
+import sttp.client4.internal.{SttpFile, _}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model._
 import sttp.monad.MonadError
 import sttp.monad.syntax._

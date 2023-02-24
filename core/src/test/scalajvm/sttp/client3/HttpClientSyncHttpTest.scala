@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
 class HttpClientSyncHttpTest extends HttpTest[Identity] {
   override val backend: SyncBackend = HttpClientSyncBackend()

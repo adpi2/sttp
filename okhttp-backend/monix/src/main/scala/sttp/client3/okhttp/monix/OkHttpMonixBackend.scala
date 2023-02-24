@@ -1,4 +1,4 @@
-package sttp.client3.okhttp.monix
+package sttp.client4.okhttp.monix
 
 import java.io.InputStream
 import java.util.concurrent.ArrayBlockingQueue
@@ -13,13 +13,13 @@ import okhttp3.{MediaType, OkHttpClient, RequestBody => OkHttpRequestBody}
 import okio.BufferedSink
 import sttp.capabilities.WebSockets
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.impl.monix.{MonixSimpleQueue, MonixWebSockets, TaskMonadAsyncError}
-import sttp.client3.internal.ws.SimpleQueue
+import sttp.client4.impl.monix.{MonixSimpleQueue, MonixWebSockets, TaskMonadAsyncError}
+import sttp.client4.internal.ws.SimpleQueue
 import sttp.monad.MonadError
-import sttp.client3.okhttp.OkHttpBackend.EncodingHandler
-import sttp.client3.okhttp.{BodyFromOkHttp, BodyToOkHttp, OkHttpAsyncBackend, OkHttpBackend}
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3._
+import sttp.client4.okhttp.OkHttpBackend.EncodingHandler
+import sttp.client4.okhttp.{BodyFromOkHttp, BodyToOkHttp, OkHttpAsyncBackend, OkHttpBackend}
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4._
 import sttp.ws.{WebSocket, WebSocketFrame}
 
 import scala.concurrent.Future

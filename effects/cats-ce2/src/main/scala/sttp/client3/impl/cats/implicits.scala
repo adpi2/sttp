@@ -1,9 +1,9 @@
-package sttp.client3.impl.cats
+package sttp.client4.impl.cats
 
 import cats.effect.{Concurrent, Sync}
 import cats.~>
-import sttp.client3.monad.FunctionK
-import sttp.client3._
+import sttp.client4.monad.FunctionK
+import sttp.client4._
 import sttp.monad.{MonadAsyncError, MonadError}
 
 object implicits extends CatsImplicits

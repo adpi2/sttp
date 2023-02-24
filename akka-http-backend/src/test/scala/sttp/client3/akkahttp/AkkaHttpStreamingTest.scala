@@ -1,13 +1,13 @@
-package sttp.client3.akkahttp
+package sttp.client4.akkahttp
 
 import akka.actor.ActorSystem
 import akka.stream.scaladsl.Source
 import akka.util.ByteString
 import sttp.capabilities.akka.AkkaStreams
-import sttp.client3.StreamBackend
+import sttp.client4.StreamBackend
 import sttp.model.sse.ServerSentEvent
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.streaming.StreamingTest
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.streaming.StreamingTest
 
 import scala.concurrent.Future
 

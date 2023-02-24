@@ -1,13 +1,13 @@
-package sttp.client3.armeria.future
+package sttp.client4.armeria.future
 
 import com.linecorp.armeria.client.WebClient
 import com.linecorp.armeria.common.HttpData
 import com.linecorp.armeria.common.stream.StreamMessage
 import org.reactivestreams.Publisher
-import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
-import sttp.client3.internal.NoStreams
-import sttp.client3.{Backend, FollowRedirectsBackend, BackendOptions}
+import sttp.client4.armeria.ArmeriaWebClient.newClient
+import sttp.client4.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client4.internal.NoStreams
+import sttp.client4.{Backend, FollowRedirectsBackend, BackendOptions}
 import sttp.monad.{FutureMonad, MonadAsyncError}
 
 import scala.concurrent.ExecutionContext.Implicits.global

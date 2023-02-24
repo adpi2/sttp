@@ -1,14 +1,14 @@
-package sttp.client3.curl
+package sttp.client4.curl
 
-import sttp.client3.curl.CurlCode.CurlCode
-import sttp.client3.curl.CurlInfo.CurlInfo
-import sttp.client3.curl.CurlOption.CurlOption
+import sttp.client4.curl.CurlCode.CurlCode
+import sttp.client4.curl.CurlInfo.CurlInfo
+import sttp.client4.curl.CurlOption.CurlOption
 
 import scala.scalanative.runtime.Boxes
 import scala.scalanative.unsafe.{Ptr, _}
 import scala.scalanative.unsigned._
 
-private[client3] object CurlApi {
+private[client4] object CurlApi {
   type CurlHandle = Ptr[Curl]
 
   type MimeHandle = Ptr[Mime]

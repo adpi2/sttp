@@ -1,6 +1,6 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
-import sttp.client3.internal.ws.SimpleQueue
+import sttp.client4.internal.ws.SimpleQueue
 import sttp.ws.WebSocketBufferFull
 import zio.{Queue, RIO, Runtime}
 

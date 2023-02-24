@@ -1,8 +1,8 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
 import org.scalatest.OptionValues
-import sttp.client3.internal.DigestAuthenticator.DigestAuthData
-import sttp.client3._
+import sttp.client4.internal.DigestAuthenticator.DigestAuthData
+import sttp.client4._
 import sttp.model.{Header, HeaderNames, StatusCode}
 
 import scala.util.{Failure, Try}

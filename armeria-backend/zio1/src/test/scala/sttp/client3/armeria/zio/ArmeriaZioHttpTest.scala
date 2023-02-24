@@ -1,8 +1,8 @@
-package sttp.client3.armeria.zio
+package sttp.client4.armeria.zio
 
-import sttp.client3._
-import sttp.client3.impl.zio.ZioTestBase
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4._
+import sttp.client4.impl.zio.ZioTestBase
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 import zio.Task
 
 class ArmeriaZioHttpTest extends HttpTest[Task] with ZioTestBase {

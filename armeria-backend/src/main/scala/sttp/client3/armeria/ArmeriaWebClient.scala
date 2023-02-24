@@ -1,8 +1,8 @@
-package sttp.client3.armeria
+package sttp.client4.armeria
 
 import com.linecorp.armeria.client.{ClientFactory, WebClient, WebClientBuilder}
 import com.linecorp.armeria.client.encoding.DecodingClient
-import sttp.client3.BackendOptions
+import sttp.client4.BackendOptions
 
 object ArmeriaWebClient {
   private def newClientFactory(options: BackendOptions): ClientFactory = {

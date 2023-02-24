@@ -1,9 +1,9 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import zio.Task
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3.StreamBackend
-import sttp.client3.testing.{AbstractFetchHttpTest, ConvertToFuture}
+import sttp.client4.StreamBackend
+import sttp.client4.testing.{AbstractFetchHttpTest, ConvertToFuture}
 
 class FetchZioHttpTest extends AbstractFetchHttpTest[Task, ZioStreams] with ZioTestBase {
 

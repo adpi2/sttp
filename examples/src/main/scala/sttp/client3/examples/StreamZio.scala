@@ -1,8 +1,8 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 import sttp.capabilities.zio.ZioStreams
-import sttp.client3._
-import sttp.client3.httpclient.zio.HttpClientZioBackend
+import sttp.client4._
+import sttp.client4.httpclient.zio.HttpClientZioBackend
 import zio.Console._
 import zio._
 import zio.stream._

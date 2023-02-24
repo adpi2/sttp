@@ -1,4 +1,4 @@
-package sttp.client3.http4s
+package sttp.client4.http4s
 
 import java.io.{InputStream, UnsupportedEncodingException}
 import java.nio.charset.Charset
@@ -14,10 +14,10 @@ import org.http4s.client.Client
 import org.http4s.blaze.client.BlazeClientBuilder
 import org.typelevel.ci.CIString
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.http4s.Http4sBackend.EncodingHandler
-import sttp.client3.httpclient.fs2.Fs2Compression
-import sttp.client3.impl.cats.CatsMonadAsyncError
-import sttp.client3.internal.{
+import sttp.client4.http4s.Http4sBackend.EncodingHandler
+import sttp.client4.httpclient.fs2.Fs2Compression
+import sttp.client4.impl.cats.CatsMonadAsyncError
+import sttp.client4.internal.{
   BodyFromResponseAs,
   InternalWebSocketResponseAs,
   IOBufferSize,
@@ -26,9 +26,9 @@ import sttp.client3.internal.{
 }
 import sttp.model._
 import sttp.monad.MonadError
-import sttp.client3.testing.StreamBackendStub
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
-import sttp.client3._
+import sttp.client4.testing.StreamBackendStub
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4._
 
 import scala.concurrent.ExecutionContext
 

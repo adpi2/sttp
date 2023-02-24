@@ -1,9 +1,9 @@
-package sttp.client3.httpclient.fs2
+package sttp.client4.httpclient.fs2
 
 import cats.syntax.all._
 import cats.effect.Concurrent
 import cats.effect.concurrent.Semaphore
-import sttp.client3.internal.httpclient.Sequencer
+import sttp.client4.internal.httpclient.Sequencer
 
 private[fs2] class Fs2Sequencer[F[_]](s: Semaphore[F]) extends Sequencer[F] {
   override def apply[T](t: => F[T]): F[T] = s.withPermit(t)

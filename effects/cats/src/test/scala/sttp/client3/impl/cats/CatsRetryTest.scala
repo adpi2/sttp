@@ -1,10 +1,10 @@
-package sttp.client3.impl.cats
+package sttp.client4.impl.cats
 
 import cats.effect.IO
 import org.scalatest.freespec.AsyncFreeSpecLike
-import sttp.client3._
-import sttp.client3.testing.HttpTest
-import sttp.client3.testing.HttpTest.endpoint
+import sttp.client4._
+import sttp.client4.testing.HttpTest
+import sttp.client4.testing.HttpTest.endpoint
 import sttp.model.StatusCode
 
 import scala.concurrent.duration.{DurationInt, FiniteDuration}

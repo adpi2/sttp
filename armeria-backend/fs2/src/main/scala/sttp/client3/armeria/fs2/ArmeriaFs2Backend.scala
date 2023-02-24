@@ -1,4 +1,4 @@
-package sttp.client3.armeria.fs2
+package sttp.client4.armeria.fs2
 
 import cats.effect.std.Dispatcher
 import cats.effect.kernel.{Async, Resource, Sync}
@@ -9,10 +9,10 @@ import fs2.interop.reactivestreams._
 import fs2.{Chunk, Stream}
 import org.reactivestreams.Publisher
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
-import sttp.client3.impl.cats.CatsMonadAsyncError
-import sttp.client3.{FollowRedirectsBackend, StreamBackend, BackendOptions}
+import sttp.client4.armeria.ArmeriaWebClient.newClient
+import sttp.client4.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client4.impl.cats.CatsMonadAsyncError
+import sttp.client4.{FollowRedirectsBackend, StreamBackend, BackendOptions}
 import sttp.monad.MonadAsyncError
 
 private final class ArmeriaFs2Backend[F[_]: Async](client: WebClient, closeFactory: Boolean, dispatcher: Dispatcher[F])

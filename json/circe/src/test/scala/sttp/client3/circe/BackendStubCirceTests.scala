@@ -1,8 +1,8 @@
-package sttp.client3.circe
+package sttp.client4.circe
 
 import org.scalatest.concurrent.ScalaFutures
-import sttp.client3._
-import sttp.client3.testing.SyncBackendStub
+import sttp.client4._
+import sttp.client4.testing.SyncBackendStub
 import io.circe.generic.auto._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

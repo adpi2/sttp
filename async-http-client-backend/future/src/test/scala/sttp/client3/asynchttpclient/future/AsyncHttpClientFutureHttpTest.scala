@@ -1,7 +1,7 @@
-package sttp.client3.asynchttpclient.future
+package sttp.client4.asynchttpclient.future
 
-import sttp.client3.Backend
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4.Backend
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
 import scala.concurrent.Future
 

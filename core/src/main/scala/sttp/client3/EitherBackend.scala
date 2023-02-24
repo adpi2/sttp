@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.monad.FunctionK
+import sttp.client4.monad.FunctionK
 import sttp.monad.EitherMonad
 
 /** A synchronous backend that safely wraps exceptions in `Either[Throwable, *]`'s */

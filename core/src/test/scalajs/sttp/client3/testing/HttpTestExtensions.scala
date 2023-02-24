@@ -1,4 +1,4 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import org.scalajs.dom.{Blob, FileReader}
 import org.scalajs.dom.raw.{Event, UIEvent}
@@ -6,8 +6,8 @@ import org.scalajs.dom.BlobPart
 import org.scalajs.dom.File
 import org.scalajs.dom.BlobPropertyBag
 import org.scalajs.dom.FilePropertyBag
-import sttp.client3._
-import sttp.client3.internal.SparkMD5
+import sttp.client4._
+import sttp.client4.internal.SparkMD5
 
 import scala.concurrent.{Future, Promise}
 import scala.language.higherKinds

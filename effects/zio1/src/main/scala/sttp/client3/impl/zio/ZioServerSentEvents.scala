@@ -1,4 +1,4 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import sttp.capabilities.zio.ZioStreams
 import sttp.model.sse.ServerSentEvent

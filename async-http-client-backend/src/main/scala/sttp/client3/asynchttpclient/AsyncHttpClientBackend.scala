@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
 import java.nio.ByteBuffer
 
@@ -22,12 +22,12 @@ import org.asynchttpclient.{
 }
 import org.reactivestreams.{Publisher, Subscriber, Subscription}
 import sttp.capabilities.{Effect, Streams}
-import sttp.client3
-import sttp.client3.BackendOptions.ProxyType.{Http, Socks}
-import sttp.client3.internal.ws.{SimpleQueue, WebSocketEvent}
+import sttp.client4
+import sttp.client4.BackendOptions.ProxyType.{Http, Socks}
+import sttp.client4.internal.ws.{SimpleQueue, WebSocketEvent}
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError, MonadError}
-import sttp.client3.{GenericBackend, Response, BackendOptions, _}
+import sttp.client4.{GenericBackend, Response, BackendOptions, _}
 import sttp.model._
 
 import scala.collection.JavaConverters._
@@ -200,7 +200,7 @@ abstract class AsyncHttpClientBackend[F[_], S <: Streams[S], P](
   }
 
   private def readResponseNoBody(request: GenericRequest[_, _], response: AsyncResponse): Response[Unit] = {
-    client3.Response(
+    client4.Response(
       (),
       StatusCode.unsafeApply(response.getStatusCode),
       response.getStatusText,

@@ -1,8 +1,8 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import org.scalatest.Ignore
-import sttp.client3._
-import sttp.client3.testing.{ConvertToFuture, ToFutureWrapper}
+import sttp.client4._
+import sttp.client4.testing.{ConvertToFuture, ToFutureWrapper}
 import org.scalatest.freespec.AsyncFreeSpec
 import org.scalatest.matchers.should.Matchers
 

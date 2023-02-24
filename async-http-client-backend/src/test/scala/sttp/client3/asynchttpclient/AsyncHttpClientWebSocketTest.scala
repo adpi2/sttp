@@ -1,6 +1,6 @@
-package sttp.client3.asynchttpclient
+package sttp.client4.asynchttpclient
 
-import sttp.client3.testing.websocket.{
+import sttp.client4.testing.websocket.{
   WebSocketBufferOverflowTest,
   WebSocketConcurrentTest,
   WebSocketStreamingTest,

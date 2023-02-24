@@ -1,6 +1,6 @@
-package sttp.client3.curl
+package sttp.client4.curl
 
-private[client3] object CurlOption extends Enumeration {
+private[client4] object CurlOption extends Enumeration {
   type CurlOption = Value
 
   /** * This is the FILE * or void * the regular output should be written to.

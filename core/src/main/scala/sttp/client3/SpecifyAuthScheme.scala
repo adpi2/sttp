@@ -1,7 +1,7 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.DigestAuthenticator
-import sttp.client3.internal.Utf8
+import sttp.client4.internal.DigestAuthenticator
+import sttp.client4.internal.Utf8
 import java.util.Base64
 
 class SpecifyAuthScheme[+R <: PartialRequestBuilder[R, _]](

@@ -1,9 +1,9 @@
-package sttp.client3.httpclient.cats
+package sttp.client4.httpclient.cats
 
 import cats.effect.IO
 import org.scalatest.Suite
-import sttp.client3._
-import sttp.client3.impl.cats.{CatsTestBase, TestIODispatcher}
+import sttp.client4._
+import sttp.client4.impl.cats.{CatsTestBase, TestIODispatcher}
 
 trait HttpClientCatsTestBase extends CatsTestBase with TestIODispatcher { this: Suite =>
   implicit val backend: WebSocketBackend[IO] =

@@ -1,4 +1,4 @@
-package sttp.client3.testing.compile
+package sttp.client4.testing.compile
 
 object EvalScala {
   import scala.tools.reflect.ToolBox

@@ -1,10 +1,10 @@
-package sttp.client3.upicklejson
+package sttp.client4.upicklejson
 
 import upickle.default.{Reader, Writer, read, write}
-import sttp.client3._
-import sttp.client3.internal.Utf8
+import sttp.client4._
+import sttp.client4.internal.Utf8
 import sttp.model.MediaType
-import sttp.client3.json._
+import sttp.client4.json._
 
 trait SttpUpickleApi {
 

@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 protected[sttp] object JsonInput {
   def sanitize[T: IsOption]: String => String = { s =>

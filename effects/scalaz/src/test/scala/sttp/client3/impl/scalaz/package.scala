@@ -1,6 +1,6 @@
-package sttp.client3.impl
+package sttp.client4.impl
 
-import sttp.client3.testing.ConvertToFuture
+import sttp.client4.testing.ConvertToFuture
 
 import _root_.scalaz.concurrent.Task
 import _root_.scalaz.{-\/, \/-}

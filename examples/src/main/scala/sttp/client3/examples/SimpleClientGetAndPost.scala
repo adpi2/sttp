@@ -1,6 +1,6 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
-import sttp.client3.{Request, Response, SimpleHttpClient, UriContext, asStringAlways, basicRequest}
+import sttp.client4.{Request, Response, SimpleHttpClient, UriContext, asStringAlways, basicRequest}
 
 import java.util.UUID
 

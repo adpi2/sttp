@@ -1,4 +1,4 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
 import org.scalajs.dom.File
 

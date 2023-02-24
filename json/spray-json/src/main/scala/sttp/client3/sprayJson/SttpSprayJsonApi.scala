@@ -1,9 +1,9 @@
-package sttp.client3.sprayJson
+package sttp.client4.sprayJson
 
 import spray.json.{DeserializationException => _, _}
-import sttp.client3.internal.Utf8
-import sttp.client3.{IsOption, ResponseAs, _}
-import sttp.client3.json._
+import sttp.client4.internal.Utf8
+import sttp.client4.{IsOption, ResponseAs, _}
+import sttp.client4.json._
 import sttp.model._
 
 trait SttpSprayJsonApi {

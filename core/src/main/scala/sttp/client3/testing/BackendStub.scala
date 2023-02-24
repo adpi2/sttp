@@ -1,6 +1,6 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
-import sttp.client3._
+import sttp.client4._
 import sttp.monad.{FutureMonad, MonadError}
 
 import scala.concurrent.Future

@@ -1,9 +1,9 @@
-package sttp.client3.asynchttpclient.fs2
+package sttp.client4.asynchttpclient.fs2
 
 import cats.effect.IO
-import sttp.client3.Backend
-import sttp.client3.impl.cats.{CatsTestBase, TestIODispatcher}
-import sttp.client3.testing.HttpTest
+import sttp.client4.Backend
+import sttp.client4.impl.cats.{CatsTestBase, TestIODispatcher}
+import sttp.client4.testing.HttpTest
 
 class AsyncHttpClientFs2HttpTest extends HttpTest[IO] with TestIODispatcher with CatsTestBase {
   override val backend: Backend[IO] =

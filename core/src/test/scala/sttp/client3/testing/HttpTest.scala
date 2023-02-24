@@ -1,11 +1,11 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import org.scalatest._
 import org.scalatest.freespec.AsyncFreeSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3.internal.{Iso88591, Utf8}
-import sttp.client3.testing.HttpTest.endpoint
-import sttp.client3._
+import sttp.client4.internal.{Iso88591, Utf8}
+import sttp.client4.testing.HttpTest.endpoint
+import sttp.client4._
 import sttp.model.StatusCode
 import sttp.monad.MonadError
 import sttp.monad.syntax._
@@ -43,7 +43,7 @@ trait HttpTest[F[_]]
   protected val customEncoding = "custom"
   protected val customEncodedData = "custom-data"
 
-  protected val sttpIgnore: ResponseAs[Unit] = sttp.client3.ignore
+  protected val sttpIgnore: ResponseAs[Unit] = sttp.client4.ignore
 
   protected def supportsRequestTimeout = true
   protected def supportsSttpExceptions = true

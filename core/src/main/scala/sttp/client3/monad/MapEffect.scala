@@ -1,8 +1,8 @@
-package sttp.client3.monad
+package sttp.client4.monad
 
 import sttp.capabilities.{Effect, WebSockets}
-import sttp.client3._
-import sttp.client3.internal._
+import sttp.client4._
+import sttp.client4.internal._
 import sttp.model.{Headers, ResponseMetadata}
 import sttp.monad.MonadError
 import sttp.ws.{WebSocket, WebSocketFrame}

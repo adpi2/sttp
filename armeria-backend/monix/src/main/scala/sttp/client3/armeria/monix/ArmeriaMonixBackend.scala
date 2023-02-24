@@ -1,4 +1,4 @@
-package sttp.client3.armeria.monix
+package sttp.client4.armeria.monix
 
 import com.linecorp.armeria.client.WebClient
 import com.linecorp.armeria.common.HttpData
@@ -8,10 +8,10 @@ import monix.execution.Scheduler
 import monix.reactive.Observable
 import org.reactivestreams.Publisher
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.armeria.ArmeriaWebClient.newClient
-import sttp.client3.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
-import sttp.client3.impl.monix.TaskMonadAsyncError
-import sttp.client3.{FollowRedirectsBackend, StreamBackend, BackendOptions}
+import sttp.client4.armeria.ArmeriaWebClient.newClient
+import sttp.client4.armeria.{AbstractArmeriaBackend, BodyFromStreamMessage}
+import sttp.client4.impl.monix.TaskMonadAsyncError
+import sttp.client4.{FollowRedirectsBackend, StreamBackend, BackendOptions}
 import sttp.monad.MonadAsyncError
 
 private final class ArmeriaMonixBackend(client: WebClient, closeFactory: Boolean)(implicit scheduler: Scheduler)

@@ -1,6 +1,6 @@
-package sttp.client3.httpclient.zio
+package sttp.client4.httpclient.zio
 
-import sttp.client3.internal.httpclient.Sequencer
+import sttp.client4.internal.httpclient.Sequencer
 import zio.{Semaphore, Task, UIO}
 
 private[zio] class ZioSequencer(s: Semaphore) extends Sequencer[Task] {

@@ -1,6 +1,6 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
-import sttp.client3._
+import sttp.client4._
 
 object quick extends SttpApi {
   lazy val backend: WebSocketBackend[Identity] = OkHttpSyncBackend()

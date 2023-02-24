@@ -1,10 +1,10 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.File
 import java.nio.file.Path
 
-import sttp.client3.internal.SttpFile
-import sttp.client3.BodySerializer
+import sttp.client4.internal.SttpFile
+import sttp.client4.BodySerializer
 
 trait PartialRequestExtensions[+R <: PartialRequestBuilder[R, _]] { self: R =>
 

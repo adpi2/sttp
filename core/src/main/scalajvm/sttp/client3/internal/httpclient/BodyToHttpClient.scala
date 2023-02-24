@@ -1,9 +1,9 @@
-package sttp.client3.internal.httpclient
+package sttp.client4.internal.httpclient
 
 import sttp.capabilities.Streams
-import sttp.client3.internal.SttpToJavaConverters.toJavaSupplier
-import sttp.client3.internal.{Utf8, throwNestedMultipartNotAllowed}
-import sttp.client3._
+import sttp.client4.internal.SttpToJavaConverters.toJavaSupplier
+import sttp.client4.internal.{Utf8, throwNestedMultipartNotAllowed}
+import sttp.client4._
 import sttp.model.{Header, HeaderNames, Part}
 import sttp.monad.MonadError
 import sttp.monad.syntax._
@@ -16,7 +16,7 @@ import java.util.concurrent.Flow
 import java.util.function.Supplier
 import scala.collection.JavaConverters._
 
-private[client3] trait BodyToHttpClient[F[_], S] {
+private[client4] trait BodyToHttpClient[F[_], S] {
   val streams: Streams[S]
   implicit def monad: MonadError[F]
 

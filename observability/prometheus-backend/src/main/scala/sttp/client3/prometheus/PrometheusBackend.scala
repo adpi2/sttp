@@ -1,10 +1,10 @@
-package sttp.client3.prometheus
+package sttp.client4.prometheus
 
 import java.util.concurrent.ConcurrentHashMap
-import sttp.client3._
+import sttp.client4._
 import io.prometheus.client.{CollectorRegistry, Counter, Gauge, Histogram, Summary}
-import sttp.client3.listener.{ListenerBackend, RequestListener}
-import sttp.client3.prometheus.PrometheusBackend.RequestCollectors
+import sttp.client4.listener.{ListenerBackend, RequestListener}
+import sttp.client4.prometheus.PrometheusBackend.RequestCollectors
 import sttp.model.StatusCode
 
 import scala.collection.mutable

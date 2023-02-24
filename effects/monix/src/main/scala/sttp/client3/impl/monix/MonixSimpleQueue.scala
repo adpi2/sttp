@@ -1,8 +1,8 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import monix.execution.{Scheduler, AsyncQueue => MAsyncQueue}
-import sttp.client3.internal.ws.SimpleQueue
+import sttp.client4.internal.ws.SimpleQueue
 import sttp.ws.WebSocketBufferFull
 
 class MonixSimpleQueue[A](bufferCapacity: Option[Int])(implicit s: Scheduler) extends SimpleQueue[Task, A] {

@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 sealed trait TestPlatform
 object TestPlatform {

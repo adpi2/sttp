@@ -1,7 +1,7 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
-import sttp.client3.monad.{FunctionK, MapEffect}
-import sttp.client3._
+import sttp.client4.monad.{FunctionK, MapEffect}
+import sttp.client4._
 import sttp.monad.MonadError
 import _root_.zio.{RIO, ZIO}
 import sttp.capabilities.Effect

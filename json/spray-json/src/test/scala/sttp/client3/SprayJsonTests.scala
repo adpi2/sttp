@@ -1,12 +1,12 @@
-package sttp.client3
+package sttp.client4
 
 import org.scalatest.EitherValues
 import spray.json.DefaultJsonProtocol._
 import spray.json.JsonParser.ParsingException
 import spray.json.{DeserializationException => _, _}
-import sttp.client3.SprayJsonTests._
-import sttp.client3.internal.{MappedResponseAs, ResponseAsByteArray, Utf8}
-import sttp.client3.sprayJson._
+import sttp.client4.SprayJsonTests._
+import sttp.client4.internal.{MappedResponseAs, ResponseAsByteArray, Utf8}
+import sttp.client4.sprayJson._
 import sttp.model.{StatusCode, _}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

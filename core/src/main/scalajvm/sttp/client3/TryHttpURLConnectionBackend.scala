@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import java.net.{HttpURLConnection, URL, URLConnection}
 
-import sttp.client3.HttpURLConnectionBackend.{EncodingHandler, defaultOpenConnection}
+import sttp.client4.HttpURLConnectionBackend.{EncodingHandler, defaultOpenConnection}
 
 import scala.util.Try
 

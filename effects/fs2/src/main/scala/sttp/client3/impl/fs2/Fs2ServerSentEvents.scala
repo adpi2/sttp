@@ -1,4 +1,4 @@
-package sttp.client3.impl.fs2
+package sttp.client4.impl.fs2
 
 import fs2.text
 import sttp.model.sse.ServerSentEvent

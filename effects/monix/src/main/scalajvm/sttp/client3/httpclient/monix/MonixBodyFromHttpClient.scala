@@ -1,14 +1,14 @@
-package sttp.client3.httpclient.monix
+package sttp.client4.httpclient.monix
 
 import monix.eval.Task
 import monix.execution.Scheduler
 import monix.nio.file._
 import monix.reactive.{Consumer, Observable}
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.impl.monix.MonixWebSockets
-import sttp.client3.internal.httpclient.BodyFromHttpClient
-import sttp.client3.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.impl.monix.MonixWebSockets
+import sttp.client4.internal.httpclient.BodyFromHttpClient
+import sttp.client4.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.ws.{WebSocket, WebSocketFrame}
 

@@ -1,7 +1,7 @@
-package sttp.client3.logging
+package sttp.client4.logging
 
 import java.util.concurrent.TimeUnit
-import sttp.client3._
+import sttp.client4._
 import sttp.monad.syntax._
 
 import scala.concurrent.duration.Duration

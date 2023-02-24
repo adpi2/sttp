@@ -1,15 +1,15 @@
-package sttp.client3.testing.websocket
+package sttp.client4.testing.websocket
 
 import org.scalatest.concurrent.{Signaler, ThreadSignaler, TimeLimits}
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.time.{Seconds, Span}
 import org.scalatest.{Assertion, BeforeAndAfterAll}
-import sttp.client3.SttpClientException.ReadException
-import sttp.client3._
-import sttp.client3.logging.{LogConfig, LogLevel, Logger, LoggingBackend}
-import sttp.client3.testing.HttpTest.wsEndpoint
-import sttp.client3.testing.{ConvertToFuture, ToFutureWrapper}
+import sttp.client4.SttpClientException.ReadException
+import sttp.client4._
+import sttp.client4.logging.{LogConfig, LogLevel, Logger, LoggingBackend}
+import sttp.client4.testing.HttpTest.wsEndpoint
+import sttp.client4.testing.{ConvertToFuture, ToFutureWrapper}
 import sttp.monad.MonadError
 import sttp.monad.syntax._
 import sttp.ws.{WebSocket, WebSocketFrame}

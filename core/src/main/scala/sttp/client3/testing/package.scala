@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.internal.toByteArray
+import sttp.client4.internal.toByteArray
 
 package object testing {
   implicit class RichTestingRequest[T, R](r: GenericRequest[T, R]) {

@@ -1,8 +1,8 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.monad.MonadError
 import sttp.capabilities.{Effect, WebSockets}
-import sttp.client3.monad.IdMonad
+import sttp.client4.monad.IdMonad
 
 /** A specific implementation of HTTP request sending logic.
   *

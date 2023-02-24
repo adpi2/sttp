@@ -1,4 +1,4 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 import java.util.concurrent.atomic.AtomicInteger
 import scala.util.{Failure, Success, Try}

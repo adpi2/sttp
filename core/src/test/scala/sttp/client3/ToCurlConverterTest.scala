@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.ByteArrayInputStream
 import java.nio.charset.StandardCharsets

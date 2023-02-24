@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.testing.SyncHttpTest
+import sttp.client4.testing.SyncHttpTest
 
 class CurlBackendHttpTest extends SyncHttpTest {
   override implicit val backend: SyncBackend = CurlBackend(verbose = true)

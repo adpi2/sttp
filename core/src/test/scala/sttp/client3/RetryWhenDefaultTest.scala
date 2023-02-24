@@ -1,10 +1,10 @@
-package sttp.client3
+package sttp.client4
 
 import java.io.ByteArrayInputStream
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import sttp.client3
+import sttp.client4
 import sttp.model.StatusCode
 
 class RetryWhenDefaultTest extends AnyFlatSpec with Matchers {
@@ -21,14 +21,14 @@ class RetryWhenDefaultTest extends AnyFlatSpec with Matchers {
   it should "retry connection exceptions" in {
     RetryWhen.Default(
       simpleRequest,
-      Left(new client3.SttpClientException.ConnectException(basicRequest.get(uri"http://example.com"), null))
+      Left(new client4.SttpClientException.ConnectException(basicRequest.get(uri"http://example.com"), null))
     ) shouldBe true
   }
 
   it should "not retry read exceptions" in {
     RetryWhen.Default(
       simpleRequest,
-      Left(new client3.SttpClientException.ReadException(basicRequest.get(uri"http://example.com"), null))
+      Left(new client4.SttpClientException.ReadException(basicRequest.get(uri"http://example.com"), null))
     ) shouldBe false
   }
 

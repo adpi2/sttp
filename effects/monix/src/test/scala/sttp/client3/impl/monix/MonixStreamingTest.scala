@@ -1,11 +1,11 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import monix.reactive.Observable
 import sttp.capabilities.monix.MonixStreams
 import sttp.model.sse.ServerSentEvent
-import sttp.client3.testing.ConvertToFuture
-import sttp.client3.testing.streaming.StreamingTest
+import sttp.client4.testing.ConvertToFuture
+import sttp.client4.testing.streaming.StreamingTest
 
 abstract class MonixStreamingTest extends StreamingTest[Task, MonixStreams] {
   override val streams: MonixStreams = MonixStreams

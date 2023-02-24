@@ -1,8 +1,8 @@
-package sttp.client3.internal.ws
+package sttp.client4.internal.ws
 
 import java.util.concurrent.{ArrayBlockingQueue, BlockingQueue, LinkedBlockingQueue}
 
-import sttp.client3.Identity
+import sttp.client4.Identity
 import sttp.ws.WebSocketBufferFull
 
 class SyncQueue[T](capacity: Option[Int]) extends SimpleQueue[Identity, T] {

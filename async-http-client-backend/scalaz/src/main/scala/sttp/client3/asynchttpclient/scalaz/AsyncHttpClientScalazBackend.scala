@@ -1,4 +1,4 @@
-package sttp.client3.asynchttpclient.scalaz
+package sttp.client4.asynchttpclient.scalaz
 
 import java.nio.ByteBuffer
 
@@ -12,12 +12,12 @@ import org.asynchttpclient.{
 }
 import org.reactivestreams.Publisher
 import scalaz.concurrent.Task
-import sttp.client3.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
-import sttp.client3.impl.scalaz.TaskMonadAsyncError
-import sttp.client3.internal.NoStreams
-import sttp.client3.internal.ws.SimpleQueue
-import sttp.client3.testing.BackendStub
-import sttp.client3.{FollowRedirectsBackend, Backend, BackendOptions}
+import sttp.client4.asynchttpclient.{AsyncHttpClientBackend, BodyFromAHC, BodyToAHC}
+import sttp.client4.impl.scalaz.TaskMonadAsyncError
+import sttp.client4.internal.NoStreams
+import sttp.client4.internal.ws.SimpleQueue
+import sttp.client4.testing.BackendStub
+import sttp.client4.{FollowRedirectsBackend, Backend, BackendOptions}
 import sttp.monad.MonadAsyncError
 import sttp.ws.WebSocket
 

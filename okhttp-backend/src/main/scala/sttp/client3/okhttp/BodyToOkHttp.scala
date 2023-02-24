@@ -1,4 +1,4 @@
-package sttp.client3.okhttp
+package sttp.client4.okhttp
 
 import okhttp3.{
   MediaType,
@@ -8,8 +8,8 @@ import okhttp3.{
 }
 import okio.{BufferedSink, ByteString, Okio}
 import sttp.capabilities.Streams
-import sttp.client3.internal.Utf8
-import sttp.client3._
+import sttp.client4.internal.Utf8
+import sttp.client4._
 import sttp.model.{Header, HeaderNames, Part}
 
 import scala.collection.JavaConverters._

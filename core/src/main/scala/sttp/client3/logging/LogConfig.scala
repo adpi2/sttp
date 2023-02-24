@@ -1,4 +1,4 @@
-package sttp.client3.logging
+package sttp.client4.logging
 
 import sttp.model.HeaderNames
 import sttp.model.StatusCode

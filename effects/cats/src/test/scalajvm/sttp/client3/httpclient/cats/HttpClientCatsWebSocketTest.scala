@@ -1,8 +1,8 @@
-package sttp.client3.httpclient.cats
+package sttp.client4.httpclient.cats
 
 import cats.effect.IO
 import cats.implicits._
-import sttp.client3.testing.websocket.{WebSocketConcurrentTest, WebSocketTest}
+import sttp.client4.testing.websocket.{WebSocketConcurrentTest, WebSocketTest}
 
 class HttpClientCatsWebSocketTest
     extends WebSocketTest[IO]

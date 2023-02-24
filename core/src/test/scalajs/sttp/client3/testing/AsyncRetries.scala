@@ -1,4 +1,4 @@
-package sttp.client3.testing
+package sttp.client4.testing
 
 // see the jvm impl
 trait AsyncRetries

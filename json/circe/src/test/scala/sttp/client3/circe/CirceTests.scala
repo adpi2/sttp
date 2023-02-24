@@ -1,9 +1,9 @@
-package sttp.client3.circe
+package sttp.client4.circe
 
 import io.circe._
 import org.scalatest._
-import sttp.client3.internal._
-import sttp.client3._
+import sttp.client4.internal._
+import sttp.client4._
 import sttp.model._
 
 import org.scalatest.flatspec.AnyFlatSpec
@@ -11,7 +11,7 @@ import org.scalatest.matchers.should.Matchers
 
 class CirceTests extends AnyFlatSpec with Matchers with EitherValues {
   // Needed for the implicit to work in Scala3. Normally this is imported explicitly, only in tests we are in the same package
-  import sttp.client3.circe.circeBodySerializer
+  import sttp.client4.circe.circeBodySerializer
   import EitherDecoders._
 
   "The circe module" should "encode arbitrary bodies given an encoder" in {

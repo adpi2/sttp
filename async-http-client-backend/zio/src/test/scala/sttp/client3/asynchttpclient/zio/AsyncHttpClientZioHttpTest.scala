@@ -1,8 +1,8 @@
-package sttp.client3.asynchttpclient.zio
+package sttp.client4.asynchttpclient.zio
 
-import sttp.client3._
-import sttp.client3.impl.zio.ZioTestBase
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4._
+import sttp.client4.impl.zio.ZioTestBase
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 import zio.Task
 
 class AsyncHttpClientZioHttpTest extends HttpTest[Task] with ZioTestBase {

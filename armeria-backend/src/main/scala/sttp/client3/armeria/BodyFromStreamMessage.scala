@@ -1,4 +1,4 @@
-package sttp.client3.armeria
+package sttp.client4.armeria
 
 import com.linecorp.armeria.common.{CommonPools, HttpData}
 import com.linecorp.armeria.common.stream.{StreamMessage, StreamMessages}
@@ -7,9 +7,9 @@ import java.io.File
 import java.nio.file.Path
 import java.util.concurrent.atomic.AtomicReference
 import sttp.capabilities.Streams
-import sttp.client3.armeria.AbstractArmeriaBackend.{RightUnit, noopCanceler}
-import sttp.client3.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.armeria.AbstractArmeriaBackend.{RightUnit, noopCanceler}
+import sttp.client4.internal.{BodyFromResponseAs, InternalWebSocketResponseAs, SttpFile}
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.ResponseMetadata
 import sttp.monad.syntax._
 import sttp.monad.{Canceler, MonadAsyncError}

@@ -1,4 +1,4 @@
-package sttp.client3.impl.scalaz
+package sttp.client4.impl.scalaz
 
 import scalaz.concurrent.Task
 import scalaz.{-\/, \/-}

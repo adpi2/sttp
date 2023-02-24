@@ -1,6 +1,6 @@
-package sttp.client3.logging
+package sttp.client4.logging
 
-import sttp.client3.{GenericRequest, HttpError, Response}
+import sttp.client4.{GenericRequest, HttpError, Response}
 import sttp.model.StatusCode
 
 import scala.concurrent.duration.Duration

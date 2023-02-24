@@ -1,4 +1,4 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import sttp.monad.{Canceler, MonadAsyncError}
 import zio.{RIO, UIO, ZIO}

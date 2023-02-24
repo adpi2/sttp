@@ -1,8 +1,8 @@
-package sttp.client3.impl.zio
+package sttp.client4.impl.zio
 
 import sttp.capabilities.Effect
-import sttp.client3.testing._
-import sttp.client3._
+import sttp.client4.testing._
+import sttp.client4._
 import sttp.model.StatusCode
 import sttp.monad.MonadError
 import zio.{Has, RIO, Ref, Tag, UIO, URIO, ZLayer}

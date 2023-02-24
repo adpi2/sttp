@@ -1,7 +1,7 @@
-package sttp.client3.logging.scribe
+package sttp.client4.logging.scribe
 
-import sttp.client3._
-import sttp.client3.logging.{LogConfig, LoggingBackend}
+import sttp.client4._
+import sttp.client4.logging.{LogConfig, LoggingBackend}
 
 object ScribeLoggingBackend {
   def apply(delegate: SyncBackend): SyncBackend =

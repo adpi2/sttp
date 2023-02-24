@@ -1,9 +1,9 @@
-package sttp.client3.prometheus
+package sttp.client4.prometheus
 
 import io.prometheus.client.CollectorRegistry
-import sttp.client3.GenericRequest
-import sttp.client3.Response
-import sttp.client3.prometheus.PrometheusBackend._
+import sttp.client4.GenericRequest
+import sttp.client4.Response
+import sttp.client4.prometheus.PrometheusBackend._
 
 final case class PrometheusConfig(
                                    requestToHistogramNameMapper: GenericRequest[_, _] => Option[HistogramCollectorConfig] =

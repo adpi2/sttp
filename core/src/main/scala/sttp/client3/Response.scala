@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import sttp.model._
 
@@ -33,7 +33,7 @@ case class Response[+T](
 
 object Response {
 
-  /** Mainly useful in tests using [[sttp.client3.testing.SttpBackendStub]], when creating stub responses.
+  /** Mainly useful in tests using [[sttp.client4.testing.SttpBackendStub]], when creating stub responses.
     */
   val ExampleGet: RequestMetadata = new RequestMetadata {
     override def method: Method = Method.GET
@@ -42,25 +42,25 @@ object Response {
   }
 
   /** Convenience method to create a Response instance, mainly useful in tests using
-    * [[sttp.client3.testing.SttpBackendStub]] and partial matchers.
+    * [[sttp.client4.testing.SttpBackendStub]] and partial matchers.
     */
   def apply[T](body: T, code: StatusCode): Response[T] =
     Response(body, code, resolveStatusText(code), Nil, Nil, ExampleGet)
 
   /** Convenience method to create a Response instance, mainly useful in tests using
-    * [[sttp.client3.testing.SttpBackendStub]] and partial matchers.
+    * [[sttp.client4.testing.SttpBackendStub]] and partial matchers.
     */
   def apply[T](body: T, code: StatusCode, statusText: String): Response[T] =
     Response(body, code, resolveStatusText(code, statusText), Nil, Nil, ExampleGet)
 
   /** Convenience method to create a Response instance, mainly useful in tests using
-    * [[sttp.client3.testing.SttpBackendStub]] and partial matchers.
+    * [[sttp.client4.testing.SttpBackendStub]] and partial matchers.
     */
   def apply[T](body: T, code: StatusCode, statusText: String, headers: Seq[Header]): Response[T] =
     Response(body, code, resolveStatusText(code, statusText), headers, Nil, ExampleGet)
 
   /** Convenience method to create a Response instance, mainly useful in tests using
-    * [[sttp.client3.testing.SttpBackendStub]] and partial matchers.
+    * [[sttp.client4.testing.SttpBackendStub]] and partial matchers.
     */
   def ok[T](body: T): Response[T] = apply(body, StatusCode.Ok)
 

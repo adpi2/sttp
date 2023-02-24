@@ -1,12 +1,12 @@
-package sttp.client3.armeria.monix
+package sttp.client4.armeria.monix
 
 import monix.eval.Task
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.{StreamBackend, BackendOptions}
-import sttp.client3.impl.monix.MonixStreamingTest
+import sttp.client4.{StreamBackend, BackendOptions}
+import sttp.client4.impl.monix.MonixStreamingTest
 import monix.execution.Scheduler.Implicits.global
-import sttp.client3.armeria.ArmeriaWebClient
-import sttp.client3.testing.RetryTests
+import sttp.client4.armeria.ArmeriaWebClient
+import sttp.client4.testing.RetryTests
 
 import java.time.Duration
 

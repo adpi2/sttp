@@ -1,9 +1,9 @@
-package sttp.client3.asynchttpclient.scalaz
+package sttp.client4.asynchttpclient.scalaz
 
 import scalaz.concurrent.Task
-import sttp.client3.Backend
-import sttp.client3.impl.scalaz.convertScalazTaskToFuture
-import sttp.client3.testing.{ConvertToFuture, HttpTest}
+import sttp.client4.Backend
+import sttp.client4.impl.scalaz.convertScalazTaskToFuture
+import sttp.client4.testing.{ConvertToFuture, HttpTest}
 
 class AsyncHttpClientScalazHttpTest extends HttpTest[Task] {
 

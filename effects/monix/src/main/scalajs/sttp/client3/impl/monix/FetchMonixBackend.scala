@@ -1,12 +1,12 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import monix.reactive.Observable
 import org.scalajs.dom.experimental.{BodyInit, Request => FetchRequest, Response => FetchResponse}
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.internal.ConvertFromFuture
-import sttp.client3.testing.WebSocketStreamBackendStub
-import sttp.client3.{AbstractFetchBackend, FetchOptions, WebSocketStreamBackend}
+import sttp.client4.internal.ConvertFromFuture
+import sttp.client4.testing.WebSocketStreamBackendStub
+import sttp.client4.{AbstractFetchBackend, FetchOptions, WebSocketStreamBackend}
 import sttp.ws.{WebSocket, WebSocketFrame}
 
 import scala.concurrent.Future

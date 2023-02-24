@@ -1,9 +1,9 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 object PostSerializeJsonMonixHttpClientCirce extends App {
-  import sttp.client3._
-  import sttp.client3.circe._
-  import sttp.client3.httpclient.monix.HttpClientMonixBackend
+  import sttp.client4._
+  import sttp.client4.circe._
+  import sttp.client4.httpclient.monix.HttpClientMonixBackend
   import io.circe.generic.auto._
   import monix.eval.Task
 

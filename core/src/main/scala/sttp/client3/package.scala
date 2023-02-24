@@ -1,6 +1,6 @@
 package sttp
 
-package object client3 extends SttpApi {
+package object client4 extends SttpApi {
   type Identity[+X] = X
 
   /** Provide an implicit value of this type to serialize arbitrary classes into a request body. Backends might also

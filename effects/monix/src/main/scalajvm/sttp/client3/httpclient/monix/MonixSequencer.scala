@@ -1,9 +1,9 @@
-package sttp.client3.httpclient.monix
+package sttp.client4.httpclient.monix
 
 import cats.effect.Concurrent
 import cats.effect.concurrent.Semaphore
 import monix.eval.Task
-import sttp.client3.internal.httpclient.Sequencer
+import sttp.client4.internal.httpclient.Sequencer
 
 private[monix] class MonixSequencer(s: Semaphore[Task]) extends Sequencer[Task] {
   override def apply[T](t: => Task[T]): Task[T] = s.withPermit(t)

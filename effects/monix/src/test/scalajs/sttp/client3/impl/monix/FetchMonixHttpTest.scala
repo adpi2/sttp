@@ -1,9 +1,9 @@
-package sttp.client3.impl.monix
+package sttp.client4.impl.monix
 
 import monix.eval.Task
 import sttp.capabilities.monix.MonixStreams
-import sttp.client3.StreamBackend
-import sttp.client3.testing.{AbstractFetchHttpTest, ConvertToFuture}
+import sttp.client4.StreamBackend
+import sttp.client4.testing.{AbstractFetchHttpTest, ConvertToFuture}
 
 class FetchMonixHttpTest extends AbstractFetchHttpTest[Task, MonixStreams] {
 

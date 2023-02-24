@@ -1,7 +1,7 @@
-package sttp.client3.impl
+package sttp.client4.impl
 
 import _root_.cats.effect.IO
-import sttp.client3.testing.ConvertToFuture
+import sttp.client4.testing.ConvertToFuture
 
 import scala.concurrent.Future
 

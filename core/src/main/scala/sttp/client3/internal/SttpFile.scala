@@ -1,4 +1,4 @@
-package sttp.client3.internal
+package sttp.client4.internal
 
 /** A platform agnostic file abstraction.
   *

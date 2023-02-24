@@ -1,4 +1,4 @@
-package sttp.client3
+package sttp.client4
 
 import java.io._
 import java.net._
@@ -7,11 +7,11 @@ import java.nio.charset.CharacterCodingException
 import java.nio.file.Files
 import java.util.concurrent.ThreadLocalRandom
 import java.util.zip.{GZIPInputStream, InflaterInputStream}
-import sttp.client3.HttpURLConnectionBackend.EncodingHandler
-import sttp.client3.internal._
-import sttp.client3.monad.IdMonad
-import sttp.client3.testing.SyncBackendStub
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4.HttpURLConnectionBackend.EncodingHandler
+import sttp.client4.internal._
+import sttp.client4.monad.IdMonad
+import sttp.client4.testing.SyncBackendStub
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
 import sttp.model.{Header, HeaderNames, ResponseMetadata, StatusCode, Uri}
 import sttp.monad.MonadError
 
@@ -297,7 +297,7 @@ object HttpURLConnectionBackend {
 
   type EncodingHandler = PartialFunction[(InputStream, String), InputStream]
 
-  private[client3] val defaultOpenConnection: (URL, Option[java.net.Proxy]) => URLConnection = {
+  private[client4] val defaultOpenConnection: (URL, Option[java.net.Proxy]) => URLConnection = {
     case (url, None)        => url.openConnection()
     case (url, Some(proxy)) => url.openConnection(proxy)
   }

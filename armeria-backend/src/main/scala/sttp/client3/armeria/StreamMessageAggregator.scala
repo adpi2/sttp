@@ -1,4 +1,4 @@
-package sttp.client3.armeria
+package sttp.client4.armeria
 
 import com.linecorp.armeria.common.HttpData
 import java.util.concurrent.CompletableFuture

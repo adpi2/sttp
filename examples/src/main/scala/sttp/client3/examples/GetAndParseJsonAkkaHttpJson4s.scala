@@ -1,11 +1,11 @@
-package sttp.client3.examples
+package sttp.client4.examples
 
 object GetAndParseJsonAkkaHttpJson4s extends App {
   import scala.concurrent.Future
 
-  import sttp.client3._
-  import sttp.client3.akkahttp._
-  import sttp.client3.json4s._
+  import sttp.client4._
+  import sttp.client4.akkahttp._
+  import sttp.client4.json4s._
 
   import scala.concurrent.ExecutionContext.Implicits.global
 

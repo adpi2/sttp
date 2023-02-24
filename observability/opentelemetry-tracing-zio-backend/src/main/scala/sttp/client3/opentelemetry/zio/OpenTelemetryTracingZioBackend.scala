@@ -1,10 +1,10 @@
-package sttp.client3.opentelemetry.zio
+package sttp.client4.opentelemetry.zio
 
 import io.opentelemetry.api.trace.{SpanKind, StatusCode}
 import io.opentelemetry.api.trace.propagation.W3CTraceContextPropagator
 import io.opentelemetry.context.propagation.{TextMapPropagator, TextMapSetter}
 import sttp.capabilities.Effect
-import sttp.client3._
+import sttp.client4._
 import zio._
 import zio.telemetry.opentelemetry.TracingSyntax.OpenTelemetryZioOps
 import zio.telemetry.opentelemetry._

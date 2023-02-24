@@ -1,6 +1,6 @@
-package sttp.client3
+package sttp.client4
 
-import sttp.client3.testing.{AbstractFetchHttpTest, ConvertToFuture}
+import sttp.client4.testing.{AbstractFetchHttpTest, ConvertToFuture}
 
 import scala.concurrent.Future
 

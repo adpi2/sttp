@@ -1,7 +1,7 @@
-package sttp.client3.logging
+package sttp.client4.logging
 
-import sttp.client3._
-import sttp.client3.listener.ListenerBackend
+import sttp.client4._
+import sttp.client4.listener.ListenerBackend
 
 object LoggingBackend {
   def apply(delegate: SyncBackend, logger: Logger[Identity]): SyncBackend =

@@ -1,4 +1,4 @@
-package sttp.client3.finagle
+package sttp.client4.finagle
 
 import com.twitter.finagle.Http.Client
 import com.twitter.finagle.http.{
@@ -15,10 +15,10 @@ import com.twitter.io.Buf.{ByteArray, ByteBuffer}
 import com.twitter.util
 import com.twitter.util.{Duration, Future => TFuture}
 import sttp.capabilities.Effect
-import sttp.client3.internal.{BodyFromResponseAs, FileHelpers, InternalWebSocketResponseAs, SttpFile, Utf8}
-import sttp.client3.testing.BackendStub
-import sttp.client3.ws.{GotAWebSocketException, NotAWebSocketException}
-import sttp.client3._
+import sttp.client4.internal.{BodyFromResponseAs, FileHelpers, InternalWebSocketResponseAs, SttpFile, Utf8}
+import sttp.client4.testing.BackendStub
+import sttp.client4.ws.{GotAWebSocketException, NotAWebSocketException}
+import sttp.client4._
 import sttp.model.HttpVersion.HTTP_1
 import sttp.model._
 import sttp.monad.MonadError
@@ -42,7 +42,7 @@ class FinagleBackend(client: Option[Client] = None) extends Backend[TFuture] {
           val body = bodyFromResponseAs(request.response, responseMetadata, Left(fResponse))
           service
             .close()
-            .flatMap(_ => body.map(sttp.client3.Response(_, code, statusText, headers, Nil, request.onlyMetadata)))
+            .flatMap(_ => body.map(sttp.client4.Response(_, code, statusText, headers, Nil, request.onlyMetadata)))
         }
         .rescue { case e: Exception =>
           service.close().flatMap(_ => TFuture.exception(e))

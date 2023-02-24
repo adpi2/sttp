@@ -1,9 +1,9 @@
-package sttp.client3.asynchttpclient.fs2
+package sttp.client4.asynchttpclient.fs2
 
 import cats.effect.{Blocker, ContextShift, IO}
 import sttp.capabilities.fs2.Fs2Streams
-import sttp.client3.impl.fs2.Fs2StreamingTest
-import sttp.client3.StreamBackend
+import sttp.client4.impl.fs2.Fs2StreamingTest
+import sttp.client4.StreamBackend
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.global
