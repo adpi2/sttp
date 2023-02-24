@@ -4,6 +4,7 @@ import com.softwaremill.UpdateVersionInDocs
 import sbt.Keys.publishArtifact
 import sbt.Reference.display
 import sbt.internal.ProjectMatrix
+import sbtdynver.GitDescribeOutput
 import complete.DefaultParsers._
 // run JS tests inside Chrome, due to jsdom not supporting fetch
 import com.softwaremill.SbtSoftwareMillBrowserTestJS._
@@ -31,8 +32,32 @@ val compileScoped =
 val testScoped =
   inputKey[Unit](s"Run tests in the given scope. Usage: testScoped [scala version] [platform]. $scopesDescription")
 
-val commonSettings = commonSmlBuildSettings ++ ossPublishSettings ++ Seq(
-  organization := "com.softwaremill.sttp.client3",
+val publishSettings = Seq(
+  organizationHomepage := Some(url("https://github.com/adpi2")),
+  homepage := Some(url("https://github.com/adpi2/sttp")),
+  licenses := Seq(
+    "Apache 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")
+  ),
+  developers := List(
+    Developer(
+      id = "adpi2",
+      name = "Adrien Piquerez",
+      email = "adrien.piquerez@gmail.com",
+      url = new URL("https://github.com/adpi2")
+    )
+  ),
+  version := {
+    val gitOutput = dynverGitDescribeOutput.value
+    gitOutput match {
+      case None => "4.0.0-SNAPSHOT"
+      case Some(GitDescribeOutput(ref, commit, dirty)) =>
+        s"4.0.0-${commit.sha}-SNAPSHOT"
+    }
+  }
+)
+
+val commonSettings = commonSmlBuildSettings ++ publishSettings ++ Seq(
+  organization := "ch.epfl.scala.sttp.client4",
   updateDocs := Def.taskDyn {
     val files1 = UpdateVersionInDocs(sLog.value, organization.value, version.value, List(file("README.md")))
     Def.task {
